@@ -20,22 +20,22 @@ export function ImperialFooter() {
 
   return (
     <footer className="mt-28 w-full bg-black font-sans text-white antialiased selection:bg-white selection:text-black">
-      {/* Top Section (Backbone container-v2: Help + Wordmark + Grid all in ONE seamless flow, NO dividing lines) */}
-      <div className="container mx-auto max-w-[1440px] px-6 pt-12 pb-16 sm:px-10 lg:px-12">
-        {/* 1. Help Support Top Bar (No bottom border, seamless flow directly into wordmark) */}
-        <div className="flex items-center justify-between pb-8 sm:pb-10">
+      {/* Top Section: Full-bleed wide padding (Matches exact Backbone.com 24px-32px gutter layout) */}
+      <div className="w-full px-6 pt-12 pb-16 sm:px-10 lg:px-14 xl:px-16">
+        {/* 1. Help Support Top Bar (Edge-to-edge alignment) */}
+        <div className="flex items-center justify-between pb-8 sm:pb-12">
           <Link
             href={`mailto:${siteConfig.company.supportEmail}`}
-            className="text-lg font-medium text-white transition-opacity hover:opacity-80 sm:text-xl"
+            className="text-lg font-medium text-white transition-opacity hover:opacity-80 sm:text-2xl"
           >
             Need help?
           </Link>
           <Link
             href={`mailto:${siteConfig.company.supportEmail}`}
-            className="group inline-flex items-center gap-3 text-sm font-medium text-white transition-opacity hover:opacity-80 sm:text-base"
+            className="group inline-flex items-center gap-3 text-sm font-medium text-white transition-opacity hover:opacity-80 sm:text-lg"
           >
             <span>Get Support</span>
-            {/* Authentic Backbone 51px Elongated Arrow */}
+            {/* Authentic Backbone 51px Elongated Directional Arrow */}
             <svg
               width="51"
               height="16"
@@ -53,10 +53,10 @@ export function ImperialFooter() {
           </Link>
         </div>
 
-        {/* 2. Massive Brand Wordmark (Seamlessly sits between help bar and content, zero cutoff) */}
-        <div className="w-full overflow-hidden pb-12 select-none sm:pb-16">
+        {/* 2. Massive Brand Wordmark (Full Screen Edge-to-Edge Span, 240px+ visual scale) */}
+        <div className="w-full overflow-hidden pb-12 select-none sm:pb-20">
           <svg
-            viewBox="0 0 1393 185"
+            viewBox="0 0 1790 235"
             className="block h-auto w-full select-none"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -65,13 +65,13 @@ export function ImperialFooter() {
           >
             <text
               x="50%"
-              y="52%"
+              y="53%"
               textAnchor="middle"
               dominantBaseline="central"
               fill="#FFFFFF"
               fontFamily="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif"
               fontWeight="900"
-              fontSize="162"
+              fontSize="205"
               letterSpacing="-0.04em"
             >
               IMPERIAL TECH
@@ -79,11 +79,12 @@ export function ImperialFooter() {
           </svg>
         </div>
 
-        {/* 3. Main Grid: Newsletter (Left) + Multi-column Links (Right) */}
+        {/* 3. Main Grid: Newsletter (Left) + 4-Column Navigation (Right) */}
         <div className="grid gap-12 lg:grid-cols-12">
-          {/* Left Column: Stay Connected Newsletter (Exact Backbone Sparkle & Layout) */}
+          {/* Left Column: Stay Connected Newsletter (Exact Backbone Layout) */}
           <div className="flex flex-col gap-4 lg:col-span-5">
             <div className="flex items-center gap-2.5">
+              {/* Backbone Signature Orange 4-Point Sparkle Icon */}
               <svg
                 width="28"
                 height="20"
@@ -101,11 +102,11 @@ export function ImperialFooter() {
               <h3 className="text-xl font-bold tracking-tight text-white">Stay connected</h3>
             </div>
 
-            <p className="max-w-sm text-sm leading-relaxed text-[#A1A1A1]">
-              Unlock access to product news, feature drops, and exclusive updates.
+            <p className="max-w-md text-sm leading-relaxed text-[#A1A1A1]">
+              Unlock access to product news, feature drops, and exclusive offers.
             </p>
 
-            <form onSubmit={handleSubscribe} className="mt-2 flex max-w-sm items-center gap-2">
+            <form onSubmit={handleSubscribe} className="mt-2 flex max-w-md items-center gap-2.5">
               <div className="relative flex-1">
                 <input
                   type="email"
@@ -113,13 +114,13 @@ export function ImperialFooter() {
                   placeholder="Enter your email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full rounded-md border border-[#2E2E2E] bg-[#0A0A0A] px-4 py-3 text-sm text-white transition-colors outline-none placeholder:text-[#6B6B6B] focus:border-[#787878]"
+                  className="h-12 w-full rounded-[6px] border border-[#2E2E2E] bg-black px-4 text-sm text-white transition-colors outline-none placeholder:text-[#6B6B6B] focus:border-[#787878]"
                 />
               </div>
 
               <button
                 type="submit"
-                className="flex size-11 shrink-0 cursor-pointer items-center justify-center rounded-md bg-white text-black transition-opacity hover:opacity-90 active:scale-95"
+                className="flex size-12 shrink-0 cursor-pointer items-center justify-center rounded-[6px] bg-white text-black transition-opacity hover:opacity-90 active:scale-95"
                 title="Subscribe"
               >
                 {subscribed ? (
@@ -144,13 +145,13 @@ export function ImperialFooter() {
 
             <p className="text-[12px] leading-normal text-[#787878]">
               Information collected will be used as described in our{" "}
-              <Link href="/privacy" className="text-[#A1A1A1] underline hover:text-white">
+              <Link href="/privacy" className="text-white underline hover:opacity-80">
                 Privacy Policy.
               </Link>
             </p>
           </div>
 
-          {/* Right Columns: Backbone 4-Column Navigation */}
+          {/* Right Columns: Backbone 4-Column Navigation Grid */}
           <div className="grid grid-cols-2 gap-8 sm:grid-cols-4 lg:col-span-7">
             {/* Column 1: Products */}
             <div className="flex flex-col gap-3.5">
@@ -159,6 +160,11 @@ export function ImperialFooter() {
                 <li>
                   <Link href="#portfolio" className="transition-colors hover:text-white">
                     All Products
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#portfolio" className="transition-colors hover:text-white">
+                    Mobile App
                   </Link>
                 </li>
                 <li>
@@ -181,11 +187,6 @@ export function ImperialFooter() {
                     Beta Releases
                   </Link>
                 </li>
-                <li>
-                  <Link href="#portfolio" className="transition-colors hover:text-white">
-                    All Android Apps
-                  </Link>
-                </li>
               </ul>
             </div>
 
@@ -205,7 +206,7 @@ export function ImperialFooter() {
                 </li>
                 <li>
                   <Link href="#standards" className="transition-colors hover:text-white">
-                    Offline Engine
+                    Steam Link
                   </Link>
                 </li>
                 <li>
@@ -215,7 +216,7 @@ export function ImperialFooter() {
                 </li>
                 <li>
                   <Link href="#standards" className="transition-colors hover:text-white">
-                    60 FPS Touch
+                    60 FPS Native Touch
                   </Link>
                 </li>
                 <li>
@@ -233,6 +234,16 @@ export function ImperialFooter() {
               </h4>
               <ul className="flex flex-col gap-2.5 text-xs text-[#A1A1A1]">
                 <li>
+                  <Link href="#portfolio" className="transition-colors hover:text-white">
+                    Apple App Store
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#portfolio" className="transition-colors hover:text-white">
+                    Apple Arcade
+                  </Link>
+                </li>
+                <li>
                   <a
                     href={siteConfig.company.googlePlayStoreUrl}
                     target="_blank"
@@ -243,19 +254,29 @@ export function ImperialFooter() {
                   </a>
                 </li>
                 <li>
-                  <span className="text-[#A1A1A1]">Verified Organization</span>
+                  <Link href="#portfolio" className="transition-colors hover:text-white">
+                    NVIDIA GeForce NOW
+                  </Link>
                 </li>
                 <li>
-                  <span className="text-[#A1A1A1]">Ads.txt Verified</span>
+                  <Link href="#portfolio" className="transition-colors hover:text-white">
+                    PS Remote Play
+                  </Link>
                 </li>
                 <li>
-                  <span className="text-[#A1A1A1]">Clean APK Manifest</span>
+                  <Link href="#portfolio" className="transition-colors hover:text-white">
+                    Steam Link
+                  </Link>
                 </li>
                 <li>
-                  <span className="text-[#A1A1A1]">Direct APK Distribution</span>
+                  <Link href="#portfolio" className="transition-colors hover:text-white">
+                    XBOX Cloud Gaming
+                  </Link>
                 </li>
                 <li>
-                  <span className="text-[#6B6B6B]">sudokuking</span>
+                  <Link href="#portfolio" className="transition-colors hover:text-white">
+                    XBOX Remote Play
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -278,28 +299,48 @@ export function ImperialFooter() {
                   </a>
                 </li>
                 <li>
+                  <Link href="#contact" className="transition-colors hover:text-white">
+                    Order Tracking
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#contact" className="transition-colors hover:text-white">
+                    Help Articles
+                  </Link>
+                </li>
+                <li>
                   <Link href="#about" className="transition-colors hover:text-white">
-                    About Studio
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/privacy" className="transition-colors hover:text-white">
-                    Privacy Policy
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/terms" className="transition-colors hover:text-white">
-                    Terms of Service
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/data-deletion" className="transition-colors hover:text-white">
-                    User Data Deletion
+                    Partnerships
                   </Link>
                 </li>
                 <li>
                   <Link href="/changelog" className="transition-colors hover:text-white">
-                    Blog &amp; Updates
+                    Press
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/changelog" className="transition-colors hover:text-white">
+                    Blog
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/terms" className="transition-colors hover:text-white">
+                    Returns Policy
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/terms" className="transition-colors hover:text-white">
+                    Shipping Policy
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/privacy" className="transition-colors hover:text-white">
+                    Right of Withdrawal (EU)
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/privacy" className="transition-colors hover:text-white">
+                    Compliance
                   </Link>
                 </li>
                 <li>
@@ -318,18 +359,18 @@ export function ImperialFooter() {
         </div>
       </div>
 
-      {/* Bottom Section (Divided by subtle hairline border) */}
-      <div className="border-t border-[#1F1F1F]">
-        <div className="container mx-auto max-w-[1440px] px-6 py-8 sm:px-10 lg:px-12">
-          {/* Region & Language Selectors + Authentic Backbone Social Media Row */}
+      {/* Bottom Section (Single hairline divider, matching Screenshot 10-41-09) */}
+      <div className="w-full border-t border-[#1F1F1F]">
+        <div className="w-full px-6 py-8 sm:px-10 lg:px-14 xl:px-16">
+          {/* Row 1: Region & Language Disclosure Pills + Exact 7 Social Media Icons */}
           <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
-            {/* Left: Region & Language Disclosure Pills */}
+            {/* Left: India (INR) & English Disclosure Pills */}
             <div className="flex items-center gap-2.5">
               <button
                 type="button"
-                className="inline-flex cursor-pointer items-center gap-2 rounded-md border border-[#2E2E2E] bg-[#0A0A0A] px-3.5 py-2 text-xs font-medium text-neutral-300 transition-colors hover:border-[#787878] hover:text-white"
+                className="inline-flex cursor-pointer items-center gap-3 rounded-[6px] border border-[#2E2E2E] bg-[#0A0A0A] px-3.5 py-2 text-xs font-medium text-neutral-300 transition-colors hover:border-[#787878] hover:text-white"
               >
-                <span>United States (USD)</span>
+                <span>India (INR)</span>
                 <svg className="size-2.5 text-[#787878]" viewBox="0 0 10 6" fill="currentColor">
                   <path
                     fillRule="evenodd"
@@ -340,7 +381,7 @@ export function ImperialFooter() {
               </button>
               <button
                 type="button"
-                className="inline-flex cursor-pointer items-center gap-2 rounded-md border border-[#2E2E2E] bg-[#0A0A0A] px-3.5 py-2 text-xs font-medium text-neutral-300 transition-colors hover:border-[#787878] hover:text-white"
+                className="inline-flex cursor-pointer items-center gap-3 rounded-[6px] border border-[#2E2E2E] bg-[#0A0A0A] px-3.5 py-2 text-xs font-medium text-neutral-300 transition-colors hover:border-[#787878] hover:text-white"
               >
                 <span>English</span>
                 <svg className="size-2.5 text-[#787878]" viewBox="0 0 10 6" fill="currentColor">
@@ -353,7 +394,7 @@ export function ImperialFooter() {
               </button>
             </div>
 
-            {/* Right: Authentic Backbone Social Media SVG Icons */}
+            {/* Right: Exact 7 Backbone Social Media SVG Icons (Discord, Facebook, Instagram, Reddit, TikTok, X, YouTube) */}
             <div className="flex items-center gap-5 text-[#787878]">
               {/* Discord */}
               <a
@@ -395,6 +436,19 @@ export function ImperialFooter() {
               >
                 <svg className="size-4.5 fill-current" viewBox="0 0 512 512">
                   <path d="M255.999 46.1271C324.355 46.1271 332.451 46.3872 359.445 47.6188C384.405 48.758 397.96 52.9284 406.981 56.4333C418.93 61.0773 427.459 66.6257 436.417 75.5835C445.374 84.5412 450.923 93.0701 455.566 105.019C459.072 114.04 463.242 127.595 464.381 152.554C465.613 179.549 465.873 187.645 465.873 256.001C465.873 324.356 465.613 332.452 464.381 359.446C463.242 384.406 459.072 397.961 455.566 406.982C450.923 418.931 445.374 427.46 436.417 436.418C427.459 445.375 418.93 450.924 406.981 455.567C397.96 459.073 384.405 463.243 359.445 464.382C332.455 465.614 324.359 465.874 255.999 465.874C187.64 465.874 179.544 465.614 152.554 464.382C127.594 463.243 114.039 459.073 105.019 455.567C93.0691 450.924 84.5402 445.375 75.5825 436.418C66.6247 427.46 61.0763 418.931 56.4333 406.982C52.9274 397.961 48.757 384.406 47.6178 359.447C46.3862 332.452 46.126 324.356 46.126 256.001C46.126 187.645 46.3862 179.549 47.6178 152.555C48.757 127.595 52.9274 114.04 56.4333 105.019C61.0763 93.0701 66.6247 84.5412 75.5825 75.5835C84.5402 66.6257 93.0691 61.0773 105.019 56.4333C114.039 52.9284 127.594 48.758 152.553 47.6188C179.548 46.3872 187.644 46.1271 255.999 46.1271ZM255.999 0C186.474 0 177.757 0.294696 150.452 1.54055C123.202 2.78437 104.594 7.11132 88.3093 13.4402C71.475 19.9824 57.1985 28.7359 42.9667 42.9677C28.7349 57.1995 19.9814 71.476 13.4392 88.3103C7.11031 104.595 2.78335 123.203 1.53954 150.453C0.294696 177.758 0 186.475 0 256.001C0 325.526 0.294696 334.243 1.53954 361.548C2.78335 388.798 7.11031 407.406 13.4392 423.691C19.9814 440.525 28.7349 454.802 42.9667 469.034C57.1985 483.265 71.475 492.019 88.3093 498.561C104.594 504.89 123.202 509.217 150.452 510.461C177.757 511.706 186.474 512.001 255.999 512.001C325.524 512.001 334.241 511.706 361.546 510.461C388.796 509.217 407.404 504.89 423.689 498.561C440.523 492.019 454.8 483.265 469.031 469.034C483.263 454.802 492.017 440.525 498.559 423.691C504.888 407.406 509.215 388.798 510.459 361.548C511.703 334.243 511.998 325.526 511.998 256.001C511.998 186.475 511.703 177.758 510.459 150.453C509.215 123.203 504.888 104.595 498.559 88.3103C492.017 71.476 483.263 57.1995 469.031 42.9677C454.8 28.7359 440.523 19.9824 423.689 13.4402C407.404 7.11132 388.796 2.78437 361.546 1.54055C334.241 0.294696 325.524 0 255.999 0ZM255.999 124.636C183.454 124.636 124.634 183.455 124.634 256.001C124.634 328.546 183.454 387.365 255.999 387.365C328.544 387.365 387.364 328.546 387.364 256.001C387.364 183.455 328.544 124.636 255.999 124.636ZM255.999 341.238C208.924 341.238 170.761 303.076 170.761 256.001C170.761 208.925 208.924 170.763 255.999 170.763C303.074 170.763 341.237 208.925 341.237 256.001C341.237 303.076 303.074 341.238 255.999 341.238ZM422.378 120.316C422.378 137.279 408.628 151.029 391.666 151.029C374.703 151.029 360.953 137.279 360.953 120.316C360.953 103.353 374.703 89.6033 391.666 89.6033C408.628 89.6033 422.378 103.353 422.378 120.316Z" />
+                </svg>
+              </a>
+
+              {/* Reddit (Backbone Snoo Alien) */}
+              <a
+                href={siteConfig.socials.reddit || "https://reddit.com"}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Reddit"
+                className="transition-colors hover:text-white"
+              >
+                <svg className="size-4.5 fill-current" viewBox="0 0 24 24">
+                  <path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.703zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.197-2.512-.73a.326.326 0 0 0-.232-.095z" />
                 </svg>
               </a>
 
@@ -447,15 +501,16 @@ export function ImperialFooter() {
             </div>
           </div>
 
-          {/* Legal Disclaimer & Bottom Legal Links (Backbone Numbered Clauses) */}
-          <div className="mt-8 flex flex-col gap-6 pt-6 text-[11px] leading-relaxed text-[#787878] lg:flex-row lg:items-start lg:justify-between">
-            <p className="max-w-3xl">
+          {/* Row 2: Legal Disclaimer & Bottom Legal Links (No border above it, pure breathing room) */}
+          <div className="mt-8 flex flex-col gap-6 pt-2 text-[11px] leading-relaxed text-[#787878] lg:flex-row lg:items-start lg:justify-between">
+            <p className="max-w-4xl">
               1. All mobile applications developed and published by Imperial Tech O.P.C. are
               distributed via official Google Play channels. 2. Legally incorporated entity in India
-              under the Companies Act. Verified Google Play Organization Account. 3. Zero compulsory
-              cloud telemetry, 100% offline-first execution. 4. Android is a trademark of Google
-              LLC. All other trademarks belong to their respective owners. &copy;{" "}
-              {new Date().getFullYear()} {siteConfig.company.legalName}. All rights reserved.
+              under the Companies Act. Verified Google Play Organization Account. 4. Android is a
+              trademark of Google LLC. XBOX and PlayStation trademarks belong to their respective
+              owners. Bluetooth&reg; is a registered trademark of Bluetooth SIG, Inc. All other
+              trademarks belong to their respective owners. &copy; {new Date().getFullYear()}{" "}
+              {siteConfig.company.legalName}. All rights reserved.
             </p>
 
             <nav aria-label="Footer legal links">

@@ -90,6 +90,11 @@ export const siteConfig = {
     twitter: "https://x.com/imperialtech_app",
     github: "https://github.com/som2077",
     discord: "https://discord.gg/imperialtech",
+    reddit: "https://reddit.com",
+    facebook: "https://facebook.com",
+    instagram: "https://instagram.com",
+    tiktok: "https://tiktok.com",
+    youtube: "https://youtube.com",
     playStore: "https://play.google.com/store/apps/developer?id=Imperial+Tech+O.P.C.",
   },
 
