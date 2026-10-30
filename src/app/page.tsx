@@ -1,50 +1,46 @@
-import { BentoGrid } from "@/components/landing/bento-grid";
-import { HowItWorksSection } from "@/components/landing/how-it-works";
-import { CodeShowcase } from "@/components/landing/code-showcase";
-import { ComparisonSection } from "@/components/landing/comparison-section";
-import { FAQSection } from "@/components/landing/faq";
+import { ImperialNavbar } from "@/components/landing/imperial-navbar";
+import { ImperialHero } from "@/components/landing/imperial-hero";
+import { AppsPortfolio } from "@/components/landing/apps-portfolio";
+import { StudioStandards } from "@/components/landing/studio-standards";
+import { AboutStudio } from "@/components/landing/about-studio";
+import { VerificationContact } from "@/components/landing/verification-contact";
 import { TestimonialsSection } from "@/components/landing/testimonials";
-import { TemplateShowcase } from "@/components/landing/template-showcase";
-import { Navbar } from "@/components/landing/navbar";
-import { StarterKitHero } from "@/components/landing/starter-kit-hero";
-import { BackboneFooter } from "@/components/landing/backbone-footer";
+import { FAQSection } from "@/components/landing/faq";
+import { ImperialFooter } from "@/components/landing/imperial-footer";
 import { JsonLd } from "@/components/seo/json-ld";
 
 export default function HomePage() {
   return (
     <div className="bg-background text-foreground selection:bg-primary/20 flex min-h-screen flex-col">
-      {/* JSON-LD Rich Snippets for SEO */}
+      {/* JSON-LD Rich Snippets for SEO & Google Verification */}
       <JsonLd />
 
-      {/* Modern High-Contrast Navigation Header */}
-      <Navbar />
+      {/* Sticky Responsive Header */}
+      <ImperialNavbar />
 
-      {/* High-Converting Starter Kit Hero Section */}
-      <StarterKitHero />
+      {/* Hero Section with Vibrant Aura Mesh & Floating Studio Showcase */}
+      <ImperialHero />
 
-      {/* Dedicated Commercial Template Showcase Catalog */}
-      <TemplateShowcase />
+      {/* Featured Apps Portfolio Catalog */}
+      <AppsPortfolio />
 
-      {/* Modern Interactive Bento Grid Feature Showcase */}
-      <BentoGrid />
+      {/* High-Contrast Technical Standards & Security Benchmarks */}
+      <StudioStandards />
 
-      {/* 3-Step Production Flow */}
-      <HowItWorksSection />
+      {/* About Us (Corporate Identity, Legal Incorporation India, Core Values) */}
+      <AboutStudio />
 
-      {/* Interactive Code Architecture Showcase */}
-      <CodeShowcase />
-
-      {/* Commercial Comparison Matrix */}
-      <ComparisonSection />
-
-      {/* Wall of Love / Testimonials Section */}
+      {/* User Reviews & Google Play Feedback */}
       <TestimonialsSection />
 
-      {/* Interactive FAQ Section */}
+      {/* Frequently Asked Questions */}
       <FAQSection />
 
-      {/* Backbone-Style High-Contrast Footer */}
-      <BackboneFooter />
+      {/* Verification Contact, Physical Address & Google Play Data Deletion Instructions */}
+      <VerificationContact />
+
+      {/* Luminous Call-to-Action & Clean 5-Column Studio Footer */}
+      <ImperialFooter />
     </div>
   );
 }

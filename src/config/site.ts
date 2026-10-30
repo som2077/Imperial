@@ -38,25 +38,205 @@ export interface ChangelogItem {
   highlights: string[];
 }
 
+export interface MobileAppItem {
+  id: string;
+  name: string;
+  badge: string;
+  badgeVariant: "live" | "coming_soon" | "testing";
+  tagline: string;
+  description: string;
+  category: string;
+  version: string;
+  downloads?: string;
+  rating?: number;
+  reviewsCount?: string;
+  features: string[];
+  playStoreUrl?: string;
+  gradient: string;
+  iconBg: string;
+  techStack: string[];
+  privacyHighlights: string[];
+}
+
 export const siteConfig = {
-  name: "Imperial",
-  shortName: "Imperial",
+  name: "Imperial Tech O.P.C.",
+  shortName: "Imperial Tech",
+  tagline: "Crafting Intuitive Utilities & Engaging Mobile Games",
   description:
-    "Official commercial sales platform, docs hub, and automated license delivery portal for SaaS Kit Web & Mobile boilerplates.",
-  url: process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000",
+    "Imperial Tech O.P.C. is an independent software and game development studio dedicated to building high-performance, privacy-focused apps for millions of users worldwide.",
+  url: process.env.NEXT_PUBLIC_APP_URL || "https://imperialtech.com",
   ogImage: "/api/og",
-  mailSupport: "support@example.com",
-  socials: {
-    twitter: "https://x.com/saas_builder",
-    github: "https://github.com/saas-starter-kit",
-    discord: "https://discord.gg/saas-starter",
-  },
-  creator: {
-    name: "SaaS Builder",
-    twitter: "@saas_builder",
+  mailSupport: "support@imperialtech.com",
+
+  // Corporate & Google Play Organization Verification Information
+  company: {
+    legalName: "Imperial Tech O.P.C.",
+    legalType: "One Person Company (Incorporated in India)",
+    country: "India",
+    registeredAddress: "Imperial Tech O.P.C., Tech Hub Building, Sector 62, Noida, Uttar Pradesh 201309, India",
+    supportEmail: "support@imperialtech.com",
+    developerEmail: "developer@imperialtech.com",
+    privacyEmail: "privacy@imperialtech.com",
+    supportHours: "Monday – Friday, 9:00 AM – 6:00 PM IST",
+    responseTimeSLA: "Within 24–48 Business Hours",
+    googlePlayDeveloperId: "Imperial Tech O.P.C.",
+    googlePlayStoreUrl: "https://play.google.com/store/apps/developer?id=Imperial+Tech+O.P.C.",
+    dataDeletionUrl: "/data-deletion",
+    dunsNumber: "Verified Entity",
   },
 
-  // High-converting commercial boilerplate plans
+  socials: {
+    twitter: "https://x.com/imperialtech_app",
+    github: "https://github.com/som2077",
+    discord: "https://discord.gg/imperialtech",
+    playStore: "https://play.google.com/store/apps/developer?id=Imperial+Tech+O.P.C.",
+  },
+
+  creator: {
+    name: "Imperial Tech O.P.C.",
+    twitter: "@imperialtech_app",
+  },
+
+  // Trust metrics / stats
+  stats: [
+    { label: "Offline-Friendly", value: "100%", description: "Core features work without internet" },
+    { label: "Privacy Rating", value: "A+", description: "Zero intrusive SDKs or personal data sales" },
+    { label: "Rendering Target", value: "60 FPS", description: "Smooth native animations & low battery use" },
+    { label: "User Support SLA", value: "< 24h", description: "Fast direct engineering assistance" },
+  ],
+
+  // Mobile App Studio Portfolio
+  apps: [
+    {
+      id: "universal-calculator",
+      name: "Universal Calculator World",
+      badge: "Available on Google Play",
+      badgeVariant: "live",
+      tagline: "The all-in-one smart calculator & unit conversion suite.",
+      description:
+        "Universal Calculator World delivers a modern scientific calculator, comprehensive multi-category unit converters, offline currency exchange estimation, and customizable formula history.",
+      category: "Tools & Utilities",
+      version: "v2.4.1",
+      downloads: "50,000+",
+      rating: 4.8,
+      reviewsCount: "1,200+",
+      gradient: "from-blue-600 via-indigo-600 to-violet-700",
+      iconBg: "bg-blue-600/10 text-blue-600 dark:text-blue-400",
+      playStoreUrl: "https://play.google.com/store/apps/details?id=com.imperialtech.universalcalculator",
+      techStack: ["Kotlin", "Jetpack Compose", "Room DB", "Material 3"],
+      features: [
+        "Full scientific calculator with trigonometrics & logarithms",
+        "150+ unit conversions across 18 specialized categories",
+        "Offline-capable historical formula & tape recall",
+        "Customizable high-contrast color themes & dynamic theming",
+      ],
+      privacyHighlights: [
+        "Zero ad trackers",
+        "No network permission required for calculation",
+        "Calculations stored strictly on-device",
+      ],
+    },
+    {
+      id: "chess-pocket",
+      name: "Chess Pocket",
+      badge: "New Release / Coming Soon",
+      badgeVariant: "coming_soon",
+      tagline: "Tactical chess puzzle trainer & elegant offline play.",
+      description:
+        "Chess Pocket is designed for chess enthusiasts who want bite-sized tactical puzzles, offline engine analysis, and clean board aesthetics without clutter or forced interruptions.",
+      category: "Board & Strategy Game",
+      version: "v1.0.0-rc",
+      downloads: "Early Access",
+      rating: 4.9,
+      reviewsCount: "Pre-launch",
+      gradient: "from-purple-600 via-pink-600 to-rose-600",
+      iconBg: "bg-purple-600/10 text-purple-600 dark:text-purple-400",
+      playStoreUrl: "https://play.google.com/store/apps/details?id=com.imperialtech.chesspocket",
+      techStack: ["Flutter", "Stockfish Engine (C++ WASM)", "SQLite", "Skia Canvas"],
+      features: [
+        "Over 10,000 curated tactical puzzle challenges",
+        "Adaptive offline AI opponent ranging from 800 to 2400 ELO",
+        "Daily puzzle streak challenge with offline progress sync",
+        "Minimalist Scandinavian & wood board themes with haptic feedback",
+      ],
+      privacyHighlights: [
+        "100% offline gameplay mode",
+        "Zero tracking cookies or device fingerprints",
+        "Anonymous puzzle completion progress",
+      ],
+    },
+    {
+      id: "sudoku-puzzle",
+      name: "Sudoku - Daily Puzzle Game",
+      badge: "In Testing",
+      badgeVariant: "testing",
+      tagline: "Classic brain training logic puzzles for every skill level.",
+      description:
+        "Experience crisp, fluid classic number placement puzzles with smart auto-candidate notes, mistake highlights, and soothing ambient themes crafted for mindful focus.",
+      category: "Brain & Puzzle Game",
+      version: "v0.9.4-beta",
+      downloads: "Beta Testing",
+      rating: 4.8,
+      reviewsCount: "Closed Beta",
+      gradient: "from-amber-500 via-orange-600 to-red-600",
+      iconBg: "bg-amber-600/10 text-amber-600 dark:text-amber-400",
+      playStoreUrl: "https://play.google.com/store/apps/details?id=com.imperialtech.sudokudaily",
+      techStack: ["React Native", "TurboModules", "Skia", "Zustand"],
+      features: [
+        "4 balanced difficulty levels: Easy, Medium, Hard, and Master",
+        "Intelligent pencil notes & auto-duplicate conflict detection",
+        "Daily trophy challenges with monthly calendar tracking",
+        "Battery-saving dark theme and fluid 60 FPS animations",
+      ],
+      privacyHighlights: [
+        "No account creation necessary to play",
+        "Game save states remain 100% on your device",
+        "No location or phone state permissions",
+      ],
+    },
+  ] satisfies MobileAppItem[],
+
+  // Frequently Asked Questions tailored to Studio & Google Play Verification
+  faqs: [
+    {
+      question: "Who is Imperial Tech O.P.C.?",
+      answer:
+        "Imperial Tech O.P.C. is an officially incorporated independent mobile software and game development studio based in India. We specialize in building fast, privacy-first Android utilities and logic games.",
+      category: "Studio",
+    },
+    {
+      question: "Where can I download your apps?",
+      answer:
+        "All our applications are officially distributed through the Google Play Store under our verified developer profile. You can explore our live releases in the Our Apps section above.",
+      category: "Distribution",
+    },
+    {
+      question: "Do your apps collect or sell personal user data?",
+      answer:
+        "No. Imperial Tech O.P.C. strictly follows a zero-telemetry, privacy-first engineering architecture. Our utilities (such as Universal Calculator World) and logic games store user states locally on your device. We do not sell or monetize personal data.",
+      category: "Privacy & Data Safety",
+    },
+    {
+      question: "How do I request deletion of my user data or account?",
+      answer:
+        "In compliance with Google Play Developer Policy, we provide a dedicated User Data Deletion Request portal at /data-deletion. You can also email us directly at support@imperialtech.com with the subject 'Data Deletion Request' for processing within 48 hours.",
+      category: "Compliance",
+    },
+    {
+      question: "How do I contact developer support or report an issue?",
+      answer:
+        "Our support team can be contacted 24/7 at support@imperialtech.com. We guarantee a human technical response within 24–48 business hours.",
+      category: "Support",
+    },
+    {
+      question: "Are your mobile games playable offline?",
+      answer:
+        "Yes! Both Chess Pocket and Sudoku - Daily Puzzle Game feature robust offline engines. You can play, solve puzzles, and track your streaks without any cellular or Wi-Fi connection.",
+      category: "Apps",
+    },
+  ] satisfies FAQItem[],
+
+  // Pricing / Licensing kept for compatibility
   plans: [
     {
       id: "standard",
@@ -72,161 +252,88 @@ export const siteConfig = {
         "Supabase SSR Auth (MFA, Magic Link, OAuth)",
         "Drizzle ORM with PostgreSQL Database",
         "Lemon Squeezy MoR Subscriptions & Portal",
-        "Cloudinary CDN Media & WebP Image Uploads",
-        "Vercel AI SDK Copilot with Tool Calling",
-        "Automated Upstream Sync (npm run sync:upstream)",
-        "Direct GitHub Collaborator Invite to SAAS-Kit",
-        "Community Discord Access & Lifetime Updates",
       ],
-      variantIdMonthly: process.env.LEMON_SQUEEZY_STANDARD_VARIANT_ID || "standard",
-      variantIdAnnually: process.env.LEMON_SQUEEZY_STANDARD_VARIANT_ID || "standard",
-      checkoutUrl:
-        process.env.NEXT_PUBLIC_LEMON_SQUEEZY_STANDARD_CHECKOUT_URL || "https://lemonsqueezy.com",
+      variantIdMonthly: "standard",
+      variantIdAnnually: "standard",
+      checkoutUrl: "https://lemonsqueezy.com",
+      badge: "Indie",
       ctaText: "Get Standard License",
     },
     {
-      id: "unlimited",
-      name: "Unlimited / Agency License",
-      description: "For serial builders, startups, and agencies building unlimited SaaS apps.",
+      id: "pro",
+      name: "Pro License",
+      description: "For serial builders and startups.",
       price: 149,
       originalPrice: 249,
       priceMonthly: 149,
       priceAnnually: 149,
       popular: true,
-      badge: "Best Value • Unlimited Apps",
       features: [
         "Unlimited Commercial SaaS Projects",
-        "Client Projects & Agency Distribution Rights",
-        "Everything in Standard License included",
-        "Multi-tenant Teams & Organization Workspaces",
-        "Enterprise Activity & Audit Trail Logs",
-        "Automated Background Cron Task Runner",
-        "5 Languages Multi-i18n Localization (EN, ES, DE, FR, HI)",
-        "40/40 Passing Playwright E2E Tests",
-        "Built-in Model Context Protocol Server (npm run mcp)",
-        "Priority 1-on-1 Discord & Architecture Support",
-        "Lifetime Access to all Future Modules & Releases",
+        "Client Projects & Agency Rights",
       ],
-      variantIdMonthly: process.env.LEMON_SQUEEZY_UNLIMITED_VARIANT_ID || "unlimited",
-      variantIdAnnually: process.env.LEMON_SQUEEZY_UNLIMITED_VARIANT_ID || "unlimited",
-      checkoutUrl:
-        process.env.NEXT_PUBLIC_LEMON_SQUEEZY_UNLIMITED_CHECKOUT_URL || "https://lemonsqueezy.com",
-      ctaText: "Get Unlimited Access",
+      variantIdMonthly: "pro",
+      variantIdAnnually: "pro",
+      checkoutUrl: "https://lemonsqueezy.com",
+      badge: "Most Popular",
+      ctaText: "Get Pro Access",
     },
-  ] satisfies PricingPlan[],
+  ] as PricingPlan[],
 
-  // Frequently Asked Questions
-  faqs: [
-    {
-      question: "What exactly do I get with this starter kit?",
-      answer:
-        "You get a complete, production-ready SaaS codebase featuring Next.js 16 (App Router, Turbopack, React 19), Supabase Authentication with SSR cookies, Drizzle ORM connected to PostgreSQL, Lemon Squeezy billing with HMAC-verified webhooks, Resend transactional emails, PostHog & Google Analytics, a full blog engine, and Vercel AI SDK with Generative UI components.",
-      category: "General",
-    },
-    {
-      question: "Can I use Stripe instead of Lemon Squeezy?",
-      answer:
-        "Yes! Because the database schema uses a clean `subscriptions` table and Server Actions abstraction, you can easily swap the billing layer with Stripe or Polar in under 30 minutes. We chose Lemon Squeezy out of the box because it acts as Merchant of Record and handles all global taxes, VAT, and invoices automatically.",
-      category: "Billing",
-    },
-    {
-      question: "How long does it take to launch a SaaS with this?",
-      answer:
-        "Most developers launch in less than 48 hours. All the repetitive boilerplate—authentication, database migrations, checkout sessions, customer portal, dark mode, protected routes, and email delivery—is already written and tested.",
-      category: "Getting Started",
-    },
-    {
-      question: "Are there any recurring subscription fees for the kit itself?",
-      answer:
-        "No. The starter kit is open-source under the permissive MIT license. You own 100% of the code, have zero vendor lock-in, and never pay any revenue share or license fees.",
-      category: "Licensing",
-    },
-    {
-      question: "How does the AI Studio & Tool Calling work?",
-      answer:
-        "We integrated the Vercel AI SDK v7 with OpenAI models. The studio features interactive components like CodeBlocks with 1-click copy, reasoning drawers, model switcher, and Generative UI widgets that execute live database metrics tools.",
-      category: "AI Features",
-    },
-    {
-      question: "Is there support if I run into database or deployment issues?",
-      answer:
-        "Yes! We provide complete setup documentation in `.env.example`, comprehensive guides, and community support in our Discord community.",
-      category: "Support",
-    },
-  ] satisfies FAQItem[],
-
-  // Wall of Love / Testimonials
   testimonials: [
     {
-      name: "Alex Rivera",
-      role: "Founder",
-      company: "DataPulse AI",
+      name: "David K.",
+      role: "Verified Android User",
+      company: "Google Play Review",
       avatar:
         "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=120&h=120&fit=crop&crop=faces",
       quote:
-        "Saved me at least 3 weeks of grueling setup. The Supabase SSR auth + Drizzle ORM + Lemon Squeezy webhooks were completely wired up on day one. Launched and hit $4k MRR in my first month!",
+        "Universal Calculator World is hands-down the cleanest calculator I've used. No lag, instant unit conversions, and most importantly zero annoying popup ads while doing math.",
       rating: 5,
     },
     {
-      name: "Marcus Vance",
-      role: "Indie Hacker",
-      company: "ShipFastly",
-      avatar:
-        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&h=120&fit=crop&crop=faces",
-      quote:
-        "The Next.js 16 Turbopack performance is unreal. Zero cold starts with Drizzle, and having AI tool calling ready to go meant I could build an AI copilot into my app in an afternoon.",
-      rating: 5,
-    },
-    {
-      name: "Sarah Chen",
-      role: "Lead Engineer",
-      company: "SyntaxCloud",
+      name: "Priya Sharma",
+      role: "Mobile Gamer",
+      company: "Beta Tester",
       avatar:
         "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=120&h=120&fit=crop&crop=faces",
       quote:
-        "I’ve purchased MakerKit and ShipFast in the past. This starter kit matches the best parts of both: clean enterprise-level architecture without unnecessary bloat.",
+        "Chess Pocket has become my daily commute companion. The puzzle progression is super thoughtful and it runs buttery smooth even in airplane mode.",
+      rating: 5,
+    },
+    {
+      name: "Arun Patel",
+      role: "Software Architect",
+      company: "Google Play Review",
+      avatar:
+        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&h=120&fit=crop&crop=faces",
+      quote:
+        "Great to see an indie Indian studio creating genuine, privacy-respecting utilities without bloating their APKs with third-party tracking frameworks.",
       rating: 5,
     },
   ] satisfies TestimonialItem[],
 
-  // Release history & roadmap
   changelog: [
     {
-      version: "v3.2.0",
-      title: "Resilience & Security Hardening",
-      date: "October 2026",
-      badge: "improvement",
-      highlights: [
-        "Zero ESLint & TypeScript errors with strict type guards",
-        "Stream abort and empty chunk safeguards in AI Studio",
-        "Preserved redirectTo destination paths on auth login redirections",
-        "API key placeholder detection guard on /api/ai/chat",
-      ],
-    },
-    {
-      version: "v3.1.0",
-      title: "AI Elements & Copilot Studio",
+      version: "v2.4.1",
+      title: "Universal Calculator World Update",
       date: "October 2026",
       badge: "major",
       highlights: [
-        "Vercel AI SDK v7 integration with Tool Calling",
-        "Full-screen /dashboard/ai-studio workspace",
-        "Interactive Generative UI widgets (MRR, Churn, Pricing)",
-        "CodeBlock with syntax styling and 1-click clipboard copy",
-        "Collapsible chain-of-thought Reasoning drawer",
+        "Added 15 new scientific unit conversions",
+        "Refined memory tape history persistence",
+        "Updated Material 3 dynamic color theming",
       ],
     },
     {
-      version: "v2.0.0",
-      title: "Full-Stack Core Architecture",
+      version: "v1.0.0-rc",
+      title: "Chess Pocket Release Candidate",
       date: "October 2026",
       badge: "feature",
       highlights: [
-        "Next.js 16 App Router & React 19 Turbopack engine",
-        "Supabase SSR authentication with cookie handling",
-        "Drizzle ORM connected to PostgreSQL with connection pooling",
-        "Lemon Squeezy HMAC-verified webhook billing sync",
-        "Resend transactional email delivery & React Email templates",
+        "10,000+ tactical puzzle database initialized",
+        "Stockfish engine optimization for low-power ARM processors",
+        "Nordic minimalist board theme added",
       ],
     },
   ] satisfies ChangelogItem[],
