@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useMemo } from "react";
+import { useEffect, useState, useMemo, useSyncExternalStore } from "react";
 import { useRouter } from "next/navigation";
 import { useTheme } from "next-themes";
 import * as Dialog from "@radix-ui/react-dialog";
@@ -434,9 +434,13 @@ export function CommandPalette() {
   );
 }
 
+const emptySubscribe = () => () => {};
+
 export function CommandPaletteTrigger() {
-  const [isMac] = useState(() =>
-    typeof window !== "undefined" ? navigator.userAgent.toUpperCase().indexOf("MAC") >= 0 : false
+  const isMac = useSyncExternalStore(
+    emptySubscribe,
+    () => navigator.userAgent.toUpperCase().indexOf("MAC") >= 0,
+    () => false
   );
 
   function trigger() {

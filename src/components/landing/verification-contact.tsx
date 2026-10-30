@@ -182,12 +182,13 @@ export function VerificationContact() {
                   </button>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-4">
+                <form suppressHydrationWarning onSubmit={handleSubmit} className="space-y-4">
                   <div className="space-y-1.5">
                     <label htmlFor="name" className="text-xs font-medium text-[#A1A1A1]">
                       Name
                     </label>
                     <input
+                      suppressHydrationWarning
                       id="name"
                       type="text"
                       required
@@ -208,6 +209,7 @@ export function VerificationContact() {
                       Email
                     </label>
                     <input
+                      suppressHydrationWarning
                       id="email"
                       type="email"
                       required
@@ -228,6 +230,7 @@ export function VerificationContact() {
                       Category
                     </label>
                     <select
+                      suppressHydrationWarning
                       id="subject"
                       value={formData.subject}
                       onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
@@ -260,6 +263,7 @@ export function VerificationContact() {
                       Message
                     </label>
                     <textarea
+                      suppressHydrationWarning
                       id="message"
                       rows={4}
                       required
@@ -276,6 +280,7 @@ export function VerificationContact() {
                   </div>
 
                   <button
+                    suppressHydrationWarning
                     type="submit"
                     style={{
                       background: "#FFFFFF",

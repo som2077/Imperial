@@ -1,7 +1,6 @@
 import { ImperialNavbar } from "@/components/landing/imperial-navbar";
 import { ImperialHero } from "@/components/landing/imperial-hero";
 import { StudioReleases } from "@/components/landing/studio-releases";
-import { AppsPortfolio } from "@/components/landing/apps-portfolio";
 import { StudioStandards } from "@/components/landing/studio-standards";
 import { AboutStudio } from "@/components/landing/about-studio";
 import { VerificationContact } from "@/components/landing/verification-contact";
@@ -19,22 +18,19 @@ export default function HomePage() {
       {/* 2. Hero (Huge headline, muted subtext, primary CTA + arrow link) */}
       <ImperialHero />
 
-      {/* 3. News / Updates list (Mono uppercase date + title + arrow, hairline borders) */}
+      {/* 3. News / Updates cards */}
       <StudioReleases />
 
-      {/* 4. Feature blocks (Stacked clean app showcases, no heavy decoration) */}
-      <AppsPortfolio />
-
-      {/* 5. Engineering Standards (4 specifications, APK manifest security audit) */}
+      {/* 4. Engineering Standards (4 specifications, APK manifest security audit) */}
       <StudioStandards />
 
-      {/* 6. About Us (Corporate entity, legal incorporation India, 3 core values) */}
+      {/* 5. About Us (Corporate entity, legal incorporation India, 3 core values) */}
       <AboutStudio />
 
-      {/* 7. Legal & Contact (Physical registered address, support email, data deletion) */}
+      {/* 6. Legal & Contact (Physical registered address, support email, data deletion) */}
       <VerificationContact />
 
-      {/* 8. Footer (Multi-column links, hairline border, copyright in text-subtle) */}
+      {/* 7. Footer (Multi-column links, hairline border, copyright in text-subtle) */}
       <ImperialFooter />
     </div>
   );

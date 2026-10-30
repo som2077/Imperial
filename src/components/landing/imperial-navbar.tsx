@@ -40,9 +40,6 @@ export function ImperialNavbar() {
 
         {/* Desktop Navigation Links (x.ai style: text-14px, muted white, hover white) */}
         <nav className="hidden items-center gap-7 text-[14px] md:flex">
-          <Link href="#portfolio" className="text-[#A1A1A1] transition-colors hover:text-white">
-            Our Apps
-          </Link>
           <Link href="#standards" className="text-[#A1A1A1] transition-colors hover:text-white">
             Engineering
           </Link>
@@ -92,13 +89,6 @@ export function ImperialNavbar() {
       {mobileMenuOpen && (
         <div className="border-b border-[#1F1F1F] bg-black px-6 py-6 md:hidden">
           <nav className="flex flex-col gap-4 text-sm font-medium">
-            <Link
-              href="#portfolio"
-              onClick={() => setMobileMenuOpen(false)}
-              className="text-[#A1A1A1] hover:text-white"
-            >
-              Our Apps
-            </Link>
             <Link
               href="#standards"
               onClick={() => setMobileMenuOpen(false)}

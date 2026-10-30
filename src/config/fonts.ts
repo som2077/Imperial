@@ -1,4 +1,12 @@
-import { Geist, Geist_Mono, Inter, Plus_Jakarta_Sans, Outfit, Roboto } from "next/font/google";
+import {
+  Geist,
+  Geist_Mono,
+  Inter,
+  Plus_Jakarta_Sans,
+  Outfit,
+  Roboto,
+  Bricolage_Grotesque,
+} from "next/font/google";
 
 /**
  * ==============================================================================
@@ -10,7 +18,14 @@ import { Geist, Geist_Mono, Inter, Plus_Jakarta_Sans, Outfit, Roboto } from "nex
  * - WOFF2 compressed modern web format
  */
 
-// Preset 1: Geist (Default - Modern, clean, Vercel/Linear style)
+// Preset 0: Bricolage Grotesque (High-impact, modern expressive grotesque - Primary)
+export const fontBricolage = Bricolage_Grotesque({
+  subsets: ["latin"],
+  variable: "--font-bricolage",
+  display: "swap",
+});
+
+// Preset 1: Geist (Modern, clean, Vercel/Linear style)
 export const fontGeist = Geist({
   subsets: ["latin"],
   variable: "--font-sans",
@@ -58,9 +73,9 @@ export const fontGeistMono = Geist_Mono({
  * 🎯 ACTIVE FONT CONFIGURATION (CHANGE HERE IN 1 SECOND)
  * ==============================================================================
  * To switch the entire website's primary font, change `fontSans` below:
- * Options: fontGeist | fontInter | fontJakarta | fontOutfit | fontRoboto
+ * Options: fontBricolage | fontGeist | fontInter | fontJakarta | fontOutfit | fontRoboto
  */
-export const fontSans = fontGeist;
+export const fontSans = fontBricolage;
 
 // Monospace font for code blocks & developer keys
 export const fontMono = fontGeistMono;

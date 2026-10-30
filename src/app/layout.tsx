@@ -81,19 +81,19 @@ export default async function RootLayout({
       lang={locale}
       suppressHydrationWarning
       data-scroll-behavior="smooth"
-      className={`${fontSans.variable} ${fontMono.variable} h-full antialiased`}
+      className={`${fontSans.variable} ${fontMono.variable} ${fontSans.className} h-full antialiased`}
     >
       <head>
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){function c(n){if(!n||!n.attributes)return;var r=[];for(var i=0;i<n.attributes.length;i++){var a=n.attributes[i].name;if(a.indexOf("bis_")===0||a.indexOf("__processed_")===0||a==="cz-shortcut-listen")r.push(a);}for(var j=0;j<r.length;j++)n.removeAttribute(r[j]);}function t(){var w=document.createTreeWalker(document.documentElement,NodeFilter.SHOW_ELEMENT);c(document.documentElement);while(w.nextNode()){c(w.currentNode);}}try{t();var o=new MutationObserver(function(m){for(var i=0;i<m.length;i++){var item=m[i];if(item.type==="attributes"&&item.target){var a=item.attributeName;if(a&&(a.indexOf("bis_")===0||a.indexOf("__processed_")===0||a==="cz-shortcut-listen"))item.target.removeAttribute(a);}else if(item.type==="childList"){for(var j=0;j<item.addedNodes.length;j++){var node=item.addedNodes[j];if(node.nodeType===1){c(node);var cw=document.createTreeWalker(node,NodeFilter.SHOW_ELEMENT);while(cw.nextNode()){c(cw.currentNode);}}}}}});o.observe(document.documentElement,{attributes:true,subtree:true,childList:true});var sa=Element.prototype.setAttribute;Element.prototype.setAttribute=function(n,v){if(typeof n==="string"&&(n.indexOf("bis_")===0||n.indexOf("__processed_")===0||n==="cz-shortcut-listen"))return;return sa.apply(this,arguments);};}catch(e){}})();`,
+            __html: `(function(){var BAD_PREFIXES=["bis_","fdprocessed","__processed_","data-gr","data-new-gr","data-gramm","data-dashlane","data-lastpass","data-lt-","data-color-mode","data-darkreader","data-feedly","data-avast","data-bitwarden"];var BAD_EXACT=["cz-shortcut-listen","data-gramm","data-gramm_editor","data-enable-grammarly","wt-ignore-input","data-lpignore","data-dashlane-rid","data-dashlane-classification","data-lastpass-root","data-lastpass-icon-root","data-lt-installed","data-lt-tmp-id","data-theme-loaded"];function isBad(n){if(typeof n!=="string")return false;for(var i=0;i<BAD_EXACT.length;i++){if(n===BAD_EXACT[i])return true;}for(var j=0;j<BAD_PREFIXES.length;j++){if(n.indexOf(BAD_PREFIXES[j])===0)return true;}return false;}function clean(el){if(!el||!el.attributes)return;var toRemove=[];for(var i=0;i<el.attributes.length;i++){var name=el.attributes[i].name;if(isBad(name))toRemove.push(name);}for(var j=0;j<toRemove.length;j++)el.removeAttribute(toRemove[j]);}function walkAndClean(root){if(!root)return;clean(root);if(root.nodeType===1){var w=document.createTreeWalker(root,NodeFilter.SHOW_ELEMENT);while(w.nextNode())clean(w.currentNode);}}try{var origSet=Element.prototype.setAttribute;Element.prototype.setAttribute=function(n,v){if(isBad(n))return;return origSet.apply(this,arguments);};var observer=new MutationObserver(function(mutations){for(var i=0;i<mutations.length;i++){var m=mutations[i];if(m.type==="attributes"&&m.target){if(isBad(m.attributeName))m.target.removeAttribute(m.attributeName);}else if(m.type==="childList"){for(var j=0;j<m.addedNodes.length;j++){var node=m.addedNodes[j];if(node&&node.nodeType===1)walkAndClean(node);}}}});observer.observe(document.documentElement,{attributes:true,subtree:true,childList:true});walkAndClean(document.documentElement);}catch(e){}})();`,
           }}
         />
         <JsonLd />
       </head>
       <body
         suppressHydrationWarning
-        className="bg-background text-foreground flex min-h-full flex-col"
+        className={`${fontSans.className} bg-background text-foreground flex min-h-full flex-col font-sans`}
       >
         <AnalyticsProvider>
           <I18nProvider initialLocale={locale}>

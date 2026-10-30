@@ -21,11 +21,11 @@ export function ImperialFooter() {
   return (
     <footer
       suppressHydrationWarning
-      className="mt-28 w-full bg-black font-sans text-white antialiased selection:bg-white selection:text-black"
+      className="mt-28 w-full bg-[#000000] font-sans text-[#FFFFFF] antialiased selection:bg-white selection:text-black"
     >
-      {/* Top Section: Full-bleed wide padding (Matches exact Backbone.com 24px-32px gutter layout) */}
-      <div className="w-full px-6 pt-12 pb-16 sm:px-10 lg:px-14 xl:px-16">
-        {/* 1. Help Support Top Bar (Edge-to-edge alignment) */}
+      {/* Full-width container with generous edge-to-edge padding matching Backbone layout */}
+      <div className="mx-auto w-full max-w-[1920px] px-6 pt-12 pb-16 sm:px-10 lg:px-12 xl:px-14">
+        {/* 1. Need Help / Get Support Top Bar */}
         <div className="flex items-center justify-between pb-8 sm:pb-12">
           <Link
             href={`mailto:${siteConfig.company.supportEmail}`}
@@ -38,7 +38,7 @@ export function ImperialFooter() {
             className="group inline-flex items-center gap-3 text-sm font-medium text-white transition-opacity hover:opacity-80 sm:text-lg"
           >
             <span>Get Support</span>
-            {/* Authentic Backbone 51px Elongated Directional Arrow */}
+            {/* Elongated directional arrow matching Backbone reference */}
             <svg
               width="51"
               height="16"
@@ -46,7 +46,7 @@ export function ImperialFooter() {
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
               aria-hidden="true"
-              className="h-auto w-10 shrink-0 transition-transform duration-200 group-hover:translate-x-1.5 sm:w-12"
+              className="h-auto w-10 shrink-0 transition-transform duration-200 group-hover:translate-x-2 sm:w-12"
             >
               <path
                 d="M50.7071 8.70711C51.0976 8.31659 51.0976 7.68342 50.7071 7.2929L44.3431 0.928936C43.9526 0.538412 43.3195 0.538412 42.9289 0.928936C42.5384 1.31946 42.5384 1.95263 42.9289 2.34315L48.5858 8L42.9289 13.6569C42.5384 14.0474 42.5384 14.6805 42.9289 15.0711C43.3195 15.4616 43.9526 15.4616 44.3431 15.0711L50.7071 8.70711ZM0 8L-8.74228e-08 9L50 9L50 8L50 7L8.74228e-08 7L0 8Z"
@@ -56,36 +56,36 @@ export function ImperialFooter() {
           </Link>
         </div>
 
-        {/* 2. Massive Brand Wordmark (Full Screen Edge-to-Edge Span, 240px+ visual scale) */}
+        {/* 2. Massive Brand Wordmark: "IMPERIAL" (Full Screen Width, bold 900 grotesque sans-serif like BACKBONE) */}
         <div className="w-full overflow-hidden pb-12 select-none sm:pb-20">
           <svg
-            viewBox="0 0 1790 235"
+            viewBox="0 0 970 155"
             className="block h-auto w-full select-none"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
             role="img"
-            aria-label="IMPERIAL TECH"
+            aria-label="IMPERIAL"
           >
             <text
               x="50%"
-              y="53%"
+              y="60%"
               textAnchor="middle"
               dominantBaseline="central"
               fill="#FFFFFF"
-              fontFamily="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif"
+              fontFamily="var(--font-bricolage), var(--font-sans), 'Bricolage Grotesque', -apple-system, BlinkMacSystemFont, sans-serif"
               fontWeight="900"
               fontSize="205"
               letterSpacing="-0.04em"
             >
-              IMPERIAL TECH
+              IMPERIAL
             </text>
           </svg>
         </div>
 
-        {/* 3. Main Grid: Newsletter (Left) + 4-Column Navigation (Right) */}
-        <div className="grid gap-12 lg:grid-cols-12">
-          {/* Left Column: Stay Connected Newsletter (Exact Backbone Layout) */}
-          <div className="flex flex-col gap-4 lg:col-span-5">
+        {/* 3. Main Footer Content: Left (Email Newsletter) & Right (4-Column Links grouped to the right) */}
+        <div className="flex flex-col gap-12 lg:flex-row lg:items-start lg:justify-between">
+          {/* Left Block: Stay Connected Newsletter (Anchored strictly to the left edge) */}
+          <div className="flex w-full max-w-md shrink-0 flex-col gap-4">
             <div className="flex items-center gap-2.5">
               {/* Backbone Signature Orange 4-Point Sparkle Icon */}
               <svg
@@ -99,7 +99,7 @@ export function ImperialFooter() {
               >
                 <path
                   d="M28 10L26.0598 9.1886C21.6724 7.34649 17.748 4.45175 14.6835 0.811404L14 0L13.3165 0.811404C10.252 4.45175 6.32756 7.34649 1.94016 9.1886L0 10L1.94016 10.8114C6.32756 12.6535 10.252 15.5482 13.3165 19.1886L14 20L14.6835 19.1886C17.748 15.5482 21.6724 12.6535 26.0598 10.8114L28 10Z"
-                  fill="#F15623"
+                  fill="#eb5a28"
                 />
               </svg>
               <h3 className="text-xl font-bold tracking-tight text-white">Stay connected</h3>
@@ -109,25 +109,31 @@ export function ImperialFooter() {
               Unlock access to product news, feature drops, and exclusive offers.
             </p>
 
-            <form onSubmit={handleSubscribe} className="mt-2 flex max-w-md items-center gap-2.5">
+            <form
+              suppressHydrationWarning
+              onSubmit={handleSubscribe}
+              className="mt-2 flex max-w-md items-center gap-2.5"
+            >
               <div className="relative flex-1">
                 <input
+                  suppressHydrationWarning
                   type="email"
                   required
                   placeholder="Enter your email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="h-12 w-full rounded-[6px] border border-[#2E2E2E] bg-black px-4 text-sm text-white transition-colors outline-none placeholder:text-[#6B6B6B] focus:border-[#787878]"
+                  className="h-12 w-full rounded-[6px] border border-[#2E2E2E] bg-black px-4 text-sm text-white transition-colors outline-none placeholder:text-[#6B6B6B] focus:border-[#FFFFFF]"
                 />
               </div>
 
               <button
+                suppressHydrationWarning
                 type="submit"
-                className="flex size-12 shrink-0 cursor-pointer items-center justify-center rounded-[6px] bg-white text-black transition-opacity hover:opacity-90 active:scale-95"
+                className="flex size-12 shrink-0 cursor-pointer items-center justify-center rounded-[6px] bg-white text-black transition-opacity hover:opacity-85 active:scale-95"
                 title="Subscribe"
               >
                 {subscribed ? (
-                  <Check className="size-4 text-emerald-600" />
+                  <Check className="size-4 text-black" />
                 ) : (
                   <svg
                     width="12"
@@ -146,55 +152,45 @@ export function ImperialFooter() {
               </button>
             </form>
 
-            <p className="text-[12px] leading-normal text-[#787878]">
+            <p className="text-[12px] leading-normal text-[#6B6B6B]">
               Information collected will be used as described in our{" "}
-              <Link href="/privacy" className="text-white underline hover:opacity-80">
+              <Link href="/privacy" className="text-white hover:underline">
                 Privacy Policy.
               </Link>
             </p>
           </div>
 
-          {/* Right Columns: Backbone 4-Column Navigation Grid */}
-          <div className="grid grid-cols-2 gap-8 sm:grid-cols-4 lg:col-span-7">
+          {/* Right Block: 4-Column Navigation Links (Anchored strictly to the right edge) */}
+          <div className="grid w-full grid-cols-2 gap-8 sm:grid-cols-4 lg:ml-auto lg:flex lg:w-auto lg:items-start lg:justify-end lg:gap-8 xl:gap-10">
             {/* Column 1: Products */}
-            <div className="flex flex-col gap-3.5">
+            <div className="flex flex-col gap-3.5 lg:shrink-0">
               <h4 className="text-sm font-semibold tracking-wide text-white">Products</h4>
               <ul className="flex flex-col gap-2.5 text-xs text-[#A1A1A1]">
                 <li>
-                  <Link href="#portfolio" className="transition-colors hover:text-white">
+                  <a
+                    href={siteConfig.company.googlePlayStoreUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="transition-colors hover:text-white"
+                  >
                     All Products
-                  </Link>
+                  </a>
                 </li>
                 <li>
-                  <Link href="#portfolio" className="transition-colors hover:text-white">
+                  <a
+                    href={siteConfig.company.googlePlayStoreUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="transition-colors hover:text-white"
+                  >
                     Mobile App
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#portfolio" className="transition-colors hover:text-white">
-                    Calculator World
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#portfolio" className="transition-colors hover:text-white">
-                    Chess Pocket
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#portfolio" className="transition-colors hover:text-white">
-                    Sudoku - Daily
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/changelog" className="transition-colors hover:text-white">
-                    Beta Releases
-                  </Link>
+                  </a>
                 </li>
               </ul>
             </div>
 
             {/* Column 2: Featured Platforms */}
-            <div className="flex flex-col gap-3.5">
+            <div className="flex flex-col gap-3.5 lg:shrink-0">
               <h4 className="text-sm font-semibold tracking-wide text-white">Featured Platforms</h4>
               <ul className="flex flex-col gap-2.5 text-xs text-[#A1A1A1]">
                 <li>
@@ -204,7 +200,7 @@ export function ImperialFooter() {
                 </li>
                 <li>
                   <Link href="#standards" className="transition-colors hover:text-white">
-                    Android 15 (API 35)
+                    PlayStation
                   </Link>
                 </li>
                 <li>
@@ -214,35 +210,25 @@ export function ImperialFooter() {
                 </li>
                 <li>
                   <Link href="#standards" className="transition-colors hover:text-white">
-                    Zero Telemetry
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#standards" className="transition-colors hover:text-white">
-                    60 FPS Native Touch
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#portfolio" className="transition-colors hover:text-white">
-                    Sudoku &amp; Puzzles
+                    XBOX Remote Play
                   </Link>
                 </li>
               </ul>
             </div>
 
             {/* Column 3: Games (by Platform) */}
-            <div className="flex flex-col gap-3.5">
+            <div className="flex flex-col gap-3.5 lg:shrink-0">
               <h4 className="text-sm font-semibold tracking-wide text-white">
                 Games (by Platform)
               </h4>
               <ul className="flex flex-col gap-2.5 text-xs text-[#A1A1A1]">
                 <li>
-                  <Link href="#portfolio" className="transition-colors hover:text-white">
+                  <Link href="/changelog" className="transition-colors hover:text-white">
                     Apple App Store
                   </Link>
                 </li>
                 <li>
-                  <Link href="#portfolio" className="transition-colors hover:text-white">
+                  <Link href="/changelog" className="transition-colors hover:text-white">
                     Apple Arcade
                   </Link>
                 </li>
@@ -251,33 +237,33 @@ export function ImperialFooter() {
                     href={siteConfig.company.googlePlayStoreUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-medium text-emerald-400 transition-colors hover:underline"
+                    className="transition-colors hover:text-white"
                   >
                     Google Play Store
                   </a>
                 </li>
                 <li>
-                  <Link href="#portfolio" className="transition-colors hover:text-white">
+                  <Link href="#standards" className="transition-colors hover:text-white">
                     NVIDIA GeForce NOW
                   </Link>
                 </li>
                 <li>
-                  <Link href="#portfolio" className="transition-colors hover:text-white">
+                  <Link href="#standards" className="transition-colors hover:text-white">
                     PS Remote Play
                   </Link>
                 </li>
                 <li>
-                  <Link href="#portfolio" className="transition-colors hover:text-white">
+                  <Link href="#standards" className="transition-colors hover:text-white">
                     Steam Link
                   </Link>
                 </li>
                 <li>
-                  <Link href="#portfolio" className="transition-colors hover:text-white">
+                  <Link href="#standards" className="transition-colors hover:text-white">
                     XBOX Cloud Gaming
                   </Link>
                 </li>
                 <li>
-                  <Link href="#portfolio" className="transition-colors hover:text-white">
+                  <Link href="#standards" className="transition-colors hover:text-white">
                     XBOX Remote Play
                   </Link>
                 </li>
@@ -285,7 +271,7 @@ export function ImperialFooter() {
             </div>
 
             {/* Column 4: Company */}
-            <div className="flex flex-col gap-3.5">
+            <div className="flex flex-col gap-3.5 lg:shrink-0">
               <h4 className="text-sm font-semibold tracking-wide text-white">Company</h4>
               <ul className="flex flex-col gap-2.5 text-xs text-[#A1A1A1]">
                 <li>
@@ -347,12 +333,12 @@ export function ImperialFooter() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/privacy#security" className="transition-colors hover:text-white">
+                  <Link href="/privacy" className="transition-colors hover:text-white">
                     Security
                   </Link>
                 </li>
                 <li>
-                  <Link href="/sitemap.xml" className="transition-colors hover:text-white">
+                  <Link href="/" className="transition-colors hover:text-white">
                     Sitemap
                   </Link>
                 </li>
@@ -362,19 +348,20 @@ export function ImperialFooter() {
         </div>
       </div>
 
-      {/* Bottom Section (Single hairline divider, matching Screenshot 10-41-09) */}
+      {/* Bottom Section (Single hairline divider, matching reference) */}
       <div className="w-full border-t border-[#1F1F1F]">
-        <div className="w-full px-6 py-8 sm:px-10 lg:px-14 xl:px-16">
-          {/* Row 1: Region & Language Disclosure Pills + Exact 7 Social Media Icons */}
+        <div className="mx-auto w-full max-w-[1920px] px-6 py-8 sm:px-10 lg:px-12 xl:px-14">
+          {/* Row 1: Region & Language Disclosure Pills + Social Media Icons */}
           <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
             {/* Left: India (INR) & English Disclosure Pills */}
             <div className="flex items-center gap-2.5">
               <button
                 type="button"
-                className="inline-flex cursor-pointer items-center gap-3 rounded-[6px] border border-[#2E2E2E] bg-[#0A0A0A] px-3.5 py-2 text-xs font-medium text-neutral-300 transition-colors hover:border-[#787878] hover:text-white"
+                suppressHydrationWarning
+                className="inline-flex cursor-pointer items-center gap-3 rounded-[6px] border border-[#2E2E2E] bg-[#0A0A0A] px-3.5 py-2 text-xs font-medium text-neutral-300 transition-colors hover:border-[#383838] hover:text-white"
               >
                 <span>India (INR)</span>
-                <svg className="size-2.5 text-[#787878]" viewBox="0 0 10 6" fill="currentColor">
+                <svg className="size-2.5 text-[#6B6B6B]" viewBox="0 0 10 6" fill="currentColor">
                   <path
                     fillRule="evenodd"
                     d="M9.354.646a.5.5 0 0 0-.708 0L5 4.293 1.354.646a.5.5 0 0 0-.708.708l4 4a.5.5 0 0 0 .708 0l4-4a.5.5 0 0 0 0-.708"
@@ -384,10 +371,11 @@ export function ImperialFooter() {
               </button>
               <button
                 type="button"
-                className="inline-flex cursor-pointer items-center gap-3 rounded-[6px] border border-[#2E2E2E] bg-[#0A0A0A] px-3.5 py-2 text-xs font-medium text-neutral-300 transition-colors hover:border-[#787878] hover:text-white"
+                suppressHydrationWarning
+                className="inline-flex cursor-pointer items-center gap-3 rounded-[6px] border border-[#2E2E2E] bg-[#0A0A0A] px-3.5 py-2 text-xs font-medium text-neutral-300 transition-colors hover:border-[#383838] hover:text-white"
               >
                 <span>English</span>
-                <svg className="size-2.5 text-[#787878]" viewBox="0 0 10 6" fill="currentColor">
+                <svg className="size-2.5 text-[#6B6B6B]" viewBox="0 0 10 6" fill="currentColor">
                   <path
                     fillRule="evenodd"
                     d="M9.354.646a.5.5 0 0 0-.708 0L5 4.293 1.354.646a.5.5 0 0 0-.708.708l4 4a.5.5 0 0 0 .708 0l4-4a.5.5 0 0 0 0-.708"
@@ -397,8 +385,8 @@ export function ImperialFooter() {
               </button>
             </div>
 
-            {/* Right: Exact 7 Backbone Social Media SVG Icons (Discord, Facebook, Instagram, Reddit, TikTok, X, YouTube) */}
-            <div className="flex items-center gap-5 text-[#787878]">
+            {/* Right: 7 Social Media SVG Icons (Discord, Facebook, Instagram, Reddit, TikTok, X, YouTube) */}
+            <div className="flex items-center gap-5 text-[#6B6B6B]">
               {/* Discord */}
               <a
                 href={siteConfig.socials.discord}
@@ -442,7 +430,7 @@ export function ImperialFooter() {
                 </svg>
               </a>
 
-              {/* Reddit (Backbone Snoo Alien) */}
+              {/* Reddit */}
               <a
                 href={siteConfig.socials.reddit || "https://reddit.com"}
                 target="_blank"
@@ -504,8 +492,8 @@ export function ImperialFooter() {
             </div>
           </div>
 
-          {/* Row 2: Legal Disclaimer & Bottom Legal Links (No border above it, pure breathing room) */}
-          <div className="mt-8 flex flex-col gap-6 pt-2 text-[11px] leading-relaxed text-[#787878] lg:flex-row lg:items-start lg:justify-between">
+          {/* Row 2: Legal Disclaimer & Bottom Legal Links */}
+          <div className="mt-8 flex flex-col gap-6 pt-2 text-[11px] leading-relaxed text-[#6B6B6B] lg:flex-row lg:items-start lg:justify-between">
             <p className="max-w-4xl">
               1. All mobile applications developed and published by Imperial Tech O.P.C. are
               distributed via official Google Play channels. 2. Legally incorporated entity in India
@@ -541,10 +529,11 @@ export function ImperialFooter() {
                 <li>
                   <button
                     type="button"
+                    suppressHydrationWarning
                     className="inline-flex cursor-pointer items-center gap-1.5 transition-colors hover:text-white"
                   >
                     <span>Your Privacy Choices</span>
-                    <span className="inline-flex items-center rounded-xs bg-[#0070F3] px-1 py-0.5 text-[9px] leading-none font-black text-white">
+                    <span className="inline-flex items-center rounded-[2px] bg-[#FFFFFF] px-1 py-0.5 text-[9px] leading-none font-bold text-[#000000]">
                       &#10003;&#215;
                     </span>
                   </button>

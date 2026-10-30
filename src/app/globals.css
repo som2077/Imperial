@@ -20,7 +20,8 @@
   --color-border: hsl(var(--border));
   --color-input: hsl(var(--input));
   --color-ring: hsl(var(--ring));
-  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-sans:
+    var(--font-bricolage), "Bricolage Grotesque", -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, monospace;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -30,6 +31,8 @@
 
 @layer base {
   :root {
+    --font-sans:
+      var(--font-bricolage), "Bricolage Grotesque", -apple-system, BlinkMacSystemFont, sans-serif;
     --background: 0 0% 100%;
     --foreground: 240 10% 3.9%;
     --card: 0 0% 100%;
@@ -53,6 +56,8 @@
   }
 
   .dark {
+    --font-sans:
+      var(--font-bricolage), "Bricolage Grotesque", -apple-system, BlinkMacSystemFont, sans-serif;
     --background: 0 0% 0%;
     --foreground: 0 0% 100%;
     --card: 0 0% 3.9%;
@@ -79,10 +84,35 @@
 body {
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));
-  font-family: var(--font-sans);
+  font-family:
+    var(--font-bricolage),
+    var(--font-sans),
+    "Bricolage Grotesque",
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
   font-feature-settings:
     "rlig" 1,
     "calt" 1;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button,
+input,
+select,
+textarea {
+  font-family:
+    var(--font-bricolage),
+    var(--font-sans),
+    "Bricolage Grotesque",
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
 }
 
 /* ==========================================================================
