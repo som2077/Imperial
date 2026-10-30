@@ -1,0 +1,46 @@
+name-template: "v$RESOLVED_VERSION"
+tag-template: "v$RESOLVED_VERSION"
+categories:
+  - title: "🚀 New Features & Enhancements"
+    labels:
+      - "feature"
+      - "enhancement"
+  - title: "🐛 Bug Fixes & Stability"
+    labels:
+      - "fix"
+      - "bug"
+  - title: "🛡️ Security & Hardening"
+    labels:
+      - "security"
+  - title: "📚 Documentation"
+    labels:
+      - "documentation"
+      - "docs"
+  - title: "🧰 Maintenance & Dependencies"
+    labels:
+      - "chore"
+      - "dependencies"
+
+change-template: "- $TITLE (@$AUTHOR) in #$NUMBER"
+version-resolver:
+  major:
+    labels:
+      - "major"
+      - "breaking-change"
+  minor:
+    labels:
+      - "minor"
+      - "feature"
+  patch:
+    labels:
+      - "patch"
+      - "fix"
+      - "bug"
+  default: patch
+
+template: |
+  ## What's Changed
+
+  $CHANGES
+
+  **Full Changelog**: https://github.com/som2077/saas-kit-website/compare/$PREVIOUS_TAG...$RESOLVED_VERSION

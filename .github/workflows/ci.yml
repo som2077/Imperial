@@ -1,0 +1,68 @@
+name: CI Suite
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  quality-and-tests:
+    name: Code Quality & Automated Tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    env:
+      NEXT_PUBLIC_APP_URL: "http://localhost:3000"
+      NEXT_PUBLIC_SUPABASE_URL: "https://demo.supabase.co"
+      NEXT_PUBLIC_SUPABASE_ANON_KEY: "eydemoanonkey"
+      SUPABASE_SERVICE_ROLE_KEY: "eydemoservicerolekey"
+      DATABASE_URL: "postgresql://postgres:postgres@localhost:5432/postgres"
+      LEMON_SQUEEZY_API_KEY: "ls_dummy_api_key"
+      LEMON_SQUEEZY_STORE_ID: "12345"
+      LEMON_SQUEEZY_WEBHOOK_SECRET: "ls_dummy_webhook_secret"
+      RESEND_API_KEY: "re_dummy_resend_key"
+      CRON_SECRET: "cron_secret_demo"
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run ESLint
+        run: npm run lint
+
+      - name: Verify Prettier Code Formatting
+        run: npm run format:check
+
+      - name: TypeScript Strict Validation
+        run: npm run typecheck
+
+      - name: Build Next.js 16 Production Application
+        run: npm run build
+
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps chromium
+
+      - name: Run Playwright End-to-End Tests
+        run: npm run test:e2e
+
+      - name: Upload Playwright Test Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 14

@@ -1,0 +1,12 @@
+.next
+node_modules
+dist
+build
+.drizzle
+drizzle
+public
+*.min.js
+package-lock.json
+.react-email
+playwright-report
+test-results

@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 💬 Ask a Question or Start a Discussion
+    url: https://github.com/som2077/saas-kit-website/discussions
+    about: Ask questions, share your SaaS ideas, or discuss implementation architecture with the community.
+  - name: 📖 Read the Documentation Hub
+    url: https://github.com/som2077/saas-kit-website/blob/main/README.md#developer-documentation
+    about: Explore our 17 in-depth guides covering setup, Supabase SSR, Drizzle ORM, and Lemon Squeezy.
+  - name: 🛡️ Report a Security Vulnerability
+    url: https://github.com/som2077/saas-kit-website/blob/main/SECURITY.md
+    about: Responsible disclosure of security vulnerabilities.
