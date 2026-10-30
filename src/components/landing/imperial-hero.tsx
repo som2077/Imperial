@@ -4,81 +4,83 @@ import * as React from "react";
 import Link from "next/link";
 import { siteConfig } from "@/config/site";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import {
-  ArrowDown,
+  ArrowRight,
+  ExternalLink,
   Calculator,
   Crown,
   Gamepad2,
+  Terminal,
   ShieldCheck,
-  Sparkles,
-  ExternalLink,
-  CheckCircle2,
   Zap,
-  Play,
+  Check,
   RotateCcw,
+  Sparkles,
 } from "lucide-react";
 
 export function ImperialHero() {
-  const [activeTab, setActiveTab] = React.useState<"calculator" | "chess" | "sudoku">("calculator");
-  const [calcInput, setCalcInput] = React.useState("2,480 + 15%");
-  const [calcResult, setCalcResult] = React.useState("2,852.00");
+  // Interactive Calculator State
+  const [calcTape, setCalcTape] = React.useState("128.50 × 1.18");
+  const [calcResult, setCalcResult] = React.useState("151.63");
+  const [activeUnit, setActiveUnit] = React.useState<"currency" | "length" | "mass">("currency");
+
+  // Dynamic Headline Word Cycling (Inspired by x.ai's "everything you s e e .")
+  const [wordIndex, setWordIndex] = React.useState(0);
+  const words = ["b u i l d .", "s o l v e .", "p l a y .", "c r e a t e ."];
+
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      setWordIndex((prev) => (prev + 1) % words.length);
+    }, 2400);
+    return () => clearInterval(interval);
+  }, [words.length]);
 
   return (
-    <section className="relative overflow-hidden pt-12 pb-24 md:pt-20 md:pb-32">
-      {/* Dynamic Aura Mesh Glows (Directly inspired by Fiberplane layout) */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -top-24 left-1/2 -z-10 h-[650px] w-[1000px] -translate-x-1/2 overflow-hidden blur-[120px] opacity-60 dark:opacity-40"
-      >
-        <div className="absolute top-0 left-1/4 h-[350px] w-[350px] rounded-full bg-linear-to-r from-blue-500 via-indigo-500 to-purple-600 mix-blend-multiply filter" />
-        <div className="absolute top-12 right-1/4 h-[320px] w-[320px] rounded-full bg-linear-to-r from-purple-500 via-pink-500 to-orange-400 mix-blend-multiply filter" />
-        <div className="absolute -bottom-8 left-1/3 h-[300px] w-[450px] rounded-full bg-linear-to-r from-cyan-400 via-sky-500 to-indigo-500 mix-blend-multiply filter" />
-      </div>
-
+    <section className="relative pt-12 pb-20 md:pt-16 md:pb-28 overflow-hidden">
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Top Floating Pill Badge */}
+        {/* x.ai-style Top Announcement Pill */}
         <div className="flex justify-center mb-6">
-          <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-background/80 px-4 py-1.5 text-xs font-medium text-foreground backdrop-blur-md shadow-xs transition-all hover:border-primary/40">
-            <span className="flex size-2 rounded-full bg-emerald-500 animate-pulse" />
-            <span className="font-semibold text-primary">Google Play Verified Developer</span>
+          <a
+            href="https://play.google.com/store/apps/details?id=com.imperialtech.universalcalculator"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex items-center gap-2 rounded-full border border-border/80 bg-muted/40 hover:bg-muted/70 px-3.5 py-1 text-xs text-muted-foreground transition-all duration-150"
+          >
+            <span className="rounded-full bg-foreground px-1.5 py-0.2 text-[10px] font-semibold text-background">
+              New
+            </span>
+            <span className="text-foreground font-medium">Universal Calculator World v2.4.1</span>
             <span className="text-muted-foreground">•</span>
-            <span className="text-muted-foreground">Imperial Tech O.P.C. (India)</span>
-          </div>
+            <span className="text-muted-foreground">Live on Google Play</span>
+            <ArrowRight className="size-3 transition-transform group-hover:translate-x-0.5" />
+          </a>
         </div>
 
-        {/* Catchy Main Headline (Editorial & Modern) */}
+        {/* Hero Editorial Headline */}
         <div className="mx-auto max-w-4xl text-center">
-          <h1 className="text-4xl font-extrabold tracking-tight sm:text-6xl lg:text-7xl">
-            Crafting Intuitive Utilities &amp;{" "}
-            <span className="relative inline-block whitespace-nowrap">
-              <span className="relative z-10 bg-linear-to-r from-blue-600 via-indigo-600 to-violet-600 bg-clip-text text-transparent">
-                Engaging Mobile Games
-              </span>
-              <span
-                aria-hidden="true"
-                className="absolute -bottom-1 left-0 right-0 h-3 rounded-full bg-indigo-500/10 -z-1"
-              />
+          <h1 className="text-4xl font-extrabold tracking-tight sm:text-6xl lg:text-7xl text-foreground font-sans">
+            Crafting intuitive utilities &amp; engaging games for everything you{" "}
+            <span className="inline-block min-w-[210px] sm:min-w-[320px] text-left font-mono font-normal text-muted-foreground transition-all duration-300">
+              {words[wordIndex]}
             </span>
           </h1>
 
-          {/* Subheadline from websiteinfo.md */}
-          <p className="mt-6 text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed font-normal">
+          <p className="mt-6 text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             <strong className="text-foreground font-semibold">Imperial Tech O.P.C.</strong> is an
-            independent software and game development studio dedicated to building high-performance,
-            privacy-focused apps for millions of users worldwide.
+            independent mobile software and game development studio dedicated to building
+            high-performance, privacy-focused apps for millions of users worldwide.
           </p>
 
-          {/* Call to Action Buttons */}
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+          {/* Minimalist Dual CTAs */}
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
             <Button
               asChild
               size="lg"
-              className="h-12 rounded-full bg-foreground px-7 text-sm font-semibold text-background hover:bg-foreground/90 shadow-md transition-all hover:scale-[1.02]"
+              className="h-11 rounded-full bg-foreground px-6 text-xs font-semibold text-background hover:bg-foreground/90 transition-transform active:scale-95"
             >
-              <Link href="#portfolio" className="flex items-center gap-2">
-                <span>Explore Our Apps</span>
-                <ArrowDown className="size-4 animate-bounce" />
+              <Link href="#portfolio" className="flex items-center gap-1.5">
+                <span>Explore Portfolio</span>
+                <ArrowRight className="size-3.5" />
               </Link>
             </Button>
 
@@ -86,7 +88,7 @@ export function ImperialHero() {
               asChild
               variant="outline"
               size="lg"
-              className="h-12 rounded-full border-border bg-background/80 px-7 text-sm font-semibold backdrop-blur-sm hover:bg-accent transition-all"
+              className="h-11 rounded-full border-border/80 bg-background px-6 text-xs font-semibold hover:bg-muted/50"
             >
               <Link href="#contact">Contact Support</Link>
             </Button>
@@ -95,7 +97,7 @@ export function ImperialHero() {
               asChild
               variant="ghost"
               size="lg"
-              className="h-12 rounded-full px-5 text-sm font-medium text-muted-foreground hover:text-foreground"
+              className="h-11 rounded-full px-4 text-xs font-medium text-muted-foreground hover:text-foreground"
             >
               <a
                 href={siteConfig.company.googlePlayStoreUrl}
@@ -104,383 +106,300 @@ export function ImperialHero() {
                 className="flex items-center gap-1.5"
               >
                 <span>Google Play Profile</span>
-                <ExternalLink className="size-3.5" />
+                <ExternalLink className="size-3 opacity-70" />
               </a>
             </Button>
           </div>
 
-          {/* Trust Badges */}
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-y-2 gap-x-6 text-xs font-medium text-muted-foreground">
-            <div className="flex items-center gap-1.5">
-              <CheckCircle2 className="size-4 text-emerald-500" />
-              <span>100% Offline-Friendly</span>
-            </div>
-            <div className="flex items-center gap-1.5">
-              <ShieldCheck className="size-4 text-blue-500" />
-              <span>Safe &amp; Privacy-First</span>
-            </div>
-            <div className="flex items-center gap-1.5">
-              <Zap className="size-4 text-amber-500" />
-              <span>High Native 60 FPS Performance</span>
-            </div>
-            <div className="flex items-center gap-1.5">
-              <Sparkles className="size-4 text-purple-500" />
-              <span>Zero Intrusive Tracking</span>
-            </div>
+          {/* Trust Indicators */}
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-muted-foreground font-mono">
+            <span>✔ 100% Offline-Friendly</span>
+            <span>•</span>
+            <span>✔ Zero Data Telemetry</span>
+            <span>•</span>
+            <span>✔ Native 60 FPS</span>
+            <span>•</span>
+            <span>✔ Incorporated in India</span>
           </div>
         </div>
 
-        {/* Floating Studio Window Preview (Hero Canvas with Tabs) */}
-        <div className="relative mx-auto mt-14 max-w-5xl">
-          {/* Subtle Ambient Behind Card Glow */}
-          <div
-            aria-hidden="true"
-            className="absolute -inset-1 rounded-[32px] bg-linear-to-r from-blue-600 via-indigo-600 to-violet-600 opacity-20 blur-xl dark:opacity-30"
-          />
-
-          <div className="relative overflow-hidden rounded-[28px] border border-black/10 bg-card/90 shadow-2xl backdrop-blur-xl dark:border-white/10 dark:bg-card/80">
-            {/* Window Studio Header Bar */}
-            <div className="flex flex-wrap items-center justify-between border-b border-border/60 bg-muted/40 px-4 py-3 sm:px-6">
-              {/* Traffic lights & Studio Title */}
-              <div className="flex items-center gap-2">
-                <div className="flex gap-1.5">
-                  <span className="size-3 rounded-full bg-rose-500/80" />
-                  <span className="size-3 rounded-full bg-amber-500/80" />
-                  <span className="size-3 rounded-full bg-emerald-500/80" />
+        {/* ============================================================== */}
+        {/* x.ai SIGNATURE INTERACTIVE MODALITY BENTO GRID                */}
+        {/* ============================================================== */}
+        <div className="mt-14 grid grid-cols-1 md:grid-cols-12 gap-4 max-w-6xl mx-auto">
+          {/* Bento Tile 1: Universal Calculator World (Large 7 Columns) */}
+          <div className="md:col-span-7 rounded-3xl border border-border/80 bg-card p-6 sm:p-7 flex flex-col justify-between shadow-xs transition-all hover:border-foreground/30">
+            <div>
+              <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center gap-2">
+                  <div className="flex size-8 items-center justify-center rounded-lg bg-blue-600/10 text-blue-600 dark:text-blue-400">
+                    <Calculator className="size-4" />
+                  </div>
+                  <div>
+                    <h3 className="text-sm font-bold text-foreground">Universal Calculator World</h3>
+                    <span className="text-[11px] font-mono text-muted-foreground">
+                      v2.4.1 • Kotlin Jetpack Compose
+                    </span>
+                  </div>
                 </div>
-                <span className="ml-3 text-xs font-medium text-muted-foreground hidden sm:inline-block">
-                  Imperial Tech Studio Showcase
+                <span className="rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 px-2.5 py-0.5 text-[10px] font-semibold">
+                  Google Play Live
                 </span>
               </div>
 
-              {/* App Switcher Tabs */}
-              <div className="flex items-center rounded-xl bg-background/80 p-1 border border-border/60 text-xs shadow-xs">
-                <button
-                  type="button"
-                  onClick={() => setActiveTab("calculator")}
-                  className={`flex items-center gap-1.5 rounded-lg px-3 py-1 font-medium transition-all ${
-                    activeTab === "calculator"
-                      ? "bg-primary text-primary-foreground shadow-xs"
-                      : "text-muted-foreground hover:text-foreground"
-                  }`}
-                >
-                  <Calculator className="size-3.5" />
-                  <span>Calculator World</span>
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setActiveTab("chess")}
-                  className={`flex items-center gap-1.5 rounded-lg px-3 py-1 font-medium transition-all ${
-                    activeTab === "chess"
-                      ? "bg-primary text-primary-foreground shadow-xs"
-                      : "text-muted-foreground hover:text-foreground"
-                  }`}
-                >
-                  <Crown className="size-3.5" />
-                  <span>Chess Pocket</span>
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setActiveTab("sudoku")}
-                  className={`flex items-center gap-1.5 rounded-lg px-3 py-1 font-medium transition-all ${
-                    activeTab === "sudoku"
-                      ? "bg-primary text-primary-foreground shadow-xs"
-                      : "text-muted-foreground hover:text-foreground"
-                  }`}
-                >
-                  <Gamepad2 className="size-3.5" />
-                  <span>Sudoku Daily</span>
-                </button>
+              <p className="text-xs text-muted-foreground mb-4">
+                Full-featured scientific computing, formula history tape, and instant unit
+                conversion engine with 100% offline data isolation.
+              </p>
+
+              {/* Interactive Mini Tape Display */}
+              <div className="rounded-2xl border border-border/60 bg-muted/40 p-4 font-mono">
+                <div className="flex items-center justify-between text-[11px] text-muted-foreground mb-1">
+                  <span>HISTORY TAPE</span>
+                  <div className="flex gap-2">
+                    <button
+                      type="button"
+                      onClick={() => setActiveUnit("currency")}
+                      className={`text-[10px] px-1.5 py-0.5 rounded ${
+                        activeUnit === "currency" ? "bg-foreground text-background" : "hover:text-foreground"
+                      }`}
+                    >
+                      USD/INR
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setActiveUnit("length")}
+                      className={`text-[10px] px-1.5 py-0.5 rounded ${
+                        activeUnit === "length" ? "bg-foreground text-background" : "hover:text-foreground"
+                      }`}
+                    >
+                      m/ft
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setActiveUnit("mass")}
+                      className={`text-[10px] px-1.5 py-0.5 rounded ${
+                        activeUnit === "mass" ? "bg-foreground text-background" : "hover:text-foreground"
+                      }`}
+                    >
+                      kg/lb
+                    </button>
+                  </div>
+                </div>
+
+                <div className="text-right text-xs text-muted-foreground">{calcTape}</div>
+                <div className="text-right text-xl font-bold tracking-tight text-foreground">
+                  = {calcResult}
+                </div>
+
+                {/* Quick Keypad buttons */}
+                <div className="mt-3 grid grid-cols-4 gap-1 text-[11px] font-semibold">
+                  {["7", "8", "9", "÷", "4", "5", "6", "×", "1", "2", "3", "-", "AC", "0", "=", "+"].map(
+                    (btn) => (
+                      <button
+                        key={btn}
+                        type="button"
+                        onClick={() => {
+                          if (btn === "AC") {
+                            setCalcTape("0");
+                            setCalcResult("0.00");
+                          } else if (btn === "=") {
+                            setCalcResult("1,894.20");
+                          } else {
+                            setCalcTape((prev) => (prev === "0" ? btn : `${prev} ${btn}`));
+                          }
+                        }}
+                        className={`h-7 rounded-md border border-border/50 flex items-center justify-center transition-colors active:scale-95 ${
+                          btn === "="
+                            ? "bg-foreground text-background"
+                            : "bg-background hover:bg-muted text-foreground"
+                        }`}
+                      >
+                        {btn}
+                      </button>
+                    )
+                  )}
+                </div>
               </div>
             </div>
 
-            {/* Window Content Area */}
-            <div className="p-6 sm:p-8">
-              {/* TAB 1: Universal Calculator World */}
-              {activeTab === "calculator" && (
-                <div className="grid grid-cols-1 gap-8 md:grid-cols-12 items-center">
-                  <div className="md:col-span-6 space-y-4">
-                    <div className="inline-flex items-center gap-2 rounded-md bg-emerald-500/10 px-2.5 py-1 text-xs font-semibold text-emerald-600 dark:text-emerald-400">
-                      <CheckCircle2 className="size-3.5" />
-                      <span>Available on Google Play • Rating 4.8★</span>
-                    </div>
-                    <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-foreground">
-                      Universal Calculator World
-                    </h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      Advanced multi-purpose calculation suite crafted for students, engineers, and
-                      everyday professionals. Includes complete unit conversions, memory tape, and
-                      offline formulas.
-                    </p>
+            <div className="mt-5 flex items-center justify-between pt-2 border-t border-border/50">
+              <span className="text-[11px] text-muted-foreground font-mono">150+ Unit Converters</span>
+              <a
+                href="https://play.google.com/store/apps/details?id=com.imperialtech.universalcalculator"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs font-semibold text-foreground hover:underline inline-flex items-center gap-1"
+              >
+                <span>Calculator Explore</span>
+                <ArrowRight className="size-3" />
+              </a>
+            </div>
+          </div>
 
-                    <div className="grid grid-cols-2 gap-2 pt-2 text-xs text-muted-foreground">
-                      <div className="flex items-center gap-2 rounded-lg border border-border/60 bg-muted/30 p-2.5">
-                        <span className="font-semibold text-foreground">150+</span> Unit Converters
-                      </div>
-                      <div className="flex items-center gap-2 rounded-lg border border-border/60 bg-muted/30 p-2.5">
-                        <span className="font-semibold text-foreground">100%</span> Offline DB
-                      </div>
-                      <div className="flex items-center gap-2 rounded-lg border border-border/60 bg-muted/30 p-2.5">
-                        <span className="font-semibold text-foreground">0</span> Ad Trackers
-                      </div>
-                      <div className="flex items-center gap-2 rounded-lg border border-border/60 bg-muted/30 p-2.5">
-                        <span className="font-semibold text-foreground">Kotlin</span> Native 60 FPS
-                      </div>
-                    </div>
-
-                    <div className="pt-2">
-                      <Button
-                        asChild
-                        className="rounded-full bg-blue-600 hover:bg-blue-700 text-white font-medium text-xs px-5 shadow-sm"
-                      >
-                        <a
-                          href="https://play.google.com/store/apps/details?id=com.imperialtech.universalcalculator"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center gap-1.5"
-                        >
-                          <span>Get on Google Play</span>
-                          <ExternalLink className="size-3" />
-                        </a>
-                      </Button>
-                    </div>
+          {/* Bento Tile 2: Chess Pocket (5 Columns) */}
+          <div className="md:col-span-5 rounded-3xl border border-border/80 bg-card p-6 sm:p-7 flex flex-col justify-between shadow-xs transition-all hover:border-foreground/30">
+            <div>
+              <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center gap-2">
+                  <div className="flex size-8 items-center justify-center rounded-lg bg-purple-600/10 text-purple-600 dark:text-purple-400">
+                    <Crown className="size-4" />
                   </div>
-
-                  {/* Calculator UI Mockup Preview */}
-                  <div className="md:col-span-6">
-                    <div className="mx-auto max-w-xs rounded-2xl border border-border/80 bg-background p-4 shadow-xl">
-                      <div className="mb-3 flex items-center justify-between text-[11px] font-semibold text-muted-foreground">
-                        <span>SCIENTIFIC TAPE</span>
-                        <span className="text-emerald-500 font-mono">RAD | DEG</span>
-                      </div>
-                      {/* Screen */}
-                      <div className="rounded-xl bg-muted/60 p-3 text-right">
-                        <div className="text-xs text-muted-foreground font-mono">{calcInput}</div>
-                        <div className="text-2xl font-bold tracking-tight text-foreground font-mono">
-                          {calcResult}
-                        </div>
-                      </div>
-                      {/* Grid */}
-                      <div className="mt-3 grid grid-cols-4 gap-1.5 text-xs font-semibold">
-                        {["AC", "sin", "cos", "÷", "7", "8", "9", "×", "4", "5", "6", "-", "1", "2", "3", "+"].map(
-                          (btn) => (
-                            <button
-                              key={btn}
-                              type="button"
-                              onClick={() => {
-                                if (btn === "AC") {
-                                  setCalcInput("0");
-                                  setCalcResult("0");
-                                } else {
-                                  setCalcInput((prev) => (prev === "0" ? btn : prev + " " + btn));
-                                }
-                              }}
-                              className="flex h-9 items-center justify-center rounded-lg bg-card border border-border/60 hover:bg-accent active:scale-95 transition-all"
-                            >
-                              {btn}
-                            </button>
-                          )
-                        )}
-                        <button
-                          type="button"
-                          onClick={() => {
-                            setCalcInput("2,480 + 15%");
-                            setCalcResult("2,852.00");
-                          }}
-                          className="col-span-2 flex h-9 items-center justify-center rounded-lg bg-card border border-border/60 hover:bg-accent"
-                        >
-                          0
-                        </button>
-                        <button
-                          type="button"
-                          className="flex h-9 items-center justify-center rounded-lg bg-card border border-border/60 hover:bg-accent"
-                        >
-                          .
-                        </button>
-                        <button
-                          type="button"
-                          onClick={() => setCalcResult("3,490.50")}
-                          className="flex h-9 items-center justify-center rounded-lg bg-primary text-primary-foreground hover:bg-primary/90"
-                        >
-                          =
-                        </button>
-                      </div>
-                    </div>
+                  <div>
+                    <h3 className="text-sm font-bold text-foreground">Chess Pocket</h3>
+                    <span className="text-[11px] font-mono text-muted-foreground">
+                      Flutter • Stockfish Engine
+                    </span>
                   </div>
                 </div>
-              )}
+                <span className="rounded-full bg-purple-500/10 text-purple-600 dark:text-purple-400 border border-purple-500/20 px-2 py-0.5 text-[10px] font-semibold">
+                  Coming Soon
+                </span>
+              </div>
 
-              {/* TAB 2: Chess Pocket */}
-              {activeTab === "chess" && (
-                <div className="grid grid-cols-1 gap-8 md:grid-cols-12 items-center">
-                  <div className="md:col-span-6 space-y-4">
-                    <div className="inline-flex items-center gap-2 rounded-md bg-purple-500/10 px-2.5 py-1 text-xs font-semibold text-purple-600 dark:text-purple-400">
-                      <Sparkles className="size-3.5" />
-                      <span>New Release / Coming Soon</span>
-                    </div>
-                    <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-foreground">
-                      Chess Pocket
-                    </h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      Compact, tactical puzzle trainer with an embedded Stockfish C++ engine. Designed
-                      for distraction-free offline training, customizable Scandinavian boards, and
-                      master-curated tactical puzzle arcs.
-                    </p>
+              <p className="text-xs text-muted-foreground mb-3">
+                Tactical puzzle progression with offline neural bot simulation and Nordic board
+                styling.
+              </p>
 
-                    <div className="grid grid-cols-2 gap-2 pt-2 text-xs text-muted-foreground">
-                      <div className="flex items-center gap-2 rounded-lg border border-border/60 bg-muted/30 p-2.5">
-                        <span className="font-semibold text-foreground">10,000+</span> Tactical Puzzles
-                      </div>
-                      <div className="flex items-center gap-2 rounded-lg border border-border/60 bg-muted/30 p-2.5">
-                        <span className="font-semibold text-foreground">Stockfish</span> Offline AI
-                      </div>
-                      <div className="flex items-center gap-2 rounded-lg border border-border/60 bg-muted/30 p-2.5">
-                        <span className="font-semibold text-foreground">Zero Ads</span> No Paywalls
-                      </div>
-                      <div className="flex items-center gap-2 rounded-lg border border-border/60 bg-muted/30 p-2.5">
-                        <span className="font-semibold text-foreground">Flutter</span> 60 FPS Engine
-                      </div>
-                    </div>
-
-                    <div className="pt-2">
-                      <Button
-                        asChild
-                        className="rounded-full bg-purple-600 hover:bg-purple-700 text-white font-medium text-xs px-5 shadow-sm"
+              {/* Minimalist 6x4 Mini Chess Grid */}
+              <div className="rounded-2xl border border-border/60 bg-muted/30 p-3">
+                <div className="flex items-center justify-between text-[10px] font-mono text-muted-foreground mb-2">
+                  <span>PUZZLE #208</span>
+                  <span className="text-purple-600 dark:text-purple-400">Stockfish 17 (Eval +2.4)</span>
+                </div>
+                <div className="grid grid-cols-6 gap-1">
+                  {[
+                    "♜", " ", "♝", "♛", "♚", " ",
+                    "♟", "♟", " ", "♟", "♟", "♟",
+                    " ", " ", "♞", " ", " ", " ",
+                    " ", " ", "♗", "♙", " ", " ",
+                  ].map((p, i) => {
+                    const isDark = (Math.floor(i / 6) + (i % 6)) % 2 === 1;
+                    return (
+                      <div
+                        key={i}
+                        className={`h-8 rounded flex items-center justify-center text-sm font-bold select-none ${
+                          isDark ? "bg-muted text-foreground" : "bg-card text-foreground"
+                        } ${p === "♗" ? "ring-1 ring-purple-500" : ""}`}
                       >
-                        <Link href="#portfolio" className="flex items-center gap-1.5">
-                          <span>View Release Details</span>
-                          <ExternalLink className="size-3" />
-                        </Link>
-                      </Button>
-                    </div>
-                  </div>
+                        {p}
+                      </div>
+                    );
+                  })}
+                </div>
+                <div className="mt-2 text-[10px] font-mono text-muted-foreground text-center">
+                  Tactics: Bishop sacrifice on d5
+                </div>
+              </div>
+            </div>
 
-                  {/* Chess Board UI Mockup */}
-                  <div className="md:col-span-6">
-                    <div className="mx-auto max-w-xs rounded-2xl border border-border/80 bg-background p-4 shadow-xl">
-                      <div className="mb-2 flex items-center justify-between text-[11px] font-semibold text-muted-foreground">
-                        <span>TACTICAL PUZZLE #412</span>
-                        <span className="text-purple-500 font-mono">White to Move &amp; Win</span>
-                      </div>
-                      {/* Stylized Chess Grid */}
-                      <div className="grid grid-cols-6 gap-1 rounded-xl border border-border/60 bg-muted/30 p-2">
-                        {[
-                          "♜", "♞", "♝", "♛", "♚", "♜",
-                          "♟", "♟", "♟", " ", "♟", "♟",
-                          " ", " ", "♞", "♟", " ", " ",
-                          " ", " ", " ", "♗", "♙", " ",
-                          "♙", "♙", "♙", " ", " ", "♙",
-                          "♖", "♘", " ", "♕", "♔", "♖",
-                        ].map((piece, i) => {
-                          const isDark = (Math.floor(i / 6) + (i % 6)) % 2 === 1;
-                          return (
-                            <div
-                              key={i}
-                              className={`flex size-10 sm:size-11 items-center justify-center rounded-md text-lg font-bold select-none ${
-                                isDark
-                                  ? "bg-indigo-900/10 text-indigo-950 dark:bg-indigo-950/40 dark:text-indigo-200"
-                                  : "bg-background text-foreground"
-                              } ${piece === "♗" ? "ring-2 ring-purple-500" : ""}`}
-                            >
-                              {piece}
-                            </div>
-                          );
-                        })}
-                      </div>
-                      <div className="mt-3 flex items-center justify-between text-xs text-muted-foreground">
-                        <span className="font-medium text-purple-600 dark:text-purple-400">
-                          Hint: Bishop takes e5 sacrifice
-                        </span>
-                        <RotateCcw className="size-3.5 cursor-pointer hover:text-foreground" />
-                      </div>
-                    </div>
+            <div className="mt-4 flex items-center justify-between pt-2 border-t border-border/50">
+              <span className="text-[11px] text-muted-foreground font-mono">10,000+ Puzzles</span>
+              <Link
+                href="#portfolio"
+                className="text-xs font-semibold text-foreground hover:underline inline-flex items-center gap-1"
+              >
+                <span>Chess Explore</span>
+                <ArrowRight className="size-3" />
+              </Link>
+            </div>
+          </div>
+
+          {/* Bento Tile 3: Sudoku Daily (6 Columns) */}
+          <div className="md:col-span-6 rounded-3xl border border-border/80 bg-card p-6 flex flex-col justify-between shadow-xs transition-all hover:border-foreground/30">
+            <div>
+              <div className="flex items-center justify-between mb-3">
+                <div className="flex items-center gap-2">
+                  <div className="flex size-8 items-center justify-center rounded-lg bg-amber-600/10 text-amber-600 dark:text-amber-400">
+                    <Gamepad2 className="size-4" />
+                  </div>
+                  <div>
+                    <h3 className="text-sm font-bold text-foreground">Sudoku - Daily Puzzle</h3>
+                    <span className="text-[11px] font-mono text-muted-foreground">
+                      React Native Skia
+                    </span>
                   </div>
                 </div>
-              )}
+                <span className="rounded-full bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20 px-2 py-0.5 text-[10px] font-semibold">
+                  In Testing
+                </span>
+              </div>
 
-              {/* TAB 3: Sudoku Daily */}
-              {activeTab === "sudoku" && (
-                <div className="grid grid-cols-1 gap-8 md:grid-cols-12 items-center">
-                  <div className="md:col-span-6 space-y-4">
-                    <div className="inline-flex items-center gap-2 rounded-md bg-amber-500/10 px-2.5 py-1 text-xs font-semibold text-amber-600 dark:text-amber-400">
-                      <Zap className="size-3.5" />
-                      <span>In Testing / Beta Available</span>
-                    </div>
-                    <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-foreground">
-                      Sudoku - Daily Puzzle Game
-                    </h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      Classic numerical deduction reimagined with clean typography, automatic pencil
-                      notes, conflict error highlighting, and mindful daily meditation logic streaks.
-                    </p>
+              <p className="text-xs text-muted-foreground mb-3">
+                Classic deductive brain training with intelligent auto-pencil notes and offline daily
+                streaks.
+              </p>
 
-                    <div className="grid grid-cols-2 gap-2 pt-2 text-xs text-muted-foreground">
-                      <div className="flex items-center gap-2 rounded-lg border border-border/60 bg-muted/30 p-2.5">
-                        <span className="font-semibold text-foreground">4</span> Difficulty Tiers
-                      </div>
-                      <div className="flex items-center gap-2 rounded-lg border border-border/60 bg-muted/30 p-2.5">
-                        <span className="font-semibold text-foreground">Smart</span> Pencil Notes
-                      </div>
-                      <div className="flex items-center gap-2 rounded-lg border border-border/60 bg-muted/30 p-2.5">
-                        <span className="font-semibold text-foreground">Offline</span> Daily Streak
-                      </div>
-                      <div className="flex items-center gap-2 rounded-lg border border-border/60 bg-muted/30 p-2.5">
-                        <span className="font-semibold text-foreground">Zero</span> Data Selling
-                      </div>
-                    </div>
-
-                    <div className="pt-2">
-                      <Button
-                        asChild
-                        className="rounded-full bg-amber-600 hover:bg-amber-700 text-white font-medium text-xs px-5 shadow-sm"
-                      >
-                        <Link href="#portfolio" className="flex items-center gap-1.5">
-                          <span>Request Beta Access</span>
-                          <ExternalLink className="size-3" />
-                        </Link>
-                      </Button>
-                    </div>
+              {/* Sudoku Mini Grid */}
+              <div className="grid grid-cols-6 gap-1 rounded-xl border border-border/50 bg-muted/30 p-2 font-mono text-xs">
+                {["5", "3", " ", " ", "7", " ", "6", " ", " ", "1", "9", "5"].map((n, idx) => (
+                  <div
+                    key={idx}
+                    className={`h-7 rounded flex items-center justify-center font-bold ${
+                      n.trim() ? "bg-background text-foreground border border-border/30" : "bg-muted/60 text-muted-foreground"
+                    }`}
+                  >
+                    {n || "·"}
                   </div>
+                ))}
+              </div>
+            </div>
 
-                  {/* Sudoku Board UI Mockup */}
-                  <div className="md:col-span-6">
-                    <div className="mx-auto max-w-xs rounded-2xl border border-border/80 bg-background p-4 shadow-xl">
-                      <div className="mb-2 flex items-center justify-between text-[11px] font-semibold text-muted-foreground">
-                        <span>DAILY CHALLENGE #18</span>
-                        <span className="text-amber-500 font-mono">Medium • 04:12</span>
-                      </div>
-                      {/* Stylized Sudoku 6x6 grid */}
-                      <div className="grid grid-cols-6 gap-1 rounded-xl border border-border/60 bg-muted/30 p-2">
-                        {[
-                          "5", "3", " ", " ", "7", " ",
-                          "6", " ", " ", "1", "9", "5",
-                          " ", "9", "8", " ", " ", " ",
-                          "8", " ", " ", " ", "6", " ",
-                          "4", " ", " ", "8", " ", "3",
-                          "7", " ", " ", " ", "2", " ",
-                        ].map((num, idx) => (
-                          <div
-                            key={idx}
-                            className={`flex size-10 sm:size-11 items-center justify-center rounded-md font-mono text-sm font-bold ${
-                              num.trim()
-                                ? "bg-card text-foreground border border-border/40"
-                                : "bg-amber-500/5 text-amber-600 dark:text-amber-400 border border-dashed border-amber-500/30"
-                            }`}
-                          >
-                            {num.trim() || "?"}
-                          </div>
-                        ))}
-                      </div>
-                      <div className="mt-3 flex items-center justify-between text-xs text-muted-foreground">
-                        <span className="font-medium text-amber-600 dark:text-amber-400">
-                          Auto-notes enabled
-                        </span>
-                        <span className="font-mono">Mistakes: 0/3</span>
-                      </div>
-                    </div>
-                  </div>
+            <div className="mt-4 flex items-center justify-between pt-2 border-t border-border/50">
+              <span className="text-[11px] text-muted-foreground font-mono">4 Difficulty Tiers</span>
+              <Link
+                href="#portfolio"
+                className="text-xs font-semibold text-foreground hover:underline inline-flex items-center gap-1"
+              >
+                <span>Sudoku Explore</span>
+                <ArrowRight className="size-3" />
+              </Link>
+            </div>
+          </div>
+
+          {/* Bento Tile 4: Studio Engine & Terminal Spec (6 Columns - x.ai Build Style) */}
+          <div className="md:col-span-6 rounded-3xl border border-border/80 bg-neutral-950 p-6 text-white flex flex-col justify-between shadow-xs">
+            <div>
+              <div className="flex items-center justify-between mb-3">
+                <div className="flex items-center gap-2">
+                  <Terminal className="size-4 text-emerald-400" />
+                  <span className="text-xs font-mono font-bold text-white">studio-runtime.sh</span>
                 </div>
-              )}
+                <span className="text-[10px] font-mono text-emerald-400">STATUS: VERIFIED</span>
+              </div>
+
+              <div className="space-y-1 font-mono text-[11px] text-neutral-400 leading-relaxed overflow-x-auto">
+                <p>
+                  <span className="text-neutral-500">❯</span> ./gradlew bundleRelease --inspect
+                </p>
+                <p className="text-neutral-300">
+                  ✔ APK Payload Size: <span className="text-emerald-400">6.2 MB</span> (Ultra-lean)
+                </p>
+                <p className="text-neutral-300">
+                  ✔ Target Platform: <span className="text-emerald-400">Android 15 (API 35)</span>
+                </p>
+                <p className="text-neutral-300">
+                  ✔ Background WakeLocks: <span className="text-emerald-400">0</span>
+                </p>
+                <p className="text-neutral-300">
+                  ✔ Analytics / Ad Trackers: <span className="text-emerald-400">0</span>
+                </p>
+                <p className="text-neutral-300">
+                  ✔ Play Console Org: <span className="text-indigo-400">Imperial Tech O.P.C.</span>
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-4 flex items-center justify-between pt-2 border-t border-white/10 text-neutral-400">
+              <span className="text-[11px] font-mono">Sub-16ms Frame Times</span>
+              <Link
+                href="#standards"
+                className="text-xs font-semibold text-white hover:underline inline-flex items-center gap-1"
+              >
+                <span>Engine Standards</span>
+                <ArrowRight className="size-3" />
+              </Link>
             </div>
           </div>
         </div>
