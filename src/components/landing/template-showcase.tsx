@@ -147,28 +147,31 @@ export function TemplateShowcase() {
       : templates.filter((template) => template.category === activeTab);
 
   return (
-    <section id="pricing" className="relative border-b border-border/60 bg-background py-24 sm:py-32 scroll-mt-16">
+    <section
+      id="pricing"
+      className="border-border/60 bg-background relative scroll-mt-16 border-b py-24 sm:py-32"
+    >
       <div id="templates" className="absolute -top-20" />
       {/* Background radial glows */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 size-[600px] rounded-full bg-primary/5 blur-[120px]" />
-        <div className="absolute bottom-10 right-10 size-[400px] rounded-full bg-emerald-500/5 blur-[100px]" />
+        <div className="bg-primary/5 absolute top-1/4 left-1/2 size-[600px] -translate-x-1/2 rounded-full blur-[120px]" />
+        <div className="absolute right-10 bottom-10 size-[400px] rounded-full bg-emerald-500/5 blur-[100px]" />
       </div>
 
-      <div className="container relative mx-auto px-4 sm:px-8">
+      <div className="relative container mx-auto px-4 sm:px-8">
         {/* Section Header */}
         <div className="mx-auto max-w-3xl text-center">
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-1.5 text-xs font-semibold text-primary">
+          <div className="border-primary/20 bg-primary/10 text-primary mb-4 inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-xs font-semibold">
             <Sparkles className="size-3.5" />
             <span>Commercial Template Catalog</span>
           </div>
-          <h2 className="text-3xl font-extrabold tracking-tight text-foreground sm:text-5xl">
+          <h2 className="text-foreground text-3xl font-extrabold tracking-tight sm:text-5xl">
             Choose Your Foundation. <br />
-            <span className="bg-gradient-to-r from-primary via-blue-500 to-emerald-500 bg-clip-text text-transparent">
+            <span className="from-primary bg-gradient-to-r via-blue-500 to-emerald-500 bg-clip-text text-transparent">
               Ship in Days, Not Months.
             </span>
           </h2>
-          <p className="mt-4 text-base text-muted-foreground sm:text-lg">
+          <p className="text-muted-foreground mt-4 text-base sm:text-lg">
             Stop stitching together auth, payments, database migrations, and mobile configurations.
             Every template is fully typed, tested, and battle-ready for production.
           </p>
@@ -177,7 +180,7 @@ export function TemplateShowcase() {
           <div className="mt-8 flex flex-wrap items-center justify-center gap-2.5">
             <button
               onClick={() => setActiveTab("all")}
-              className={`rounded-full px-5 py-2 text-xs font-semibold transition-all cursor-pointer ${
+              className={`cursor-pointer rounded-full px-5 py-2 text-xs font-semibold transition-all ${
                 activeTab === "all"
                   ? "bg-foreground text-background shadow-sm"
                   : "bg-muted/50 text-muted-foreground hover:bg-muted hover:text-foreground"
@@ -187,7 +190,7 @@ export function TemplateShowcase() {
             </button>
             <button
               onClick={() => setActiveTab("web")}
-              className={`inline-flex items-center gap-1.5 rounded-full px-5 py-2 text-xs font-semibold transition-all cursor-pointer ${
+              className={`inline-flex cursor-pointer items-center gap-1.5 rounded-full px-5 py-2 text-xs font-semibold transition-all ${
                 activeTab === "web"
                   ? "bg-blue-600 text-white shadow-sm"
                   : "bg-muted/50 text-muted-foreground hover:bg-muted hover:text-foreground"
@@ -198,7 +201,7 @@ export function TemplateShowcase() {
             </button>
             <button
               onClick={() => setActiveTab("mobile")}
-              className={`inline-flex items-center gap-1.5 rounded-full px-5 py-2 text-xs font-semibold transition-all cursor-pointer ${
+              className={`inline-flex cursor-pointer items-center gap-1.5 rounded-full px-5 py-2 text-xs font-semibold transition-all ${
                 activeTab === "mobile"
                   ? "bg-emerald-600 text-white shadow-sm"
                   : "bg-muted/50 text-muted-foreground hover:bg-muted hover:text-foreground"
@@ -209,7 +212,7 @@ export function TemplateShowcase() {
             </button>
             <button
               onClick={() => setActiveTab("bundle")}
-              className={`inline-flex items-center gap-1.5 rounded-full px-5 py-2 text-xs font-semibold transition-all cursor-pointer ${
+              className={`inline-flex cursor-pointer items-center gap-1.5 rounded-full px-5 py-2 text-xs font-semibold transition-all ${
                 activeTab === "bundle"
                   ? "bg-amber-600 text-white shadow-sm"
                   : "bg-muted/50 text-muted-foreground hover:bg-muted hover:text-foreground"
@@ -228,14 +231,14 @@ export function TemplateShowcase() {
             return (
               <div
                 key={template.id}
-                className={`group relative flex flex-col overflow-hidden rounded-3xl border bg-card/60 backdrop-blur-md transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 ${
+                className={`group bg-card/60 relative flex flex-col overflow-hidden rounded-3xl border backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl ${
                   isFeatured
-                    ? "border-amber-500/50 shadow-amber-500/10 ring-1 ring-amber-500/40 lg:-translate-y-2"
+                    ? "border-amber-500/50 ring-1 shadow-amber-500/10 ring-amber-500/40 lg:-translate-y-2"
                     : "border-border/60 hover:border-border"
                 }`}
               >
                 {/* Visual Mockup Header */}
-                <div className="relative aspect-[16/10] w-full overflow-hidden bg-neutral-950 border-b border-border/40">
+                <div className="border-border/40 relative aspect-[16/10] w-full overflow-hidden border-b bg-neutral-950">
                   <Image
                     src={template.image}
                     alt={template.title}
@@ -244,17 +247,17 @@ export function TemplateShowcase() {
                     className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
                     priority
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
 
                   {/* Badge */}
                   <div className="absolute top-4 left-4 z-10">
                     <span
-                      className={`inline-flex items-center rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-wider backdrop-blur-md ${
+                      className={`inline-flex items-center rounded-full px-3 py-1 text-[11px] font-bold tracking-wider uppercase backdrop-blur-md ${
                         template.badgeVariant === "amber"
                           ? "bg-amber-500/90 text-black shadow-lg shadow-amber-500/30"
                           : template.badgeVariant === "emerald"
-                          ? "bg-emerald-500/90 text-black shadow-lg shadow-emerald-500/30"
-                          : "bg-blue-600/90 text-white shadow-lg shadow-blue-600/30"
+                            ? "bg-emerald-500/90 text-black shadow-lg shadow-emerald-500/30"
+                            : "bg-blue-600/90 text-white shadow-lg shadow-blue-600/30"
                       }`}
                     >
                       {template.badge}
@@ -262,14 +265,14 @@ export function TemplateShowcase() {
                   </div>
 
                   {/* Price Tag Overlay */}
-                  <div className="absolute bottom-4 right-4 z-10 flex items-baseline gap-2 rounded-xl bg-black/80 px-3.5 py-1.5 backdrop-blur-md border border-white/10">
+                  <div className="absolute right-4 bottom-4 z-10 flex items-baseline gap-2 rounded-xl border border-white/10 bg-black/80 px-3.5 py-1.5 backdrop-blur-md">
                     {template.originalPrice && (
                       <span className="text-xs text-neutral-400 line-through">
                         {template.originalPrice}
                       </span>
                     )}
                     <span className="text-lg font-black text-white">{template.price}</span>
-                    <span className="text-[10px] uppercase font-semibold text-neutral-400">
+                    <span className="text-[10px] font-semibold text-neutral-400 uppercase">
                       one-time
                     </span>
                   </div>
@@ -278,13 +281,11 @@ export function TemplateShowcase() {
                 {/* Card Content Body */}
                 <div className="flex flex-1 flex-col p-6 sm:p-8">
                   <div>
-                    <h3 className="text-2xl font-bold tracking-tight text-foreground">
+                    <h3 className="text-foreground text-2xl font-bold tracking-tight">
                       {template.title}
                     </h3>
-                    <p className="mt-1 text-xs font-semibold text-primary">
-                      {template.subtitle}
-                    </p>
-                    <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
+                    <p className="text-primary mt-1 text-xs font-semibold">{template.subtitle}</p>
+                    <p className="text-muted-foreground mt-3 text-sm leading-relaxed">
                       {template.description}
                     </p>
                   </div>
@@ -296,9 +297,9 @@ export function TemplateShowcase() {
                       return (
                         <span
                           key={tag.name}
-                          className="inline-flex items-center gap-1 rounded-md bg-muted/60 px-2.5 py-1 text-[11px] font-medium text-foreground border border-border/40"
+                          className="bg-muted/60 text-foreground border-border/40 inline-flex items-center gap-1 rounded-md border px-2.5 py-1 text-[11px] font-medium"
                         >
-                          <Icon className="size-3 text-primary" />
+                          <Icon className="text-primary size-3" />
                           <span>{tag.name}</span>
                         </span>
                       );
@@ -306,27 +307,27 @@ export function TemplateShowcase() {
                   </div>
 
                   {/* Feature Highlights Checklist */}
-                  <div className="mt-6 flex-1 border-t border-border/50 pt-5">
-                    <p className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground mb-3">
+                  <div className="border-border/50 mt-6 flex-1 border-t pt-5">
+                    <p className="text-muted-foreground mb-3 text-[11px] font-semibold tracking-wider uppercase">
                       Included Architecture:
                     </p>
-                    <ul className="space-y-2 text-xs text-muted-foreground">
+                    <ul className="text-muted-foreground space-y-2 text-xs">
                       {template.highlights.map((highlight, idx) => (
                         <li key={idx} className="flex items-start gap-2">
-                          <CheckCircle2 className="size-4 shrink-0 text-emerald-500 mt-0.5" />
-                          <span className="leading-tight text-foreground/90">{highlight}</span>
+                          <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-emerald-500" />
+                          <span className="text-foreground/90 leading-tight">{highlight}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
 
                   {/* Action CTAs */}
-                  <div className="mt-8 flex flex-col gap-2.5 pt-4 border-t border-border/50">
+                  <div className="border-border/50 mt-8 flex flex-col gap-2.5 border-t pt-4">
                     <a
                       href={template.primaryCtaHref}
-                      className={`inline-flex h-11 w-full items-center justify-center gap-2 rounded-xl text-sm font-semibold transition-all cursor-pointer shadow-md ${
+                      className={`inline-flex h-11 w-full cursor-pointer items-center justify-center gap-2 rounded-xl text-sm font-semibold shadow-md transition-all ${
                         isFeatured
-                          ? "bg-amber-500 text-black hover:bg-amber-400 font-bold"
+                          ? "bg-amber-500 font-bold text-black hover:bg-amber-400"
                           : "bg-primary text-primary-foreground hover:opacity-90"
                       }`}
                     >
@@ -335,10 +336,10 @@ export function TemplateShowcase() {
                     </a>
                     <Link
                       href={template.secondaryCtaHref}
-                      className="inline-flex h-10 w-full items-center justify-center gap-1.5 rounded-xl border border-border/80 bg-background/50 text-xs font-semibold text-foreground hover:bg-muted transition-colors"
+                      className="border-border/80 bg-background/50 text-foreground hover:bg-muted inline-flex h-10 w-full items-center justify-center gap-1.5 rounded-xl border text-xs font-semibold transition-colors"
                     >
                       <span>{template.secondaryCtaText}</span>
-                      <ExternalLink className="size-3 text-muted-foreground" />
+                      <ExternalLink className="text-muted-foreground size-3" />
                     </Link>
                   </div>
                 </div>

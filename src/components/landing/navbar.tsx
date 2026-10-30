@@ -45,8 +45,8 @@ export function Navbar() {
     <>
       <header
         className={cn(
-          "fixed top-0 inset-x-0 z-50 transition-all duration-200 border-b border-border/60 bg-background/80 backdrop-blur-xl",
-          isScrolled ? "shadow-md bg-background/95 border-border/80" : ""
+          "border-border/60 bg-background/80 fixed inset-x-0 top-0 z-50 border-b backdrop-blur-xl transition-all duration-200",
+          isScrolled ? "bg-background/95 border-border/80 shadow-md" : ""
         )}
       >
         <div className="container mx-auto flex h-16 items-center justify-between px-4 sm:px-8">
@@ -56,14 +56,14 @@ export function Navbar() {
             className="group flex items-center gap-2.5 transition-opacity hover:opacity-90"
             onClick={() => setMobileOpen(false)}
           >
-            <div className="flex size-8 items-center justify-center rounded-lg bg-foreground text-background font-black text-sm shadow-xs transition-transform group-hover:scale-105">
+            <div className="bg-foreground text-background flex size-8 items-center justify-center rounded-lg text-sm font-black shadow-xs transition-transform group-hover:scale-105">
               <Boxes className="size-4" />
             </div>
             <div className="flex flex-col">
-              <span className="text-base font-extrabold tracking-tight text-foreground font-mono leading-none">
+              <span className="text-foreground font-mono text-base leading-none font-extrabold tracking-tight">
                 SAAS<span className="text-primary font-bold">KIT</span>
               </span>
-              <span className="text-[10px] text-muted-foreground font-medium leading-none mt-1">
+              <span className="text-muted-foreground mt-1 text-[10px] leading-none font-medium">
                 by Imperial Tech
               </span>
             </div>
@@ -73,25 +73,25 @@ export function Navbar() {
           <nav className="hidden items-center gap-8 text-sm font-medium md:flex">
             <a
               href="#pricing"
-              className="text-muted-foreground hover:text-foreground transition-colors font-medium"
+              className="text-muted-foreground hover:text-foreground font-medium transition-colors"
             >
               Templates
             </a>
             <a
               href="#features"
-              className="text-muted-foreground hover:text-foreground transition-colors font-medium"
+              className="text-muted-foreground hover:text-foreground font-medium transition-colors"
             >
               Features
             </a>
             <a
               href="#pricing"
-              className="text-muted-foreground hover:text-foreground transition-colors font-medium"
+              className="text-muted-foreground hover:text-foreground font-medium transition-colors"
             >
               Pricing
             </a>
             <Link
               href="/docs"
-              className="text-muted-foreground hover:text-foreground transition-colors font-medium"
+              className="text-muted-foreground hover:text-foreground font-medium transition-colors"
             >
               Docs
             </Link>
@@ -103,7 +103,7 @@ export function Navbar() {
               <Button
                 variant="ghost"
                 size="sm"
-                className="text-xs font-semibold text-muted-foreground hover:text-foreground h-9 px-3"
+                className="text-muted-foreground hover:text-foreground h-9 px-3 text-xs font-semibold"
               >
                 Sign In
               </Button>
@@ -112,7 +112,7 @@ export function Navbar() {
             <a href="#pricing">
               <Button
                 size="sm"
-                className="h-9 px-4 rounded-lg text-xs font-bold bg-foreground text-background hover:bg-foreground/90 shadow-xs transition-all active:scale-[0.98] gap-1.5"
+                className="bg-foreground text-background hover:bg-foreground/90 h-9 gap-1.5 rounded-lg px-4 text-xs font-bold shadow-xs transition-all active:scale-[0.98]"
               >
                 <span>Get Kit ($80)</span>
                 <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-0.5" />
@@ -122,7 +122,7 @@ export function Navbar() {
             {/* Mobile Hamburger Toggle Button */}
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="md:hidden p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors cursor-pointer"
+              className="text-muted-foreground hover:text-foreground hover:bg-muted/50 cursor-pointer rounded-lg p-2 transition-colors md:hidden"
               aria-label="Toggle navigation menu"
               aria-expanded={mobileOpen}
             >
@@ -136,48 +136,48 @@ export function Navbar() {
       {mobileOpen && (
         <>
           <div
-            className="fixed inset-0 top-16 bg-black/50 backdrop-blur-xs z-40 md:hidden animate-in fade-in duration-200"
+            className="animate-in fade-in fixed inset-0 top-16 z-40 bg-black/50 backdrop-blur-xs duration-200 md:hidden"
             onClick={() => setMobileOpen(false)}
           />
-          <div className="fixed top-16 inset-x-0 bg-background/95 backdrop-blur-2xl border-b border-border shadow-xl z-50 md:hidden px-6 py-6 animate-in slide-in-from-top-2 duration-200">
+          <div className="bg-background/95 border-border animate-in slide-in-from-top-2 fixed inset-x-0 top-16 z-50 border-b px-6 py-6 shadow-xl backdrop-blur-2xl duration-200 md:hidden">
             <div className="flex flex-col space-y-4">
               <a
                 href="#pricing"
                 onClick={() => setMobileOpen(false)}
-                className="text-base font-semibold text-foreground hover:text-primary transition-colors py-1"
+                className="text-foreground hover:text-primary py-1 text-base font-semibold transition-colors"
               >
                 Templates
               </a>
               <a
                 href="#features"
                 onClick={() => setMobileOpen(false)}
-                className="text-base font-semibold text-foreground hover:text-primary transition-colors py-1"
+                className="text-foreground hover:text-primary py-1 text-base font-semibold transition-colors"
               >
                 Features
               </a>
               <a
                 href="#pricing"
                 onClick={() => setMobileOpen(false)}
-                className="text-base font-semibold text-foreground hover:text-primary transition-colors py-1"
+                className="text-foreground hover:text-primary py-1 text-base font-semibold transition-colors"
               >
                 Pricing
               </a>
               <Link
                 href="/docs"
                 onClick={() => setMobileOpen(false)}
-                className="text-base font-semibold text-foreground hover:text-primary transition-colors py-1"
+                className="text-foreground hover:text-primary py-1 text-base font-semibold transition-colors"
               >
                 Documentation
               </Link>
 
-              <div className="pt-4 border-t border-border/40 flex flex-col gap-2.5">
+              <div className="border-border/40 flex flex-col gap-2.5 border-t pt-4">
                 <Link href="/login" onClick={() => setMobileOpen(false)}>
-                  <Button variant="outline" className="w-full text-xs font-semibold h-10">
+                  <Button variant="outline" className="h-10 w-full text-xs font-semibold">
                     Sign In
                   </Button>
                 </Link>
                 <a href="#pricing" onClick={() => setMobileOpen(false)}>
-                  <Button className="w-full text-xs font-bold h-10 bg-foreground text-background hover:bg-foreground/90">
+                  <Button className="bg-foreground text-background hover:bg-foreground/90 h-10 w-full text-xs font-bold">
                     Get Kit ($80)
                   </Button>
                 </a>

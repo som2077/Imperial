@@ -73,7 +73,8 @@ export const siteConfig = {
     legalName: "Imperial Tech O.P.C.",
     legalType: "One Person Company (Incorporated in India)",
     country: "India",
-    registeredAddress: "Imperial Tech O.P.C., Tech Hub Building, Sector 62, Noida, Uttar Pradesh 201309, India",
+    registeredAddress:
+      "Imperial Tech O.P.C., Tech Hub Building, Sector 62, Noida, Uttar Pradesh 201309, India",
     supportEmail: "support@imperialtech.com",
     developerEmail: "developer@imperialtech.com",
     privacyEmail: "privacy@imperialtech.com",
@@ -99,10 +100,26 @@ export const siteConfig = {
 
   // Trust metrics / stats
   stats: [
-    { label: "Offline-Friendly", value: "100%", description: "Core features work without internet" },
-    { label: "Privacy Rating", value: "A+", description: "Zero intrusive SDKs or personal data sales" },
-    { label: "Rendering Target", value: "60 FPS", description: "Smooth native animations & low battery use" },
-    { label: "User Support SLA", value: "< 24h", description: "Fast direct engineering assistance" },
+    {
+      label: "Offline-Friendly",
+      value: "100%",
+      description: "Core features work without internet",
+    },
+    {
+      label: "Privacy Rating",
+      value: "A+",
+      description: "Zero intrusive SDKs or personal data sales",
+    },
+    {
+      label: "Rendering Target",
+      value: "60 FPS",
+      description: "Smooth native animations & low battery use",
+    },
+    {
+      label: "User Support SLA",
+      value: "< 24h",
+      description: "Fast direct engineering assistance",
+    },
   ],
 
   // Mobile App Studio Portfolio
@@ -122,7 +139,8 @@ export const siteConfig = {
       reviewsCount: "1,200+",
       gradient: "from-blue-600 via-indigo-600 to-violet-700",
       iconBg: "bg-blue-600/10 text-blue-600 dark:text-blue-400",
-      playStoreUrl: "https://play.google.com/store/apps/details?id=com.imperialtech.universalcalculator",
+      playStoreUrl:
+        "https://play.google.com/store/apps/details?id=com.imperialtech.universalcalculator",
       techStack: ["Kotlin", "Jetpack Compose", "Room DB", "Material 3"],
       features: [
         "Full scientific calculator with trigonometrics & logarithms",
@@ -268,10 +286,7 @@ export const siteConfig = {
       priceMonthly: 149,
       priceAnnually: 149,
       popular: true,
-      features: [
-        "Unlimited Commercial SaaS Projects",
-        "Client Projects & Agency Rights",
-      ],
+      features: ["Unlimited Commercial SaaS Projects", "Client Projects & Agency Rights"],
       variantIdMonthly: "pro",
       variantIdAnnually: "pro",
       checkoutUrl: "https://lemonsqueezy.com",

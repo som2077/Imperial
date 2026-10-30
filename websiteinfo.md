@@ -1,5 +1,5 @@
 The website must strictly comply with Google Play Console Organization Developer Account verification requirements. It must look like an authentic, premium mobile app and game
-    development studio.
+development studio.
 
     ### Key Requirements & Sections:
 

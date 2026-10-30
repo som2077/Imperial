@@ -20,60 +20,42 @@ export function ImperialNavbar() {
 
   return (
     <header
-      className={`fixed top-0 inset-x-0 z-50 h-16 transition-colors duration-200 ${
+      className={`fixed inset-x-0 top-0 z-50 h-16 transition-colors duration-200 ${
         scrolled
-          ? "bg-black/85 backdrop-blur-md border-b border-[#1F1F1F]"
-          : "bg-transparent border-b border-transparent"
+          ? "border-b border-[#1F1F1F] bg-black/85 backdrop-blur-md"
+          : "border-b border-transparent bg-transparent"
       }`}
     >
       <div className="container mx-auto flex h-full max-w-[1200px] items-center justify-between px-6 lg:px-12">
         {/* Minimalist Logo / Wordmark (x.ai style: pure white, clean) */}
         <Link
           href="/"
-          className="flex items-center gap-2 text-white font-medium tracking-tight hover:opacity-85 transition-opacity"
+          className="flex items-center gap-2 font-medium tracking-tight text-white transition-opacity hover:opacity-85"
         >
-          <span className="text-sm tracking-tight font-sans font-medium">Imperial Tech</span>
-          <span className="font-mono text-[10px] uppercase text-[#6B6B6B] border border-[#2E2E2E] px-1 py-0.2 rounded-[3px]">
+          <span className="font-sans text-sm font-medium tracking-tight">Imperial Tech</span>
+          <span className="py-0.2 rounded-[3px] border border-[#2E2E2E] px-1 font-mono text-[10px] text-[#6B6B6B] uppercase">
             O.P.C.
           </span>
         </Link>
 
         {/* Desktop Navigation Links (x.ai style: text-14px, muted white, hover white) */}
-        <nav className="hidden items-center gap-7 md:flex text-[14px]">
-          <Link
-            href="#portfolio"
-            className="text-[#A1A1A1] hover:text-white transition-colors"
-          >
+        <nav className="hidden items-center gap-7 text-[14px] md:flex">
+          <Link href="#portfolio" className="text-[#A1A1A1] transition-colors hover:text-white">
             Our Apps
           </Link>
-          <Link
-            href="#standards"
-            className="text-[#A1A1A1] hover:text-white transition-colors"
-          >
+          <Link href="#standards" className="text-[#A1A1A1] transition-colors hover:text-white">
             Engineering
           </Link>
-          <Link
-            href="#about"
-            className="text-[#A1A1A1] hover:text-white transition-colors"
-          >
+          <Link href="#about" className="text-[#A1A1A1] transition-colors hover:text-white">
             About
           </Link>
-          <Link
-            href="/privacy"
-            className="text-[#A1A1A1] hover:text-white transition-colors"
-          >
+          <Link href="/privacy" className="text-[#A1A1A1] transition-colors hover:text-white">
             Privacy
           </Link>
-          <Link
-            href="/data-deletion"
-            className="text-[#A1A1A1] hover:text-white transition-colors"
-          >
+          <Link href="/data-deletion" className="text-[#A1A1A1] transition-colors hover:text-white">
             Data Deletion
           </Link>
-          <Link
-            href="#contact"
-            className="text-[#A1A1A1] hover:text-white transition-colors"
-          >
+          <Link href="#contact" className="text-[#A1A1A1] transition-colors hover:text-white">
             Contact
           </Link>
         </nav>
@@ -85,7 +67,7 @@ export function ImperialNavbar() {
             href={siteConfig.company.googlePlayStoreUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 bg-white text-black px-4 py-2 rounded-[6px] text-[13px] font-medium transition-opacity hover:opacity-85"
+            className="inline-flex items-center gap-1.5 rounded-[6px] bg-white px-4 py-2 text-[13px] font-medium text-black transition-opacity hover:opacity-85"
           >
             <span>Google Play</span>
             <ArrowUpRight className="size-3.5" />
@@ -152,12 +134,12 @@ export function ImperialNavbar() {
             >
               Contact
             </Link>
-            <div className="pt-2 border-t border-[#1F1F1F]">
+            <div className="border-t border-[#1F1F1F] pt-2">
               <a
                 href={siteConfig.company.googlePlayStoreUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-1.5 bg-white text-black py-2.5 rounded-[6px] text-xs font-medium"
+                className="flex items-center justify-center gap-1.5 rounded-[6px] bg-white py-2.5 text-xs font-medium text-black"
               >
                 <span>Google Play Profile</span>
                 <ArrowUpRight className="size-3.5" />

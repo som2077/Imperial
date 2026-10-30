@@ -24,11 +24,7 @@ export function JsonLd() {
       email: siteConfig.company.supportEmail,
       availableLanguage: ["en", "hi"],
     },
-    sameAs: [
-      siteConfig.socials.playStore,
-      siteConfig.socials.twitter,
-      siteConfig.socials.github,
-    ],
+    sameAs: [siteConfig.socials.playStore, siteConfig.socials.twitter, siteConfig.socials.github],
   };
 
   const softwareSchema = {

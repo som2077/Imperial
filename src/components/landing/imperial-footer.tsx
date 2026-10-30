@@ -19,10 +19,10 @@ export function ImperialFooter() {
   };
 
   return (
-    <footer className="mt-24 w-full bg-black text-white selection:bg-white selection:text-black font-sans antialiased">
+    <footer className="mt-24 w-full bg-black font-sans text-white antialiased selection:bg-white selection:text-black">
       {/* Top Bar: Need help? -> Get Support */}
       <div className="border-b border-neutral-900">
-        <div className="container mx-auto max-w-[1400px] flex items-center justify-between px-6 py-6 sm:px-10">
+        <div className="container mx-auto flex items-center justify-between px-6 py-6 sm:px-10">
           <span className="text-base font-medium text-neutral-200 sm:text-lg">Need help?</span>
           <Link
             href={`mailto:${siteConfig.company.supportEmail}`}
@@ -34,17 +34,17 @@ export function ImperialFooter() {
         </div>
       </div>
 
-      {/* Massive Typography Wordmark Header */}
+      {/* Massive Backbone-style Typography Wordmark (Guaranteed No-Cutoff Scaling) */}
       <div className="w-full overflow-hidden border-b border-neutral-900 py-6 select-none sm:py-10">
         <div className="container mx-auto px-4 sm:px-8">
-          <h2 className="text-center text-[13.5vw] leading-none font-black tracking-tighter whitespace-nowrap text-white uppercase">
+          <h2 className="text-center text-[clamp(2.5rem,8.4vw,9.5rem)] leading-none font-black tracking-tighter whitespace-nowrap text-white uppercase">
             IMPERIAL TECH
           </h2>
         </div>
       </div>
 
       {/* Main Grid: Newsletter (Left) + Multi-column Links (Right) */}
-      <div className="container mx-auto max-w-[1400px] px-6 py-16 sm:px-10">
+      <div className="container mx-auto px-6 py-16 sm:px-10">
         <div className="grid gap-12 lg:grid-cols-12">
           {/* Left Column: Stay Connected Newsletter */}
           <div className="flex flex-col gap-4 lg:col-span-5">
@@ -71,7 +71,7 @@ export function ImperialFooter() {
 
               <button
                 type="submit"
-                className="flex size-10 shrink-0 items-center justify-center rounded-md bg-white text-black transition-opacity hover:opacity-90 active:scale-95"
+                className="flex size-10 shrink-0 cursor-pointer items-center justify-center rounded-md bg-white text-black transition-opacity hover:opacity-90 active:scale-95"
                 title="Subscribe"
               >
                 {subscribed ? (
@@ -91,7 +91,7 @@ export function ImperialFooter() {
             </p>
           </div>
 
-          {/* Right Columns: Links */}
+          {/* Right Columns: Links (Exact PokiGames 4-Column Structure) */}
           <div className="grid grid-cols-2 gap-8 sm:grid-cols-4 lg:col-span-7">
             {/* Column 1: Apps */}
             <div className="flex flex-col gap-3">
@@ -141,12 +141,12 @@ export function ImperialFooter() {
                 </li>
                 <li>
                   <Link href="#portfolio" className="transition-colors hover:text-white">
-                    Scientific &amp; Converters
+                    Scientific &amp; Utilities
                   </Link>
                 </li>
                 <li>
                   <Link href="#standards" className="transition-colors hover:text-white">
-                    Offline-First Logic
+                    Offline Logic
                   </Link>
                 </li>
                 <li>
@@ -166,13 +166,13 @@ export function ImperialFooter() {
                     href={siteConfig.company.googlePlayStoreUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-medium text-emerald-400 hover:underline"
+                    className="font-medium text-emerald-400 transition-colors hover:underline"
                   >
                     Google Play Store
                   </a>
                 </li>
                 <li>
-                  <span className="text-neutral-300">Verified Organization</span>
+                  <span className="text-neutral-400">Verified Organization</span>
                 </li>
                 <li>
                   <span className="text-neutral-400">Android 15 (API 35)</span>
@@ -201,10 +201,7 @@ export function ImperialFooter() {
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    href="/data-deletion"
-                    className="transition-colors text-rose-400 hover:text-rose-300"
-                  >
+                  <Link href="/data-deletion" className="transition-colors hover:text-white">
                     User Data Deletion
                   </Link>
                 </li>
@@ -237,21 +234,21 @@ export function ImperialFooter() {
           <div className="flex items-center gap-2">
             <button
               type="button"
-              className="flex items-center gap-1.5 rounded-md border border-neutral-800 bg-neutral-950 px-3 py-1.5 text-xs font-medium text-neutral-300 transition-colors hover:border-neutral-700 hover:text-white"
+              className="flex cursor-pointer items-center gap-1.5 rounded-md border border-neutral-800 bg-neutral-950 px-3 py-1.5 text-xs font-medium text-neutral-300 transition-colors hover:border-neutral-700 hover:text-white"
             >
               <span>India (INR)</span>
               <ChevronRight className="size-3 text-neutral-500" />
             </button>
             <button
               type="button"
-              className="flex items-center gap-1.5 rounded-md border border-neutral-800 bg-neutral-950 px-3 py-1.5 text-xs font-medium text-neutral-300 transition-colors hover:border-neutral-700 hover:text-white"
+              className="flex cursor-pointer items-center gap-1.5 rounded-md border border-neutral-800 bg-neutral-950 px-3 py-1.5 text-xs font-medium text-neutral-300 transition-colors hover:border-neutral-700 hover:text-white"
             >
               <span>English</span>
               <ChevronRight className="size-3 text-neutral-500" />
             </button>
           </div>
 
-          {/* Right: Social Media Icons */}
+          {/* Right: Social Media Icons (Backbone Style) */}
           <div className="flex items-center gap-4 text-neutral-400">
             {/* Discord */}
             <a
@@ -336,11 +333,10 @@ export function ImperialFooter() {
         {/* Legal Disclaimer & Bottom Links */}
         <div className="mt-8 flex flex-col gap-4 border-t border-neutral-900/60 pt-6 text-[10px] leading-relaxed text-neutral-500 sm:flex-row sm:items-start sm:justify-between">
           <p className="max-w-2xl">
-            1. All mobile applications published by Imperial Tech O.P.C. are officially distributed
-            through the Google Play Store. 2. Legally incorporated software and mobile game
-            development entity in India under the Companies Act. Verified Google Play Organization
-            Account. &copy; {new Date().getFullYear()} {siteConfig.company.legalName}. All rights
-            reserved.
+            1. All mobile applications developed and published by Imperial Tech O.P.C. are
+            distributed via official Google Play channels. 2. Legally incorporated entity in India
+            under the Companies Act. Verified Google Play Organization Account. &copy;{" "}
+            {new Date().getFullYear()} {siteConfig.company.legalName}. All rights reserved.
           </p>
 
           <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-[11px] text-neutral-400">
@@ -356,7 +352,7 @@ export function ImperialFooter() {
             <span className="inline-flex cursor-pointer items-center gap-1 transition-colors hover:text-white">
               Your Privacy Choices
               <span className="py-0.2 inline-block rounded-xs bg-blue-500 px-1 text-[9px] font-bold text-white">
-                &#10003;&#10007;
+                ✓&#215;
               </span>
             </span>
           </div>

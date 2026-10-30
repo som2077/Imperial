@@ -35,34 +35,37 @@ export function StudioStandards() {
   ];
 
   return (
-    <section id="standards" className="py-24 md:py-32 bg-black text-white border-t border-[#1F1F1F]">
+    <section
+      id="standards"
+      className="border-t border-[#1F1F1F] bg-black py-24 text-white md:py-32"
+    >
       <div className="container mx-auto max-w-[1200px] px-6 lg:px-12">
-        <div className="max-w-[640px] mb-16">
-          <div className="font-mono text-xs uppercase tracking-[0.08em] text-[#6B6B6B] mb-3">
+        <div className="mb-16 max-w-[640px]">
+          <div className="mb-3 font-mono text-xs tracking-[0.08em] text-[#6B6B6B] uppercase">
             Engineering Benchmarks
           </div>
-          <h2 className="text-3xl sm:text-5xl font-medium tracking-tight text-white">
+          <h2 className="text-3xl font-medium tracking-tight text-white sm:text-5xl">
             Pure performance. Zero compromises.
           </h2>
-          <p className="mt-4 text-base text-[#A1A1A1] leading-[1.6]">
+          <p className="mt-4 text-base leading-[1.6] text-[#A1A1A1]">
             Architectural standards governing all software developed and published by Imperial Tech
             O.P.C.
           </p>
         </div>
 
         {/* 4-Item Grid with 1px border lines (design.md spec) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[#1F1F1F] border border-[#1F1F1F] rounded-[6px] overflow-hidden">
+        <div className="grid grid-cols-1 gap-px overflow-hidden rounded-[6px] border border-[#1F1F1F] bg-[#1F1F1F] md:grid-cols-2">
           {standards.map((s, idx) => (
-            <div key={idx} className="bg-black p-8 sm:p-10 flex flex-col justify-between">
+            <div key={idx} className="flex flex-col justify-between bg-black p-8 sm:p-10">
               <div>
-                <div className="font-mono text-xs uppercase tracking-[0.08em] text-[#6B6B6B] mb-4">
+                <div className="mb-4 font-mono text-xs tracking-[0.08em] text-[#6B6B6B] uppercase">
                   {s.index} / SPECIFICATION
                 </div>
-                <h3 className="text-xl sm:text-2xl font-medium text-white mb-3">{s.title}</h3>
-                <p className="text-sm text-[#A1A1A1] leading-[1.6]">{s.description}</p>
+                <h3 className="mb-3 text-xl font-medium text-white sm:text-2xl">{s.title}</h3>
+                <p className="text-sm leading-[1.6] text-[#A1A1A1]">{s.description}</p>
               </div>
 
-              <div className="mt-8 pt-4 border-t border-[#1F1F1F] font-mono text-[11px] text-[#6B6B6B]">
+              <div className="mt-8 border-t border-[#1F1F1F] pt-4 font-mono text-[11px] text-[#6B6B6B]">
                 {s.spec}
               </div>
             </div>
@@ -71,15 +74,23 @@ export function StudioStandards() {
 
         {/* Technical Terminal Box (Clean Monochrome Code / Audit) */}
         <div className="mt-12 rounded-[6px] border border-[#1F1F1F] bg-[#0A0A0A] p-6 font-mono text-xs text-[#A1A1A1]">
-          <div className="flex items-center justify-between pb-3 border-b border-[#1F1F1F] text-[#6B6B6B] mb-4">
+          <div className="mb-4 flex items-center justify-between border-b border-[#1F1F1F] pb-3 text-[#6B6B6B]">
             <span>APK MANIFEST SECURITY AUDIT</span>
             <span className="text-white">STATUS: 100% COMPLIANT</span>
           </div>
-          <div className="space-y-1.5 leading-relaxed overflow-x-auto text-xs">
-            <p className="text-[#6B6B6B]"># Verified Android Application Package Manifest Constraints</p>
-            <p className="text-white">✔ Target SDK: Android 15 (API 35) &amp; Android 14 (API 34)</p>
-            <p className="text-white">✔ Dangerous Permissions: NONE (No READ_CONTACTS, ACCESS_FINE_LOCATION)</p>
-            <p className="text-white">✔ Play Console Families &amp; COPPA Policy: Verified Compliant</p>
+          <div className="space-y-1.5 overflow-x-auto text-xs leading-relaxed">
+            <p className="text-[#6B6B6B]">
+              # Verified Android Application Package Manifest Constraints
+            </p>
+            <p className="text-white">
+              ✔ Target SDK: Android 15 (API 35) &amp; Android 14 (API 34)
+            </p>
+            <p className="text-white">
+              ✔ Dangerous Permissions: NONE (No READ_CONTACTS, ACCESS_FINE_LOCATION)
+            </p>
+            <p className="text-white">
+              ✔ Play Console Families &amp; COPPA Policy: Verified Compliant
+            </p>
             <p className="text-white">✔ Third-Party Ad Networks: NONE</p>
             <p className="text-[#6B6B6B]">
               ℹ Entity: Imperial Tech O.P.C. [Verified Organization Account • India]

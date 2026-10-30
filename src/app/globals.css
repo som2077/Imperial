@@ -176,15 +176,15 @@ html {
 }
 
 @font-face {
-  font-family: 'ES Rebond Grotesque Extrabold';
-  src: url('/fonts/es-rebond-grotesque.woff') format('woff');
+  font-family: "ES Rebond Grotesque Extrabold";
+  src: url("/fonts/es-rebond-grotesque.woff") format("woff");
   font-display: swap;
   font-style: normal;
   font-weight: 800;
 }
 
 .font-ngl-headline {
-  font-family: 'ES Rebond Grotesque Extrabold', var(--font-geist-sans), system-ui, sans-serif;
+  font-family: "ES Rebond Grotesque Extrabold", var(--font-geist-sans), system-ui, sans-serif;
 }
 
 .animate-ngl-marquee {
@@ -199,7 +199,8 @@ html {
 }
 
 @keyframes ngl-float-left {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0px) rotate(-6deg);
   }
   50% {
@@ -208,7 +209,8 @@ html {
 }
 
 @keyframes ngl-float-right {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0px) rotate(6deg);
   }
   50% {
@@ -217,7 +219,8 @@ html {
 }
 
 @keyframes ngl-float-badge {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0px) scale(1);
   }
   50% {

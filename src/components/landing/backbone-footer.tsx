@@ -24,16 +24,16 @@ export function BackboneFooter() {
     >
       <div className="mx-auto w-full max-w-[1920px] px-5 sm:px-8 md:px-12 lg:px-16">
         {/* 1. Top Help & Support Bar (Backbone style & layout) */}
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-[70px]">
+        <div className="mb-[70px] flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
           <a
             href="mailto:support@imperialtech.me"
-            className="text-2xl font-normal text-white hover:text-white/80 transition-colors tracking-tight"
+            className="text-2xl font-normal tracking-tight text-white transition-colors hover:text-white/80"
           >
             Need help choosing the right template?
           </a>
           <a
             href="mailto:support@imperialtech.me"
-            className="group flex items-center gap-4 text-2xl font-normal text-white hover:text-white/80 transition-colors tracking-tight"
+            className="group flex items-center gap-4 text-2xl font-normal tracking-tight text-white transition-colors hover:text-white/80"
           >
             <span>Get Support</span>
             {/* Backbone Signature 51px Horizontal Arrow */}
@@ -44,7 +44,7 @@ export function BackboneFooter() {
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
               aria-hidden="true"
-              className="transition-transform duration-300 group-hover:translate-x-1 shrink-0"
+              className="shrink-0 transition-transform duration-300 group-hover:translate-x-1"
             >
               <path
                 d="M50.7071 8.70711C51.0976 8.31659 51.0976 7.68342 50.7071 7.2929L44.3431 0.928936C43.9526 0.538412 43.3195 0.538412 42.9289 0.928936C42.5384 1.31946 42.5384 1.95263 42.9289 2.34315L48.5858 8L42.9289 13.6569C42.5384 14.0474 42.5384 14.6805 42.9289 15.0711C43.3195 15.4616 43.9526 15.4616 44.3431 15.0711L50.7071 8.70711ZM0 8L-8.74228e-08 9L50 9L50 8L50 7L8.74228e-08 7L0 8Z"
@@ -63,7 +63,7 @@ export function BackboneFooter() {
             aria-hidden="true"
             role="img"
             aria-label="Imperial Tech wordmark"
-            className="w-full h-auto block"
+            className="block h-auto w-full"
           >
             <text
               x="50%"
@@ -85,10 +85,10 @@ export function BackboneFooter() {
         </div>
 
         {/* 3. Middle Section: Newsletter on Left, 4 Menu Columns on Right */}
-        <div className="flex flex-col lg:flex-row justify-between items-start gap-12 lg:gap-8 mb-20">
+        <div className="mb-20 flex flex-col items-start justify-between gap-12 lg:flex-row lg:gap-8">
           {/* Left Column: Stay connected (Backbone Newsletter) */}
-          <div className="w-full lg:max-w-[420px] shrink-0">
-            <div className="flex items-center gap-2.5 mb-2">
+          <div className="w-full shrink-0 lg:max-w-[420px]">
+            <div className="mb-2 flex items-center gap-2.5">
               {/* Backbone signature orange starburst SVG */}
               <svg
                 width="24"
@@ -104,9 +104,9 @@ export function BackboneFooter() {
                   fill="#F15623"
                 />
               </svg>
-              <h3 className="text-[22px] font-medium text-white tracking-tight">Stay connected</h3>
+              <h3 className="text-[22px] font-medium tracking-tight text-white">Stay connected</h3>
             </div>
-            <p className="text-[16px] text-white font-normal leading-snug mb-5 max-w-[340px]">
+            <p className="mb-5 max-w-[340px] text-[16px] leading-snug font-normal text-white">
               Unlock access to template updates, feature drops, and exclusive founder discounts.
             </p>
 
@@ -123,12 +123,12 @@ export function BackboneFooter() {
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Enter your email"
                     required
-                    className="h-[48px] flex-1 rounded-[3px] border border-white bg-black px-4 text-[15px] text-white placeholder:text-neutral-400 focus:outline-none focus:ring-1 focus:ring-white"
+                    className="h-[48px] flex-1 rounded-[3px] border border-white bg-black px-4 text-[15px] text-white placeholder:text-neutral-400 focus:ring-1 focus:ring-white focus:outline-none"
                   />
                   <button
                     type="submit"
                     aria-label="Subscribe"
-                    className="h-[48px] w-[48px] shrink-0 rounded-[3px] bg-white text-black flex items-center justify-center hover:bg-neutral-200 transition-colors cursor-pointer"
+                    className="flex h-[48px] w-[48px] shrink-0 cursor-pointer items-center justify-center rounded-[3px] bg-white text-black transition-colors hover:bg-neutral-200"
                   >
                     <svg
                       width="10"
@@ -148,56 +148,57 @@ export function BackboneFooter() {
               </form>
             )}
 
-            <p className="text-[11px] text-white/70 mt-2.5">
+            <p className="mt-2.5 text-[11px] text-white/70">
               Information collected will be used as described in our{" "}
-              <Link href="/privacy" className="text-white underline font-medium hover:text-white/80">
+              <Link
+                href="/privacy"
+                className="font-medium text-white underline hover:text-white/80"
+              >
                 Privacy Policy.
               </Link>
             </p>
           </div>
 
           {/* Right Columns: 4-Column Navigation Grid Tailored to Imperial Tech & Templates */}
-          <div className="flex flex-wrap sm:flex-nowrap gap-8 sm:gap-10 lg:gap-14 xl:gap-16 ml-auto">
+          <div className="ml-auto flex flex-wrap gap-8 sm:flex-nowrap sm:gap-10 lg:gap-14 xl:gap-16">
             {/* Column 1: Products */}
             <div className="min-w-[110px]">
-              <div className="text-[13px] font-medium text-white mb-3">
-                Products
-              </div>
+              <div className="mb-3 text-[13px] font-medium text-white">Products</div>
               <ul className="space-y-1.5 text-[13px] text-white/70">
                 <li>
-                  <a href="#pricing" className="hover:text-white transition-colors block">
+                  <a href="#pricing" className="block transition-colors hover:text-white">
                     All Templates
                   </a>
                 </li>
                 <li>
-                  <a href="#pricing" className="hover:text-white transition-colors block">
+                  <a href="#pricing" className="block transition-colors hover:text-white">
                     Web SaaS Kit ($50)
                   </a>
                 </li>
                 <li>
-                  <a href="#pricing" className="hover:text-white transition-colors block">
+                  <a href="#pricing" className="block transition-colors hover:text-white">
                     Mobile App Kit ($50)
                   </a>
                 </li>
                 <li>
-                  <a href="#pricing" className="hover:text-white transition-colors block">
+                  <a href="#pricing" className="block transition-colors hover:text-white">
                     All-in-One Bundle ($80)
                   </a>
                 </li>
                 <li>
-                  <Link href="/claim" className="hover:text-white transition-colors block">
+                  <Link href="/claim" className="block transition-colors hover:text-white">
                     Claim License Key
                   </Link>
                 </li>
                 <li>
-                  <Link href="/dashboard" className="hover:text-white transition-colors block">
+                  <Link href="/dashboard" className="block transition-colors hover:text-white">
                     Live Demo App
                   </Link>
                 </li>
                 <li>
                   <Link
                     href="/dashboard/ai-studio"
-                    className="hover:text-white transition-colors block"
+                    className="block transition-colors hover:text-white"
                   >
                     AI Studio Copilot
                   </Link>
@@ -207,42 +208,40 @@ export function BackboneFooter() {
 
             {/* Column 2: Supported Stacks */}
             <div className="min-w-[130px]">
-              <div className="text-[13px] font-medium text-white mb-3">
-                Supported Stacks
-              </div>
+              <div className="mb-3 text-[13px] font-medium text-white">Supported Stacks</div>
               <ul className="space-y-1.5 text-[13px] text-white/70">
                 <li>
-                  <span className="hover:text-white transition-colors block cursor-default">
+                  <span className="block cursor-default transition-colors hover:text-white">
                     Next.js 16 (App Router)
                   </span>
                 </li>
                 <li>
-                  <span className="hover:text-white transition-colors block cursor-default">
+                  <span className="block cursor-default transition-colors hover:text-white">
                     Expo SDK 57 (Hermes)
                   </span>
                 </li>
                 <li>
-                  <span className="hover:text-white transition-colors block cursor-default">
+                  <span className="block cursor-default transition-colors hover:text-white">
                     React Native 0.86
                   </span>
                 </li>
                 <li>
-                  <span className="hover:text-white transition-colors block cursor-default">
+                  <span className="block cursor-default transition-colors hover:text-white">
                     Supabase SSR Auth
                   </span>
                 </li>
                 <li>
-                  <span className="hover:text-white transition-colors block cursor-default">
+                  <span className="block cursor-default transition-colors hover:text-white">
                     Drizzle ORM &amp; Postgres
                   </span>
                 </li>
                 <li>
-                  <span className="hover:text-white transition-colors block cursor-default">
+                  <span className="block cursor-default transition-colors hover:text-white">
                     Lemon Squeezy (Web MoR)
                   </span>
                 </li>
                 <li>
-                  <span className="hover:text-white transition-colors block cursor-default">
+                  <span className="block cursor-default transition-colors hover:text-white">
                     RevenueCat v10 (In-App)
                   </span>
                 </li>
@@ -251,30 +250,28 @@ export function BackboneFooter() {
 
             {/* Column 3: Documentation */}
             <div className="min-w-[140px]">
-              <div className="text-[13px] font-medium text-white mb-3">
-                Documentation
-              </div>
+              <div className="mb-3 text-[13px] font-medium text-white">Documentation</div>
               <ul className="space-y-1.5 text-[13px] text-white/70">
                 <li>
-                  <Link href="/docs" className="hover:text-white transition-colors block">
+                  <Link href="/docs" className="block transition-colors hover:text-white">
                     Documentation Hub
                   </Link>
                 </li>
                 <li>
                   <Link
                     href="/docs/getting-started"
-                    className="hover:text-white transition-colors block"
+                    className="block transition-colors hover:text-white"
                   >
                     Quick Start Guide
                   </Link>
                 </li>
                 <li>
-                  <Link href="/changelog" className="hover:text-white transition-colors block">
+                  <Link href="/changelog" className="block transition-colors hover:text-white">
                     Release Changelog
                   </Link>
                 </li>
                 <li>
-                  <Link href="/docs" className="hover:text-white transition-colors block">
+                  <Link href="/docs" className="block transition-colors hover:text-white">
                     Upstream Sync Guide
                   </Link>
                 </li>
@@ -283,7 +280,7 @@ export function BackboneFooter() {
                     href="https://github.com/som2077/saas-kit-website/discussions"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-white transition-colors block"
+                    className="block transition-colors hover:text-white"
                   >
                     GitHub Discussions
                   </a>
@@ -293,7 +290,7 @@ export function BackboneFooter() {
                     href="https://github.com/som2077/saas-kit-website/issues"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-white transition-colors block"
+                    className="block transition-colors hover:text-white"
                   >
                     GitHub Issue Tracker
                   </a>
@@ -301,7 +298,7 @@ export function BackboneFooter() {
                 <li>
                   <Link
                     href="/api/v1/license/verify"
-                    className="hover:text-white transition-colors block"
+                    className="block transition-colors hover:text-white"
                   >
                     License Verification API
                   </Link>
@@ -311,16 +308,14 @@ export function BackboneFooter() {
 
             {/* Column 4: Imperial Tech */}
             <div className="min-w-[140px]">
-              <div className="text-[13px] font-medium text-white mb-3">
-                Imperial Tech
-              </div>
+              <div className="mb-3 text-[13px] font-medium text-white">Imperial Tech</div>
               <ul className="space-y-1.5 text-[13px] text-white/70">
                 <li>
                   <a
                     href="https://imperialtech.me"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-white transition-colors block"
+                    className="block transition-colors hover:text-white"
                   >
                     About Imperial Tech
                   </a>
@@ -328,38 +323,38 @@ export function BackboneFooter() {
                 <li>
                   <a
                     href="mailto:support@imperialtech.me"
-                    className="hover:text-white transition-colors block"
+                    className="block transition-colors hover:text-white"
                   >
                     Contact &amp; Support
                   </a>
                 </li>
                 <li>
-                  <Link href="/claim" className="hover:text-white transition-colors block">
+                  <Link href="/claim" className="block transition-colors hover:text-white">
                     Order &amp; License Claim
                   </Link>
                 </li>
                 <li>
-                  <Link href="/blog" className="hover:text-white transition-colors block">
+                  <Link href="/blog" className="block transition-colors hover:text-white">
                     Engineering Blog
                   </Link>
                 </li>
                 <li>
-                  <Link href="/terms" className="hover:text-white transition-colors block">
+                  <Link href="/terms" className="block transition-colors hover:text-white">
                     Commercial License Agreement
                   </Link>
                 </li>
                 <li>
-                  <Link href="/privacy" className="hover:text-white transition-colors block">
+                  <Link href="/privacy" className="block transition-colors hover:text-white">
                     Privacy Policy
                   </Link>
                 </li>
                 <li>
-                  <Link href="/terms" className="hover:text-white transition-colors block">
+                  <Link href="/terms" className="block transition-colors hover:text-white">
                     Refund Policy
                   </Link>
                 </li>
                 <li>
-                  <Link href="/terms" className="hover:text-white transition-colors block">
+                  <Link href="/terms" className="block transition-colors hover:text-white">
                     Security &amp; Compliance
                   </Link>
                 </li>
@@ -368,7 +363,7 @@ export function BackboneFooter() {
                     href="https://github.com/som2077"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-white transition-colors block"
+                    className="block transition-colors hover:text-white"
                   >
                     GitHub Profile
                   </a>
@@ -378,13 +373,13 @@ export function BackboneFooter() {
                     href="https://x.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-white transition-colors block"
+                    className="block transition-colors hover:text-white"
                   >
                     Twitter / X
                   </a>
                 </li>
                 <li>
-                  <a href="/sitemap.xml" className="hover:text-white transition-colors block">
+                  <a href="/sitemap.xml" className="block transition-colors hover:text-white">
                     Sitemap
                   </a>
                 </li>
@@ -394,7 +389,7 @@ export function BackboneFooter() {
         </div>
 
         {/* 4. Country/Region Selector & Imperial Tech Social Icons */}
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 pb-8">
+        <div className="flex flex-col items-start justify-between gap-6 pb-8 sm:flex-row sm:items-center">
           {/* Country/Region Button (#1a1a1a rounded-[4px] 236px) */}
           <div className="inline-flex h-[40px] w-[236px] items-center justify-between rounded-[4px] bg-[#1a1a1a] px-4 text-[14px] text-white select-none">
             <span>United States (USD)</span>
@@ -422,7 +417,7 @@ export function BackboneFooter() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Discord"
-                  className="text-[#787878] hover:text-white transition-colors block"
+                  className="block text-[#787878] transition-colors hover:text-white"
                 >
                   <svg
                     width="22"
@@ -447,7 +442,7 @@ export function BackboneFooter() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="GitHub"
-                  className="text-[#787878] hover:text-white transition-colors block"
+                  className="block text-[#787878] transition-colors hover:text-white"
                 >
                   <svg
                     width="20"
@@ -468,7 +463,7 @@ export function BackboneFooter() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Instagram"
-                  className="text-[#787878] hover:text-white transition-colors block"
+                  className="block text-[#787878] transition-colors hover:text-white"
                 >
                   <svg
                     width="20"
@@ -489,7 +484,7 @@ export function BackboneFooter() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Reddit"
-                  className="text-[#787878] hover:text-white transition-colors block"
+                  className="block text-[#787878] transition-colors hover:text-white"
                 >
                   <svg
                     width="20"
@@ -510,7 +505,7 @@ export function BackboneFooter() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="X (Twitter)"
-                  className="text-[#787878] hover:text-white transition-colors block"
+                  className="block text-[#787878] transition-colors hover:text-white"
                 >
                   <svg
                     width="18"
@@ -535,7 +530,7 @@ export function BackboneFooter() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="YouTube"
-                  className="text-[#787878] hover:text-white transition-colors block"
+                  className="block text-[#787878] transition-colors hover:text-white"
                 >
                   <svg
                     width="22"
@@ -556,14 +551,22 @@ export function BackboneFooter() {
         </div>
 
         {/* 5. Detailed Backbone Numbered Legal Disclaimers & Privacy Choices */}
-        <div className="pt-6 border-t border-neutral-900">
-          <div className="flex flex-col xl:flex-row items-start justify-between gap-8 xl:gap-16">
-            <div className="space-y-2 text-[12px] leading-relaxed text-[#f2f2f299] max-w-4xl">
+        <div className="border-t border-neutral-900 pt-6">
+          <div className="flex flex-col items-start justify-between gap-8 xl:flex-row xl:gap-16">
+            <div className="max-w-4xl space-y-2 text-[12px] leading-relaxed text-[#f2f2f299]">
               <p>
-                1. Single one-time purchase grants perpetual, royalty-free commercial rights to build and deploy applications with full source code ownership. 2. Apple, iPhone, and App Store are registered trademarks of Apple Inc. Android and Google Play are trademarks of Google LLC. 3. Lemon Squeezy serves as the official Merchant of Record (MoR) handling sales tax, VAT compliance, and secure checkout processing. 4. Upstream updates and GitHub repository collaborator provisioning are subject to active license key verification. All other trademarks belong to their respective owners.
+                1. Single one-time purchase grants perpetual, royalty-free commercial rights to
+                build and deploy applications with full source code ownership. 2. Apple, iPhone, and
+                App Store are registered trademarks of Apple Inc. Android and Google Play are
+                trademarks of Google LLC. 3. Lemon Squeezy serves as the official Merchant of Record
+                (MoR) handling sales tax, VAT compliance, and secure checkout processing. 4.
+                Upstream updates and GitHub repository collaborator provisioning are subject to
+                active license key verification. All other trademarks belong to their respective
+                owners.
               </p>
-              <p className="text-[14px] text-white/60 pt-1">
-                &copy; {new Date().getFullYear()} {siteConfig.name} by Imperial Tech. Built with Next.js 16, Expo SDK 57 &amp; Supabase.
+              <p className="pt-1 text-[14px] text-white/60">
+                &copy; {new Date().getFullYear()} {siteConfig.name} by Imperial Tech. Built with
+                Next.js 16, Expo SDK 57 &amp; Supabase.
               </p>
             </div>
 
@@ -571,24 +574,24 @@ export function BackboneFooter() {
             <nav aria-label="Footer legal links" className="shrink-0">
               <ul className="flex flex-wrap items-center gap-x-5 gap-y-2 text-[14px] text-white/60">
                 <li>
-                  <Link href="/terms" className="hover:text-white transition-colors">
+                  <Link href="/terms" className="transition-colors hover:text-white">
                     Terms &amp; Conditions
                   </Link>
                 </li>
                 <li>
-                  <Link href="/privacy" className="hover:text-white transition-colors">
+                  <Link href="/privacy" className="transition-colors hover:text-white">
                     Privacy Policy
                   </Link>
                 </li>
                 <li>
-                  <Link href="/terms" className="hover:text-white transition-colors">
+                  <Link href="/terms" className="transition-colors hover:text-white">
                     License Agreement
                   </Link>
                 </li>
                 <li>
                   <Link
                     href="/privacy"
-                    className="inline-flex items-center gap-1.5 hover:text-white transition-colors"
+                    className="inline-flex items-center gap-1.5 transition-colors hover:text-white"
                   >
                     <span>Your Privacy Choices</span>
                     {/* Official California / US Opt-Out Toggle Glyph */}

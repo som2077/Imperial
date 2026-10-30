@@ -67,7 +67,10 @@ export function LicenseDeliveryEmail({
 
           {/* Action CTAs */}
           <Section style={ctaSection}>
-            <Button style={primaryButton} href="https://github.com/som2077/saas-kit-template/invitations">
+            <Button
+              style={primaryButton}
+              href="https://github.com/som2077/saas-kit-template/invitations"
+            >
               Accept GitHub Invitation 🐙
             </Button>
             <Button style={secondaryButton} href={claimUrl}>

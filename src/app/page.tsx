@@ -10,7 +10,7 @@ import { JsonLd } from "@/components/seo/json-ld";
 
 export default function HomePage() {
   return (
-    <div className="bg-black text-white selection:bg-white selection:text-black flex min-h-screen flex-col font-sans antialiased">
+    <div className="flex min-h-screen flex-col bg-black font-sans text-white antialiased selection:bg-white selection:text-black">
       {/* Schema.org Organization JSON-LD for Google Verification */}
       <JsonLd />
 

@@ -170,7 +170,7 @@ export function BentoGrid() {
             </div>
 
             {/* Visual AI Studio Preview */}
-            <div className="relative mt-2 overflow-hidden rounded-2xl border border-border/60 bg-neutral-950 aspect-[16/9]">
+            <div className="border-border/60 relative mt-2 aspect-[16/9] overflow-hidden rounded-2xl border bg-neutral-950">
               <Image
                 src="/images/ai-studio-copilot-preview.png"
                 alt="AI Studio Copilot Interface"
@@ -178,10 +178,11 @@ export function BentoGrid() {
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover object-top"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-transparent to-transparent pointer-events-none" />
-              <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between text-xs font-mono">
-                <span className="flex items-center gap-1.5 text-purple-400 font-semibold">
-                  <Sparkles className="size-3" /> Multi-Model: GPT-4o &bull; Claude 3.5 &bull; Gemini 1.5
+              <div className="from-background/95 pointer-events-none absolute inset-0 bg-gradient-to-t via-transparent to-transparent" />
+              <div className="absolute right-4 bottom-3 left-4 flex items-center justify-between font-mono text-xs">
+                <span className="flex items-center gap-1.5 font-semibold text-purple-400">
+                  <Sparkles className="size-3" /> Multi-Model: GPT-4o &bull; Claude 3.5 &bull;
+                  Gemini 1.5
                 </span>
                 <span className="text-muted-foreground tabular-nums">94 tokens/sec</span>
               </div>

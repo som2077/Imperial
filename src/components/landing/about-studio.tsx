@@ -6,27 +6,27 @@ import { ArrowUpRight } from "lucide-react";
 
 export function AboutStudio() {
   return (
-    <section id="about" className="py-24 md:py-32 bg-black text-white border-t border-[#1F1F1F]">
+    <section id="about" className="border-t border-[#1F1F1F] bg-black py-24 text-white md:py-32">
       <div className="container mx-auto max-w-[1200px] px-6 lg:px-12">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-12">
           {/* Left Column: Mission & Identity */}
-          <div className="lg:col-span-7 space-y-8">
+          <div className="space-y-8 lg:col-span-7">
             <div>
-              <div className="font-mono text-xs uppercase tracking-[0.08em] text-[#6B6B6B] mb-3">
+              <div className="mb-3 font-mono text-xs tracking-[0.08em] text-[#6B6B6B] uppercase">
                 Corporate Entity
               </div>
-              <h2 className="text-3xl sm:text-5xl font-medium tracking-tight text-white">
+              <h2 className="text-3xl font-medium tracking-tight text-white sm:text-5xl">
                 About Imperial Tech O.P.C.
               </h2>
             </div>
 
-            <div className="space-y-5 text-base text-[#A1A1A1] leading-[1.6] max-w-[640px]">
+            <div className="max-w-[640px] space-y-5 text-base leading-[1.6] text-[#A1A1A1]">
               <p>
-                <strong className="text-white font-medium">Imperial Tech O.P.C.</strong> is a legally
-                incorporated software and mobile game development entity registered in India.
-                Founded with a mission to build thoughtful, durable consumer software, our studio
-                develops high-performance Android utilities and engaging tactical games for users
-                worldwide.
+                <strong className="font-medium text-white">Imperial Tech O.P.C.</strong> is a
+                legally incorporated software and mobile game development entity registered in
+                India. Founded with a mission to build thoughtful, durable consumer software, our
+                studio develops high-performance Android utilities and engaging tactical games for
+                users worldwide.
               </p>
 
               <p>
@@ -38,33 +38,33 @@ export function AboutStudio() {
             </div>
 
             {/* 3 Core Values (Clean Monochrome Rows) */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-4 border-t border-[#1F1F1F]">
+            <div className="grid grid-cols-1 gap-6 border-t border-[#1F1F1F] pt-4 sm:grid-cols-3">
               <div>
-                <div className="font-mono text-[11px] uppercase tracking-[0.08em] text-[#6B6B6B] mb-1">
+                <div className="mb-1 font-mono text-[11px] tracking-[0.08em] text-[#6B6B6B] uppercase">
                   Value 01
                 </div>
-                <h4 className="text-sm font-medium text-white mb-1">Privacy by Default</h4>
-                <p className="text-xs text-[#A1A1A1] leading-[1.5]">
+                <h4 className="mb-1 text-sm font-medium text-white">Privacy by Default</h4>
+                <p className="text-xs leading-[1.5] text-[#A1A1A1]">
                   Zero personal data selling, no third-party telemetry, strictly local storage.
                 </p>
               </div>
 
               <div>
-                <div className="font-mono text-[11px] uppercase tracking-[0.08em] text-[#6B6B6B] mb-1">
+                <div className="mb-1 font-mono text-[11px] tracking-[0.08em] text-[#6B6B6B] uppercase">
                   Value 02
                 </div>
-                <h4 className="text-sm font-medium text-white mb-1">Native Performance</h4>
-                <p className="text-xs text-[#A1A1A1] leading-[1.5]">
+                <h4 className="mb-1 text-sm font-medium text-white">Native Performance</h4>
+                <p className="text-xs leading-[1.5] text-[#A1A1A1]">
                   Sub-16ms frame times, 60 FPS animations, and instantaneous touch responsiveness.
                 </p>
               </div>
 
               <div>
-                <div className="font-mono text-[11px] uppercase tracking-[0.08em] text-[#6B6B6B] mb-1">
+                <div className="mb-1 font-mono text-[11px] tracking-[0.08em] text-[#6B6B6B] uppercase">
                   Value 03
                 </div>
-                <h4 className="text-sm font-medium text-white mb-1">User-Centric Craft</h4>
-                <p className="text-xs text-[#A1A1A1] leading-[1.5]">
+                <h4 className="mb-1 text-sm font-medium text-white">User-Centric Craft</h4>
+                <p className="text-xs leading-[1.5] text-[#A1A1A1]">
                   Minimalist interfaces designed for clarity, daily utility, and mindful logic.
                 </p>
               </div>
@@ -73,25 +73,25 @@ export function AboutStudio() {
 
           {/* Right Column: Corporate Verification Card */}
           <div className="lg:col-span-5">
-            <div className="rounded-[6px] border border-[#1F1F1F] bg-[#0A0A0A] p-6 sm:p-8 space-y-6">
-              <div className="font-mono text-xs uppercase tracking-[0.08em] text-[#6B6B6B] border-b border-[#1F1F1F] pb-3">
+            <div className="space-y-6 rounded-[6px] border border-[#1F1F1F] bg-[#0A0A0A] p-6 sm:p-8">
+              <div className="border-b border-[#1F1F1F] pb-3 font-mono text-xs tracking-[0.08em] text-[#6B6B6B] uppercase">
                 Google Play Verified Entity
               </div>
 
-              <div className="space-y-4 text-xs font-mono">
+              <div className="space-y-4 font-mono text-xs">
                 <div className="flex justify-between border-b border-[#1F1F1F] pb-2.5">
                   <span className="text-[#6B6B6B]">LEGAL NAME</span>
-                  <span className="text-white font-medium">{siteConfig.company.legalName}</span>
+                  <span className="font-medium text-white">{siteConfig.company.legalName}</span>
                 </div>
 
                 <div className="flex justify-between border-b border-[#1F1F1F] pb-2.5">
                   <span className="text-[#6B6B6B]">STRUCTURE</span>
-                  <span className="text-white font-medium">{siteConfig.company.legalType}</span>
+                  <span className="font-medium text-white">{siteConfig.company.legalType}</span>
                 </div>
 
                 <div className="flex justify-between border-b border-[#1F1F1F] pb-2.5">
                   <span className="text-[#6B6B6B]">JURISDICTION</span>
-                  <span className="text-white font-medium">{siteConfig.company.country}</span>
+                  <span className="font-medium text-white">{siteConfig.company.country}</span>
                 </div>
 
                 <div className="flex justify-between border-b border-[#1F1F1F] pb-2.5">

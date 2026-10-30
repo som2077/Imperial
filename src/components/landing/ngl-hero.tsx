@@ -22,28 +22,28 @@ export function NglHero() {
   return (
     <section className="relative w-full overflow-hidden bg-black text-white selection:bg-[#ED1980]/30">
       {/* 1. NGL Top Ticker Tape (Exact black marquee with white text & white bullets from ngl.link) */}
-      <div className="relative w-full overflow-hidden border-b border-white/10 bg-black h-10 sm:h-11 flex items-center text-xs sm:text-sm font-bold tracking-wider text-white select-none">
+      <div className="relative flex h-10 w-full items-center overflow-hidden border-b border-white/10 bg-black text-xs font-bold tracking-wider text-white select-none sm:h-11 sm:text-sm">
         <div className="animate-ngl-marquee flex items-center gap-6">
           {[...NGL_TICKER_ITEMS, ...NGL_TICKER_ITEMS].map((item, idx) => (
-            <span key={idx} className="flex items-center gap-6 shrink-0">
-              <span className="text-white hover:text-[#FE831B] transition-colors">{item}</span>
-              <span className="text-white text-xs select-none">•</span>
+            <span key={idx} className="flex shrink-0 items-center gap-6">
+              <span className="text-white transition-colors hover:text-[#FE831B]">{item}</span>
+              <span className="text-xs text-white select-none">•</span>
             </span>
           ))}
         </div>
       </div>
 
       {/* 2. Main NGL Hero Card Container (Full bleed width with 16px edge margin, exact sunset gradient) */}
-      <div className="px-3 sm:px-4 md:px-5 pt-2 sm:pt-3">
-        <div className="relative mx-auto w-full max-w-[1440px] overflow-hidden rounded-[2rem] sm:rounded-[2.5rem] bg-gradient-to-b from-[#ED1980] via-[#F44158] to-[#FE831B] pt-4 sm:pt-6 pb-20 sm:pb-24 md:pb-28 shadow-2xl">
+      <div className="px-3 pt-2 sm:px-4 sm:pt-3 md:px-5">
+        <div className="relative mx-auto w-full max-w-[1440px] overflow-hidden rounded-[2rem] bg-gradient-to-b from-[#ED1980] via-[#F44158] to-[#FE831B] pt-4 pb-20 shadow-2xl sm:rounded-[2.5rem] sm:pt-6 sm:pb-24 md:pb-28">
           {/* Subtle Ambient Radial Gloss Light */}
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.22),_transparent_65%)]" />
 
           {/* Internal Header Navigation Bar (Inside the Card, exactly like NGL) */}
-          <div className="relative z-30 flex items-center justify-between px-6 sm:px-12 mb-4 sm:mb-8">
+          <div className="relative z-30 mb-4 flex items-center justify-between px-6 sm:mb-8 sm:px-12">
             {/* Exact NGL Bubble Logo */}
             <Link href="/" className="group flex items-center select-none">
-              <div className="relative w-20 sm:w-24 h-11 sm:h-12 transition-transform hover:scale-105">
+              <div className="relative h-11 w-20 transition-transform hover:scale-105 sm:h-12 sm:w-24">
                 <Image
                   src="/images/ngl/ngl-logo.png"
                   alt="NGL"
@@ -55,29 +55,17 @@ export function NglHero() {
             </Link>
 
             {/* In-Card Clean Navigation Links (About, Safety, Blog, Contact us) */}
-            <nav className="hidden md:flex items-center gap-8 lg:gap-10 text-sm sm:text-base font-bold text-white">
-              <a
-                href="#templates"
-                className="hover:text-white/80 transition-colors drop-shadow-sm"
-              >
+            <nav className="hidden items-center gap-8 text-sm font-bold text-white sm:text-base md:flex lg:gap-10">
+              <a href="#templates" className="drop-shadow-sm transition-colors hover:text-white/80">
                 About
               </a>
-              <a
-                href="#features"
-                className="hover:text-white/80 transition-colors drop-shadow-sm"
-              >
+              <a href="#features" className="drop-shadow-sm transition-colors hover:text-white/80">
                 Safety
               </a>
-              <a
-                href="#pricing"
-                className="hover:text-white/80 transition-colors drop-shadow-sm"
-              >
+              <a href="#pricing" className="drop-shadow-sm transition-colors hover:text-white/80">
                 Blog
               </a>
-              <a
-                href="#contact"
-                className="hover:text-white/80 transition-colors drop-shadow-sm"
-              >
+              <a href="#contact" className="drop-shadow-sm transition-colors hover:text-white/80">
                 Contact us
               </a>
             </nav>
@@ -86,21 +74,21 @@ export function NglHero() {
             <div className="flex items-center">
               <a
                 href="#templates"
-                className="flex items-center gap-3 rounded-full bg-black px-4 sm:px-5 py-2 text-white shadow-xl hover:scale-105 active:scale-95 transition-all"
+                className="flex items-center gap-3 rounded-full bg-black px-4 py-2 text-white shadow-xl transition-all hover:scale-105 active:scale-95 sm:px-5"
                 title="Available on iOS and Android"
               >
                 {/* Apple Icon */}
                 <svg
-                  className="w-4 h-4 fill-white"
+                  className="h-4 w-4 fill-white"
                   viewBox="0 0 32 32"
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path d="M 15.967 9.072 C 15.967 9.072 15.608 7.492 17.011 5.644 C 18.587 3.567 20.778 3.555 20.778 3.555 C 20.778 3.555 21.105 5.51 19.536 7.389 C 17.866 9.403 15.967 9.072 15.967 9.072 Z M 22.543 16.271 C 22.543 13.052 25.136 11.728 25.136 11.728 C 25.136 11.728 23.808 9.328 20.439 9.328 C 18.48 9.328 16.975 10.443 16.164 10.443 C 15.218 10.443 13.811 9.395 11.991 9.395 C 9.201 9.395 6.222 11.897 6.222 16.665 C 6.222 21.511 9.741 27.544 12.527 27.544 C 13.5 27.544 14.993 26.563 16.499 26.563 C 17.976 26.563 19.064 27.508 20.466 27.508 C 23.516 27.508 25.778 21.149 25.778 21.149 C 25.778 21.149 22.543 19.9 22.543 16.271 Z" />
                 </svg>
-                <span className="text-white/40 font-light text-xs">|</span>
+                <span className="text-xs font-light text-white/40">|</span>
                 {/* Android Icon */}
                 <svg
-                  className="w-4 h-4 fill-white"
+                  className="h-4 w-4 fill-white"
                   viewBox="0 0 32 32"
                   xmlns="http://www.w3.org/2000/svg"
                 >
@@ -111,9 +99,9 @@ export function NglHero() {
           </div>
 
           {/* Floating Left Elements: 3D Waving Hand, Guy Basketball Polaroid, and Boba Drink */}
-          <div className="pointer-events-none absolute left-4 lg:left-8 xl:left-14 top-1/2 -translate-y-1/2 hidden xl:block z-20">
+          <div className="pointer-events-none absolute top-1/2 left-4 z-20 hidden -translate-y-1/2 lg:left-8 xl:left-14 xl:block">
             {/* 3D Clay Hand Waving (Top Left, peeking over Polaroid) */}
-            <div className="relative -mb-16 -ml-4 w-40 lg:w-48 h-48 lg:h-56 z-30 animate-ngl-float-badge select-none">
+            <div className="animate-ngl-float-badge relative z-30 -mb-16 -ml-4 h-48 w-40 select-none lg:h-56 lg:w-48">
               <Image
                 src="/images/ngl/clay-hand.png"
                 alt="Waving Hand"
@@ -124,7 +112,7 @@ export function NglHero() {
             </div>
 
             {/* Left Tilted Polaroid Card (Guy in White Outfit with Basketball) */}
-            <div className="pointer-events-auto relative w-64 lg:w-72 xl:w-80 aspect-[1/1.18] -rotate-[8deg] hover:rotate-0 hover:scale-105 transition-all duration-300 shadow-2xl rounded-[38px] lg:rounded-[44px] overflow-hidden border-[3.5px] border-[#FE831B] bg-neutral-900 animate-ngl-float-left">
+            <div className="animate-ngl-float-left pointer-events-auto relative aspect-[1/1.18] w-64 -rotate-[8deg] overflow-hidden rounded-[38px] border-[3.5px] border-[#FE831B] bg-neutral-900 shadow-2xl transition-all duration-300 hover:scale-105 hover:rotate-0 lg:w-72 lg:rounded-[44px] xl:w-80">
               <Image
                 src="/images/ngl/guy-basketball.jpg"
                 alt="Real friends"
@@ -136,7 +124,7 @@ export function NglHero() {
             </div>
 
             {/* 3D Boba Drink Cup (Bottom Left, overlapping bottom arch) */}
-            <div className="relative -mt-20 ml-36 lg:ml-44 w-24 sm:w-28 lg:w-32 h-40 sm:h-44 lg:h-48 z-30 animate-ngl-float-badge select-none">
+            <div className="animate-ngl-float-badge relative z-30 -mt-20 ml-36 h-40 w-24 select-none sm:h-44 sm:w-28 lg:ml-44 lg:h-48 lg:w-32">
               <Image
                 src="/images/ngl/boba-drink.png"
                 alt="Boba Drink"
@@ -148,9 +136,9 @@ export function NglHero() {
           </div>
 
           {/* Floating Right Elements: Pink Fluffy Paw with Chain & Girl Polaroid */}
-          <div className="pointer-events-none absolute right-4 lg:right-8 xl:right-14 top-1/2 -translate-y-1/2 hidden xl:block z-20">
+          <div className="pointer-events-none absolute top-1/2 right-4 z-20 hidden -translate-y-1/2 lg:right-8 xl:right-14 xl:block">
             {/* 3D Pink Paw with Chain (Top Right, above Polaroid) */}
-            <div className="relative -mb-20 -mr-6 w-44 lg:w-52 h-48 lg:h-56 z-30 animate-ngl-float-badge select-none">
+            <div className="animate-ngl-float-badge relative z-30 -mr-6 -mb-20 h-48 w-44 select-none lg:h-56 lg:w-52">
               <Image
                 src="/images/ngl/pink-paw.png"
                 alt="Cat Paw with Chain"
@@ -161,7 +149,7 @@ export function NglHero() {
             </div>
 
             {/* Right Tilted Polaroid Card (Girl with Beanie sticking tongue out) */}
-            <div className="pointer-events-auto relative w-64 lg:w-72 xl:w-80 aspect-[1/1.18] rotate-[8deg] hover:rotate-0 hover:scale-105 transition-all duration-300 shadow-2xl rounded-[38px] lg:rounded-[44px] overflow-hidden border-[3.5px] border-[#FE831B] bg-neutral-900 animate-ngl-float-right">
+            <div className="animate-ngl-float-right pointer-events-auto relative aspect-[1/1.18] w-64 rotate-[8deg] overflow-hidden rounded-[38px] border-[3.5px] border-[#FE831B] bg-neutral-900 shadow-2xl transition-all duration-300 hover:scale-105 hover:rotate-0 lg:w-72 lg:rounded-[44px] xl:w-80">
               <Image
                 src="/images/ngl/girl-beanie.jpg"
                 alt="Real fun"
@@ -174,8 +162,8 @@ export function NglHero() {
           </div>
 
           {/* Center Content: Giant Chunky 3-Line Typography (Exact ES Rebond Grotesque Extrabold) */}
-          <div className="relative z-20 mx-auto max-w-3xl text-center px-4 my-2 sm:my-6">
-            <h1 className="font-ngl-headline text-[76px] sm:text-[100px] md:text-[124px] lg:text-[144px] xl:text-[152px] font-black text-white tracking-[-0.035em] leading-[0.84] lowercase select-none drop-shadow-sm mb-8 sm:mb-10">
+          <div className="relative z-20 mx-auto my-2 max-w-3xl px-4 text-center sm:my-6">
+            <h1 className="font-ngl-headline mb-8 text-[76px] leading-[0.84] font-black tracking-[-0.035em] text-white lowercase drop-shadow-sm select-none sm:mb-10 sm:text-[100px] md:text-[124px] lg:text-[144px] xl:text-[152px]">
               <div className="block">real</div>
               <div className="block">friends</div>
               <div className="block">real fun</div>
@@ -184,7 +172,7 @@ export function NglHero() {
             {/* NGL Signature White Pill Button with Vibrant Orange Text */}
             <div className="flex justify-center">
               <a href="#templates" className="group">
-                <div className="inline-flex items-center justify-center rounded-[104px] bg-white px-10 sm:px-12 py-5 sm:py-6 text-lg sm:text-xl font-bold tracking-tight text-[#FE831B] shadow-[0_12px_36px_rgba(0,0,0,0.22)] hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer">
+                <div className="inline-flex cursor-pointer items-center justify-center rounded-[104px] bg-white px-10 py-5 text-lg font-bold tracking-tight text-[#FE831B] shadow-[0_12px_36px_rgba(0,0,0,0.22)] transition-all duration-200 hover:scale-105 active:scale-95 sm:px-12 sm:py-6 sm:text-xl">
                   <span>Download the app!</span>
                 </div>
               </a>
@@ -192,15 +180,15 @@ export function NglHero() {
           </div>
 
           {/* 3. The Iconic Concave Smile Oval Arch Cutout (Reverse engineered from ngl.link: 2400px w, rounded 100% in bg-black) */}
-          <div className="pointer-events-none absolute -bottom-20 sm:-bottom-24 md:-bottom-28 left-1/2 -translate-x-1/2 w-[2400px] h-44 sm:h-52 bg-black rounded-[100%]" />
+          <div className="pointer-events-none absolute -bottom-20 left-1/2 h-44 w-[2400px] -translate-x-1/2 rounded-[100%] bg-black sm:-bottom-24 sm:h-52 md:-bottom-28" />
         </div>
       </div>
 
       {/* 4. Bottom Scroll Indicator (Centered on pure black background, exactly below the curved card) */}
-      <div className="relative z-30 pt-2 pb-8 text-center bg-black">
+      <div className="relative z-30 bg-black pt-2 pb-8 text-center">
         <a
           href="#templates"
-          className="inline-flex items-center gap-2 text-sm font-bold tracking-wide text-white hover:text-white/80 uppercase transition-colors animate-bounce select-none"
+          className="inline-flex animate-bounce items-center gap-2 text-sm font-bold tracking-wide text-white uppercase transition-colors select-none hover:text-white/80"
         >
           <span className="text-base font-black">↓</span>
           <span>Scroll for more</span>

@@ -3,7 +3,7 @@
 import * as React from "react";
 import Link from "next/link";
 import { siteConfig } from "@/config/site";
-import { Check, Copy, ArrowRight, ArrowUpRight } from "lucide-react";
+import { Check, Copy } from "lucide-react";
 
 export function VerificationContact() {
   const [copied, setCopied] = React.useState(false);
@@ -27,34 +27,34 @@ export function VerificationContact() {
   };
 
   return (
-    <section id="contact" className="py-24 md:py-32 bg-black text-white border-t border-[#1F1F1F]">
+    <section id="contact" className="border-t border-[#1F1F1F] bg-black py-24 text-white md:py-32">
       <div className="container mx-auto max-w-[1200px] px-6 lg:px-12">
-        <div className="max-w-[640px] mb-16">
-          <div className="font-mono text-xs uppercase tracking-[0.08em] text-[#6B6B6B] mb-3">
+        <div className="mb-16 max-w-[640px]">
+          <div className="mb-3 font-mono text-xs tracking-[0.08em] text-[#6B6B6B] uppercase">
             Google Play Organization Verification
           </div>
-          <h2 className="text-3xl sm:text-5xl font-medium tracking-tight text-white">
+          <h2 className="text-3xl font-medium tracking-tight text-white sm:text-5xl">
             Legal &amp; Developer Contact
           </h2>
-          <p className="mt-4 text-base text-[#A1A1A1] leading-[1.6]">
-            Official channels for Google Play Console verification, physical correspondence, developer
-            inquiries, and user data deletion requests.
+          <p className="mt-4 text-base leading-[1.6] text-[#A1A1A1]">
+            Official channels for Google Play Console verification, physical correspondence,
+            developer inquiries, and user data deletion requests.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-12">
           {/* Left Column: Official Information Blocks */}
-          <div className="lg:col-span-6 space-y-6">
+          <div className="space-y-6 lg:col-span-6">
             {/* Card 1: Registered Address */}
-            <div className="rounded-[6px] border border-[#1F1F1F] bg-[#0A0A0A] p-6 space-y-3">
+            <div className="space-y-3 rounded-[6px] border border-[#1F1F1F] bg-[#0A0A0A] p-6">
               <div className="flex items-center justify-between">
-                <span className="font-mono text-xs uppercase tracking-[0.08em] text-[#6B6B6B]">
+                <span className="font-mono text-xs tracking-[0.08em] text-[#6B6B6B] uppercase">
                   Physical Registered Address
                 </span>
                 <button
                   type="button"
                   onClick={handleCopy}
-                  className="font-mono text-[11px] text-[#A1A1A1] hover:text-white inline-flex items-center gap-1"
+                  className="inline-flex items-center gap-1 font-mono text-[11px] text-[#A1A1A1] hover:text-white"
                 >
                   {copied ? (
                     <>
@@ -70,22 +70,22 @@ export function VerificationContact() {
                 </button>
               </div>
 
-              <div className="text-sm font-mono text-white leading-relaxed pt-1">
+              <div className="pt-1 font-mono text-sm leading-relaxed text-white">
                 {siteConfig.company.registeredAddress}
               </div>
 
-              <p className="text-xs text-[#6B6B6B] pt-1">
+              <p className="pt-1 text-xs text-[#6B6B6B]">
                 Incorporated under the Companies Act, Ministry of Corporate Affairs, India.
               </p>
             </div>
 
             {/* Card 2: Official Communication & Support SLA */}
-            <div className="rounded-[6px] border border-[#1F1F1F] bg-[#0A0A0A] p-6 space-y-4">
-              <span className="font-mono text-xs uppercase tracking-[0.08em] text-[#6B6B6B] block">
+            <div className="space-y-4 rounded-[6px] border border-[#1F1F1F] bg-[#0A0A0A] p-6">
+              <span className="block font-mono text-xs tracking-[0.08em] text-[#6B6B6B] uppercase">
                 Official Support Channels
               </span>
 
-              <div className="space-y-3 text-xs font-mono">
+              <div className="space-y-3 font-mono text-xs">
                 <div className="flex justify-between border-b border-[#1F1F1F] pb-2">
                   <span className="text-[#6B6B6B]">General &amp; Technical Support:</span>
                   <a
@@ -108,24 +108,26 @@ export function VerificationContact() {
 
                 <div className="flex justify-between pt-1">
                   <span className="text-[#6B6B6B]">Guaranteed SLA:</span>
-                  <span className="text-white font-medium">{siteConfig.company.responseTimeSLA}</span>
+                  <span className="font-medium text-white">
+                    {siteConfig.company.responseTimeSLA}
+                  </span>
                 </div>
               </div>
             </div>
 
             {/* Card 3: Mandated User Data Deletion Request (Google Play Policy) */}
-            <div className="rounded-[6px] border border-[#2E2E2E] bg-[#0A0A0A] p-6 space-y-3">
-              <div className="font-mono text-xs uppercase tracking-[0.08em] text-[#6B6B6B]">
+            <div className="space-y-3 rounded-[6px] border border-[#2E2E2E] bg-[#0A0A0A] p-6">
+              <div className="font-mono text-xs tracking-[0.08em] text-[#6B6B6B] uppercase">
                 Mandated User Data Deletion (Google Play Compliance)
               </div>
 
-              <p className="text-xs text-[#A1A1A1] leading-[1.6]">
+              <p className="text-xs leading-[1.6] text-[#A1A1A1]">
                 Google Play policy mandates that users have the right to request permanent deletion
                 of all data associated with their usage. Imperial Tech O.P.C. provides a dedicated
                 deletion request portal processed within 48 hours.
               </p>
 
-              <div className="pt-2 flex items-center gap-4">
+              <div className="flex items-center gap-4 pt-2">
                 <Link
                   href="/data-deletion"
                   className="group inline-flex items-center gap-1.5 text-xs font-medium text-white hover:underline"
@@ -136,7 +138,7 @@ export function VerificationContact() {
 
                 <a
                   href={`mailto:${siteConfig.company.privacyEmail}?subject=User%20Data%20Deletion%20Request`}
-                  className="text-xs font-mono text-[#6B6B6B] hover:text-[#A1A1A1]"
+                  className="font-mono text-xs text-[#6B6B6B] hover:text-[#A1A1A1]"
                 >
                   Direct Email Request →
                 </a>
@@ -147,19 +149,19 @@ export function VerificationContact() {
           {/* Right Column: Direct Support Form (design.md input specs) */}
           <div className="lg:col-span-6">
             <div className="rounded-[6px] border border-[#1F1F1F] bg-[#0A0A0A] p-8">
-              <div className="font-mono text-xs uppercase tracking-[0.08em] text-[#6B6B6B] mb-2">
+              <div className="mb-2 font-mono text-xs tracking-[0.08em] text-[#6B6B6B] uppercase">
                 Engineering Desk
               </div>
-              <h3 className="text-xl font-medium text-white mb-6">
+              <h3 className="mb-6 text-xl font-medium text-white">
                 Send a message to developer support
               </h3>
 
               {formSubmitted ? (
-                <div className="py-8 text-center space-y-3">
-                  <div className="font-mono text-xs uppercase tracking-[0.08em] text-white">
+                <div className="space-y-3 py-8 text-center">
+                  <div className="font-mono text-xs tracking-[0.08em] text-white uppercase">
                     ✔ Message Received
                   </div>
-                  <p className="text-xs text-[#A1A1A1] max-w-sm mx-auto leading-relaxed">
+                  <p className="mx-auto max-w-sm text-xs leading-relaxed text-[#A1A1A1]">
                     Thank you for contacting Imperial Tech O.P.C. An engineer will respond to{" "}
                     <strong>{formData.email}</strong> within 24–48 business hours.
                   </p>
@@ -174,7 +176,7 @@ export function VerificationContact() {
                         message: "",
                       });
                     }}
-                    className="mt-4 text-xs font-mono text-white underline hover:opacity-80"
+                    className="mt-4 font-mono text-xs text-white underline hover:opacity-80"
                   >
                     Send another message
                   </button>
@@ -197,7 +199,7 @@ export function VerificationContact() {
                         border: "1px solid #2E2E2E",
                         borderRadius: "6px",
                       }}
-                      className="w-full px-3.5 py-2.5 text-xs text-white placeholder:text-[#6B6B6B] focus:outline-none focus:border-white transition-colors"
+                      className="w-full px-3.5 py-2.5 text-xs text-white transition-colors placeholder:text-[#6B6B6B] focus:border-white focus:outline-none"
                     />
                   </div>
 
@@ -217,7 +219,7 @@ export function VerificationContact() {
                         border: "1px solid #2E2E2E",
                         borderRadius: "6px",
                       }}
-                      className="w-full px-3.5 py-2.5 text-xs text-white placeholder:text-[#6B6B6B] focus:outline-none focus:border-white transition-colors"
+                      className="w-full px-3.5 py-2.5 text-xs text-white transition-colors placeholder:text-[#6B6B6B] focus:border-white focus:outline-none"
                     />
                   </div>
 
@@ -234,7 +236,7 @@ export function VerificationContact() {
                         border: "1px solid #2E2E2E",
                         borderRadius: "6px",
                       }}
-                      className="w-full px-3.5 py-2.5 text-xs text-white focus:outline-none focus:border-white transition-colors"
+                      className="w-full px-3.5 py-2.5 text-xs text-white transition-colors focus:border-white focus:outline-none"
                     >
                       <option value="Universal Calculator World Support">
                         Universal Calculator World Support
@@ -248,12 +250,8 @@ export function VerificationContact() {
                       <option value="Google Play Developer Verification Inquiry">
                         Google Play Developer Verification Inquiry
                       </option>
-                      <option value="User Data Deletion Request">
-                        User Data Deletion Request
-                      </option>
-                      <option value="General Corporate Inquiry">
-                        General Corporate Inquiry
-                      </option>
+                      <option value="User Data Deletion Request">User Data Deletion Request</option>
+                      <option value="General Corporate Inquiry">General Corporate Inquiry</option>
                     </select>
                   </div>
 
@@ -273,7 +271,7 @@ export function VerificationContact() {
                         border: "1px solid #2E2E2E",
                         borderRadius: "6px",
                       }}
-                      className="w-full px-3.5 py-2.5 text-xs text-white placeholder:text-[#6B6B6B] focus:outline-none focus:border-white transition-colors"
+                      className="w-full px-3.5 py-2.5 text-xs text-white transition-colors placeholder:text-[#6B6B6B] focus:border-white focus:outline-none"
                     />
                   </div>
 
@@ -284,7 +282,7 @@ export function VerificationContact() {
                       color: "#000000",
                       borderRadius: "6px",
                     }}
-                    className="w-full py-3 font-medium text-xs transition-opacity hover:opacity-85"
+                    className="w-full py-3 text-xs font-medium transition-opacity hover:opacity-85"
                   >
                     Submit Inquiry
                   </button>
