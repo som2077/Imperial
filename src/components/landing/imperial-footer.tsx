@@ -19,7 +19,10 @@ export function ImperialFooter() {
   };
 
   return (
-    <footer className="mt-28 w-full bg-black font-sans text-white antialiased selection:bg-white selection:text-black">
+    <footer
+      suppressHydrationWarning
+      className="mt-28 w-full bg-black font-sans text-white antialiased selection:bg-white selection:text-black"
+    >
       {/* Top Section: Full-bleed wide padding (Matches exact Backbone.com 24px-32px gutter layout) */}
       <div className="w-full px-6 pt-12 pb-16 sm:px-10 lg:px-14 xl:px-16">
         {/* 1. Help Support Top Bar (Edge-to-edge alignment) */}
@@ -517,7 +520,7 @@ export function ImperialFooter() {
               <ul className="flex flex-wrap items-center gap-x-5 gap-y-1.5 text-[11px] text-[#A1A1A1]">
                 <li>
                   <Link href="/terms" className="transition-colors hover:text-white">
-                    Terms &amp; Conditions
+                    Terms of Service
                   </Link>
                 </li>
                 <li>

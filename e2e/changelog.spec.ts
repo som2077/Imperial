@@ -11,20 +11,16 @@ test.describe("Changelog & Product Updates Suite (/changelog)", () => {
     await expect(page.getByText("Product Roadmap")).toBeVisible();
 
     // Verify key version tags are visible
-    await expect(page.getByText("v3.2.0")).toBeVisible();
-    await expect(page.getByText("v3.1.0")).toBeVisible();
-    await expect(page.getByText("v2.0.0")).toBeVisible();
+    await expect(page.getByText("v2.4.1")).toBeVisible();
+    await expect(page.getByText("v1.0.0-rc")).toBeVisible();
 
     // Verify release titles and badges
-    await expect(page.getByText("Resilience & Security Hardening")).toBeVisible();
-    await expect(page.getByText("AI Elements & Copilot Studio")).toBeVisible();
-    await expect(page.getByText("Full-Stack Core Architecture")).toBeVisible();
+    await expect(page.getByText("Universal Calculator World Update")).toBeVisible();
+    await expect(page.getByText("Chess Pocket Release Candidate")).toBeVisible();
 
     // Verify specific feature highlights
-    await expect(page.getByText(/Vercel AI SDK v7 integration with Tool Calling/i)).toBeVisible();
-    await expect(
-      page.getByText(/Next.js 16 App Router & React 19 Turbopack engine/i)
-    ).toBeVisible();
+    await expect(page.getByText(/Added 15 new scientific unit conversions/i)).toBeVisible();
+    await expect(page.getByText(/Stockfish engine optimization/i)).toBeVisible();
   });
 
   test("should navigate back to the home page from header link", async ({ page }) => {

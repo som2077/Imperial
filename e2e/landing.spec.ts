@@ -5,47 +5,37 @@ test.describe("Landing Page & Marketing Smoke Suite", () => {
     await page.goto("/");
 
     // Verify main page elements
-    await expect(page).toHaveTitle(/SaaS|Next\.js/i);
+    await expect(page).toHaveTitle(/Imperial Tech/i);
     const heroHeading = page.locator("h1");
     await expect(heroHeading).toBeVisible();
 
-    // Verify Login / Dashboard links
-    const signInButton = page.getByRole("link", { name: /sign in|login/i }).first();
-    await expect(signInButton).toBeVisible();
+    // Verify Google Play link
+    const playStoreLink = page
+      .getByRole("link", { name: /Google Play Profile|Google Play/i })
+      .first();
+    await expect(playStoreLink).toBeVisible();
   });
 
-  test("should display pricing plans on the homepage", async ({ page }) => {
+  test("should display apps portfolio section on the homepage", async ({ page }) => {
     await page.goto("/");
 
-    // Locate pricing section or pricing cards
-    const pricingSection = page
-      .locator("section")
-      .filter({ hasText: /pricing|plans|hobby|pro/i })
+    // Locate apps showcase section
+    const portfolioSection = page
+      .locator("#portfolio, section")
+      .filter({ hasText: /Universal Calculator|Chess Pocket/i })
       .first();
-    await expect(pricingSection).toBeVisible();
+    await expect(portfolioSection).toBeVisible();
   });
 
-  test("should toggle language via LanguageSwitcher and update UI text", async ({ page }) => {
+  test("should render footer with legal compliance and support links", async ({ page }) => {
     await page.goto("/");
 
-    // Find and click language switcher button in header
-    const langButton = page
-      .locator("header")
-      .getByRole("button")
-      .filter({ hasText: /🇺🇸|English/i })
-      .first();
-    await expect(langButton).toBeVisible();
-    await langButton.click();
-
-    // Click Spanish option from dropdown menu
-    const spanishOption = page.getByRole("menuitem").filter({ hasText: /Español/i });
-    await expect(spanishOption).toBeVisible();
-    await spanishOption.click();
-
-    // Verify html tag lang attribute updated to 'es'
-    await expect(page.locator("html")).toHaveAttribute("lang", "es");
-
-    // Verify translated hero text is rendered
-    await expect(page.locator("h1")).toContainText(/Lanza tu SaaS/i);
+    const footer = page.locator("footer");
+    await expect(footer).toBeVisible();
+    await expect(
+      footer.getByRole("link", { name: /Need help\?|Get Support/i }).first()
+    ).toBeVisible();
+    await expect(footer.getByRole("link", { name: /Terms of Service/i }).first()).toBeVisible();
+    await expect(footer.getByRole("link", { name: /Privacy Policy/i }).first()).toBeVisible();
   });
 });

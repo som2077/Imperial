@@ -61,7 +61,15 @@ export const useAppStore = create<AppState>()(
     }),
     {
       name: "saas-app-store",
-      storage: createJSONStorage(() => localStorage),
+      storage: createJSONStorage(() =>
+        typeof window !== "undefined"
+          ? window.localStorage
+          : {
+              getItem: () => null,
+              setItem: () => {},
+              removeItem: () => {},
+            }
+      ),
       partialize: (state) => ({
         sidebarCollapsed: state.sidebarCollapsed,
         activeWorkspaceId: state.activeWorkspaceId,

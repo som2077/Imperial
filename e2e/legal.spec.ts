@@ -6,7 +6,7 @@ test.describe("Legal & Compliance Pages Suite", () => {
 
     await expect(page.locator("h1")).toContainText("Terms of Service");
     await expect(page.getByRole("heading", { name: /1\. Agreement to Terms/i })).toBeVisible();
-    await expect(page.getByRole("heading", { name: /2\. Subscriptions & Billing/i })).toBeVisible();
+    await expect(page.getByRole("heading", { name: /2\. License Grant/i })).toBeVisible();
 
     const homeLink = page.getByRole("link", { name: /Home/i });
     await expect(homeLink).toBeVisible();
@@ -20,8 +20,8 @@ test.describe("Legal & Compliance Pages Suite", () => {
     await page.goto("/privacy");
 
     await expect(page.locator("h1")).toContainText("Privacy Policy");
-    await expect(page.getByRole("heading", { name: /1\. Information We Collect/i })).toBeVisible();
-    await expect(page.getByRole("heading", { name: /2\. How We Use Information/i })).toBeVisible();
+    await expect(page.getByRole("heading", { name: /1\. Introduction/i })).toBeVisible();
+    await expect(page.getByRole("heading", { name: /2\. Core Philosophy/i })).toBeVisible();
 
     const homeLink = page.getByRole("link", { name: /Home/i });
     await expect(homeLink).toBeVisible();
@@ -40,7 +40,10 @@ test.describe("Legal & Compliance Pages Suite", () => {
 
     // Go back and test privacy link
     await page.goto("/");
-    const privacyLink = page.locator("footer").getByRole("link", { name: /Privacy Policy/i });
+    const privacyLink = page
+      .locator("footer")
+      .getByRole("link", { name: /Privacy Policy/i })
+      .first();
     await expect(privacyLink).toBeVisible();
     await privacyLink.click();
     await expect(page).toHaveURL(/\/privacy/);

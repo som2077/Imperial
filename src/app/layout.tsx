@@ -8,6 +8,7 @@ import { CommandPalette } from "@/components/command-palette";
 import { I18nProvider } from "@/lib/i18n/context";
 import { getServerLocale } from "@/lib/i18n/server";
 import { siteConfig } from "@/config/site";
+import { JsonLd } from "@/components/seo/json-ld";
 
 const baseUrl = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
 
@@ -79,14 +80,16 @@ export default async function RootLayout({
     <html
       lang={locale}
       suppressHydrationWarning
+      data-scroll-behavior="smooth"
       className={`${fontSans.variable} ${fontMono.variable} h-full antialiased`}
     >
       <head>
         <script
           dangerouslySetInnerHTML={{
-            __html: `try{var o=Element.prototype.setAttribute;Element.prototype.setAttribute=function(n,v){if(typeof n==="string"&&(n==="bis_skin_checked"||n==="bis_register"||n.indexOf("__processed_")===0||n.indexOf("bis_")===0))return;return o.apply(this,arguments);};}catch(e){}`,
+            __html: `(function(){function c(n){if(!n||!n.attributes)return;var r=[];for(var i=0;i<n.attributes.length;i++){var a=n.attributes[i].name;if(a.indexOf("bis_")===0||a.indexOf("__processed_")===0||a==="cz-shortcut-listen")r.push(a);}for(var j=0;j<r.length;j++)n.removeAttribute(r[j]);}function t(){var w=document.createTreeWalker(document.documentElement,NodeFilter.SHOW_ELEMENT);c(document.documentElement);while(w.nextNode()){c(w.currentNode);}}try{t();var o=new MutationObserver(function(m){for(var i=0;i<m.length;i++){var item=m[i];if(item.type==="attributes"&&item.target){var a=item.attributeName;if(a&&(a.indexOf("bis_")===0||a.indexOf("__processed_")===0||a==="cz-shortcut-listen"))item.target.removeAttribute(a);}else if(item.type==="childList"){for(var j=0;j<item.addedNodes.length;j++){var node=item.addedNodes[j];if(node.nodeType===1){c(node);var cw=document.createTreeWalker(node,NodeFilter.SHOW_ELEMENT);while(cw.nextNode()){c(cw.currentNode);}}}}}});o.observe(document.documentElement,{attributes:true,subtree:true,childList:true});var sa=Element.prototype.setAttribute;Element.prototype.setAttribute=function(n,v){if(typeof n==="string"&&(n.indexOf("bis_")===0||n.indexOf("__processed_")===0||n==="cz-shortcut-listen"))return;return sa.apply(this,arguments);};}catch(e){}})();`,
           }}
         />
+        <JsonLd />
       </head>
       <body
         suppressHydrationWarning

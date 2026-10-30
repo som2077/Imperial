@@ -12,7 +12,7 @@ export default async function MediaPage() {
   } = await supabase.auth.getUser();
 
   if (!user) {
-    redirect("/login");
+    redirect("/login?redirectTo=/dashboard/media");
   }
 
   const { assets = [] } = await getUserMediaAssets();

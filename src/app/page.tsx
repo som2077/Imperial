@@ -6,7 +6,6 @@ import { StudioStandards } from "@/components/landing/studio-standards";
 import { AboutStudio } from "@/components/landing/about-studio";
 import { VerificationContact } from "@/components/landing/verification-contact";
 import { ImperialFooter } from "@/components/landing/imperial-footer";
-import { JsonLd } from "@/components/seo/json-ld";
 
 export default function HomePage() {
   return (
@@ -14,9 +13,6 @@ export default function HomePage() {
       suppressHydrationWarning
       className="flex min-h-screen flex-col bg-black font-sans text-white antialiased selection:bg-white selection:text-black"
     >
-      {/* Schema.org Organization JSON-LD for Google Verification */}
-      <JsonLd />
-
       {/* 1. Header (Fixed, transparent → bg/80 + blur on scroll) */}
       <ImperialNavbar />
 

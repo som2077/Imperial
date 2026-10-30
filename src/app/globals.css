@@ -239,3 +239,84 @@ html {
 .animate-ngl-float-badge {
   animation: ngl-float-badge 4.5s ease-in-out infinite;
 }
+
+/* ==========================================================================
+   HERO SECTION SMOOTH ANIMATIONS (x.ai style subtle motion)
+   ========================================================================== */
+@keyframes hero-slow-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes hero-slow-pulse {
+  0%,
+  100% {
+    opacity: 0.65;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.02);
+  }
+}
+
+@keyframes hero-star-twinkle {
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: scale(0.85);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.25);
+  }
+}
+
+@keyframes hero-radar-ping {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.8;
+  }
+  70%,
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+@keyframes hero-scanline {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+.animate-hero-spin {
+  animation: hero-slow-spin 28s linear infinite;
+}
+
+.animate-hero-pulse {
+  animation: hero-slow-pulse 8s ease-in-out infinite;
+}
+
+.animate-hero-star-1 {
+  animation: hero-star-twinkle 2.2s ease-in-out infinite;
+}
+
+.animate-hero-star-2 {
+  animation: hero-star-twinkle 3.1s ease-in-out infinite 0.6s;
+}
+
+.animate-hero-star-3 {
+  animation: hero-star-twinkle 2.7s ease-in-out infinite 1.2s;
+}
+
+.animate-hero-radar {
+  animation: hero-radar-ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}

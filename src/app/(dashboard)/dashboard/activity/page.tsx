@@ -17,7 +17,7 @@ export default async function ActivityPage() {
   } = await supabase.auth.getUser();
 
   if (!user || !user.email) {
-    redirect("/login");
+    redirect("/login?redirectTo=/dashboard/activity");
   }
 
   const org = await getOrCreateUserOrganization(user.id, user.email);

@@ -43,7 +43,7 @@ export default async function DashboardLayout({ children }: { children: React.Re
   } = await supabase.auth.getUser();
 
   if (!user) {
-    redirect("/login");
+    redirect("/login?redirectTo=/dashboard");
   }
 
   let userProfile = null;
