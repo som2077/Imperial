@@ -81,7 +81,17 @@ export default async function RootLayout({
       suppressHydrationWarning
       className={`${fontSans.variable} ${fontMono.variable} h-full antialiased`}
     >
-      <body className="bg-background text-foreground flex min-h-full flex-col">
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{var o=Element.prototype.setAttribute;Element.prototype.setAttribute=function(n,v){if(typeof n==="string"&&(n==="bis_skin_checked"||n==="bis_register"||n.indexOf("__processed_")===0||n.indexOf("bis_")===0))return;return o.apply(this,arguments);};}catch(e){}`,
+          }}
+        />
+      </head>
+      <body
+        suppressHydrationWarning
+        className="bg-background text-foreground flex min-h-full flex-col"
+      >
         <AnalyticsProvider>
           <I18nProvider initialLocale={locale}>
             <ThemeProvider
