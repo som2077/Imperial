@@ -3,247 +3,200 @@
 import * as React from "react";
 import Link from "next/link";
 import { siteConfig } from "@/config/site";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import {
-  Calculator,
-  Crown,
-  Gamepad2,
-  ExternalLink,
-  CheckCircle2,
-  ShieldCheck,
-  Zap,
-  Sparkles,
-  DownloadCloud,
-  ChevronRight,
-  Star,
-  Cpu,
-  Lock,
-} from "lucide-react";
+import { ArrowUpRight, Check } from "lucide-react";
 
 export function AppsPortfolio() {
   return (
-    <section id="portfolio" className="relative py-20 md:py-28 bg-muted/20">
-      {/* Background Subtle Mesh Blurs */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute top-1/2 left-0 -z-10 h-[500px] w-[500px] -translate-y-1/2 rounded-full bg-blue-500/10 blur-[130px]"
-      />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute top-1/2 right-0 -z-10 h-[500px] w-[500px] -translate-y-1/2 rounded-full bg-purple-500/10 blur-[130px]"
-      />
-
-      <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section id="portfolio" className="py-24 md:py-32 bg-black text-white border-t border-[#1F1F1F]">
+      <div className="container mx-auto max-w-[1200px] px-6 lg:px-12">
         {/* Section Header */}
-        <div className="mx-auto max-w-3xl text-center mb-16">
-          <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-background/80 px-4 py-1 text-xs font-semibold text-primary backdrop-blur-xs mb-3 shadow-2xs">
-            <Sparkles className="size-3.5" />
-            <span>Our Mobile Ecosystem</span>
+        <div className="max-w-[640px] mb-20">
+          <div className="font-mono text-xs uppercase tracking-[0.08em] text-[#6B6B6B] mb-3">
+            Mobile Ecosystem
           </div>
-          <h2 className="text-3xl font-extrabold tracking-tight sm:text-5xl text-foreground">
-            Featured Studio Portfolio
+          <h2 className="text-3xl sm:text-5xl font-medium tracking-tight text-white">
+            Our Apps
           </h2>
-          <p className="mt-4 text-base sm:text-lg text-muted-foreground leading-relaxed">
-            Engineered with native platform technologies, instant responsiveness, and zero privacy
-            trade-offs. Explore the apps developed and maintained by{" "}
-            <strong className="text-foreground">Imperial Tech O.P.C.</strong>
+          <p className="mt-4 text-base text-[#A1A1A1] leading-[1.6]">
+            Every utility and game from Imperial Tech O.P.C. is engineered with native platform code,
+            instant touch physics, and strict zero-telemetry offline storage.
           </p>
         </div>
 
-        {/* Portfolio Cards Grid */}
-        <div className="space-y-12">
-          {siteConfig.apps.map((app, index) => {
-            const isLive = app.badgeVariant === "live";
-            const isComingSoon = app.badgeVariant === "coming_soon";
-            const isTesting = app.badgeVariant === "testing";
+        {/* Stacked Feature Blocks (x.ai style: no heavy decoration, clean hairline dividers) */}
+        <div className="space-y-24">
+          {/* Block 1: Universal Calculator World */}
+          <div className="border-t border-[#1F1F1F] pt-12 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            <div className="lg:col-span-4">
+              <span className="font-mono text-xs uppercase tracking-[0.08em] text-[#6B6B6B]">
+                01 / Utilities &amp; Scientific Tools
+              </span>
+              <div className="mt-2 inline-flex items-center gap-1.5 font-mono text-[11px] uppercase text-[#A1A1A1] border border-[#2E2E2E] bg-[#0A0A0A] px-2 py-0.5 rounded-[4px]">
+                Available on Google Play
+              </div>
+            </div>
 
-            return (
-              <div
-                key={app.id}
-                className="group relative overflow-hidden rounded-3xl border border-border/70 bg-card p-6 sm:p-8 lg:p-10 shadow-lg transition-all duration-300 hover:border-primary/40 hover:shadow-xl"
-              >
-                {/* Accent Top Border Gradient */}
-                <div
-                  className={`absolute top-0 left-0 right-0 h-1.5 bg-linear-to-r ${app.gradient}`}
-                />
+            <div className="lg:col-span-8 space-y-6">
+              <h3 className="text-2xl sm:text-4xl font-medium tracking-tight text-white">
+                Universal Calculator World
+              </h3>
 
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                  {/* Left Column: Metadata & Features */}
-                  <div className="lg:col-span-7 space-y-5">
-                    {/* Badge & Category */}
-                    <div className="flex flex-wrap items-center gap-2.5">
-                      {isLive && (
-                        <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/10 px-3 py-1 text-xs font-bold text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
-                          <CheckCircle2 className="size-3.5" />
-                          <span>{app.badge}</span>
-                        </span>
-                      )}
-                      {isComingSoon && (
-                        <span className="inline-flex items-center gap-1.5 rounded-full bg-purple-500/10 px-3 py-1 text-xs font-bold text-purple-600 dark:text-purple-400 border border-purple-500/20">
-                          <Sparkles className="size-3.5" />
-                          <span>{app.badge}</span>
-                        </span>
-                      )}
-                      {isTesting && (
-                        <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-500/10 px-3 py-1 text-xs font-bold text-amber-600 dark:text-amber-400 border border-amber-500/20">
-                          <Zap className="size-3.5" />
-                          <span>{app.badge}</span>
-                        </span>
-                      )}
-                      <span className="text-xs font-medium text-muted-foreground bg-muted px-2.5 py-1 rounded-md">
-                        {app.category}
-                      </span>
-                      <span className="text-xs font-mono text-muted-foreground">{app.version}</span>
-                    </div>
+              <p className="text-[#A1A1A1] text-base leading-[1.6] max-w-[640px]">
+                A precision multi-purpose calculation suite crafted with Kotlin and Jetpack Compose.
+                Features 150+ unit conversions across 18 specialized categories, historical tape
+                logging, and trigonometric tools with 100% on-device data retention.
+              </p>
 
-                    {/* App Title & Tagline */}
-                    <div>
-                      <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground group-hover:text-primary transition-colors">
-                        {app.name}
-                      </h3>
-                      <p className="text-sm sm:text-base font-medium text-foreground/80 mt-1">
-                        {app.tagline}
-                      </p>
-                    </div>
-
-                    {/* Description */}
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      {app.description}
-                    </p>
-
-                    {/* Key Feature Bullets */}
-                    <div className="space-y-2 pt-1">
-                      <h4 className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
-                        Core Capabilities
-                      </h4>
-                      <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-foreground/90">
-                        {app.features.map((feat, fIdx) => (
-                          <li key={fIdx} className="flex items-start gap-2">
-                            <CheckCircle2 className="size-4 shrink-0 text-primary mt-0.5" />
-                            <span>{feat}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    {/* Privacy & Tech Tags */}
-                    <div className="pt-2 flex flex-wrap gap-2 items-center">
-                      <span className="text-[11px] font-semibold text-muted-foreground flex items-center gap-1">
-                        <Lock className="size-3" /> Privacy:
-                      </span>
-                      {app.privacyHighlights.map((priv, pIdx) => (
-                        <span
-                          key={pIdx}
-                          className="rounded-md bg-muted/60 border border-border/40 px-2 py-0.5 text-[11px] font-medium text-muted-foreground"
-                        >
-                          {priv}
-                        </span>
-                      ))}
-                    </div>
-
-                    {/* Action Button */}
-                    <div className="pt-3 flex flex-wrap items-center gap-3">
-                      {app.playStoreUrl && (
-                        <Button
-                          asChild
-                          className="rounded-full bg-foreground text-background hover:bg-foreground/90 font-medium px-5 text-xs shadow-sm"
-                        >
-                          <a
-                            href={app.playStoreUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex items-center gap-2"
-                          >
-                            <span>View on Google Play</span>
-                            <ExternalLink className="size-3.5" />
-                          </a>
-                        </Button>
-                      )}
-                      <Button
-                        asChild
-                        variant="outline"
-                        className="rounded-full text-xs font-medium"
-                      >
-                        <Link href="#contact" className="flex items-center gap-1.5">
-                          <span>Developer Support</span>
-                          <ChevronRight className="size-3" />
-                        </Link>
-                      </Button>
-                    </div>
-                  </div>
-
-                  {/* Right Column: Visual Tech Showcase Card */}
-                  <div className="lg:col-span-5">
-                    <div className="relative rounded-2xl border border-border/80 bg-background/90 p-6 shadow-md backdrop-blur-sm">
-                      <div className="flex items-center justify-between pb-4 border-b border-border/50">
-                        <div className="flex items-center gap-3">
-                          <div
-                            className={`flex size-12 items-center justify-center rounded-2xl ${app.iconBg} shadow-xs`}
-                          >
-                            {app.id === "universal-calculator" && (
-                              <Calculator className="size-6 text-blue-600 dark:text-blue-400" />
-                            )}
-                            {app.id === "chess-pocket" && (
-                              <Crown className="size-6 text-purple-600 dark:text-purple-400" />
-                            )}
-                            {app.id === "sudoku-puzzle" && (
-                              <Gamepad2 className="size-6 text-amber-600 dark:text-amber-400" />
-                            )}
-                          </div>
-                          <div>
-                            <div className="text-sm font-bold text-foreground">{app.name}</div>
-                            <div className="text-xs text-muted-foreground flex items-center gap-1.5">
-                              <span className="flex size-1.5 rounded-full bg-emerald-500" />
-                              <span>{app.downloads}</span>
-                              {app.rating && (
-                                <>
-                                  <span>•</span>
-                                  <span className="flex items-center text-amber-500 font-semibold">
-                                    <Star className="size-3 fill-amber-500 mr-0.5" /> {app.rating}
-                                  </span>
-                                </>
-                              )}
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Technical Architecture Specs */}
-                      <div className="mt-4 space-y-3">
-                        <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wider flex items-center gap-1.5">
-                          <Cpu className="size-3.5" />
-                          <span>Engineering Stack</span>
-                        </div>
-                        <div className="flex flex-wrap gap-1.5">
-                          {app.techStack.map((tech, tIdx) => (
-                            <span
-                              key={tIdx}
-                              className="rounded-lg bg-accent/60 border border-border/60 px-2.5 py-1 text-xs font-mono font-medium text-foreground"
-                            >
-                              {tech}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-
-                      {/* Google Play Policy Check */}
-                      <div className="mt-5 rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-3 text-xs text-emerald-800 dark:text-emerald-300">
-                        <div className="flex items-center gap-1.5 font-bold">
-                          <ShieldCheck className="size-4" />
-                          <span>Google Play Verified Data Safety</span>
-                        </div>
-                        <p className="mt-1 text-[11px] text-muted-foreground leading-normal">
-                          Strictly adheres to Google Play developer standards. Zero background location,
-                          no contact book access, and offline data isolation.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-mono text-[#A1A1A1] pt-2">
+                <div className="flex items-center gap-2">
+                  <span className="text-white">✔</span> 150+ unit &amp; currency conversions
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-white">✔</span> 100% offline formula recall
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-white">✔</span> Zero background network requests
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-white">✔</span> Sub-16ms touch frame rates
                 </div>
               </div>
-            );
-          })}
+
+              <div className="pt-2 flex items-center gap-6">
+                <a
+                  href="https://play.google.com/store/apps/details?id=com.imperialtech.universalcalculator"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex items-center gap-1.5 text-sm font-medium text-white hover:opacity-85 transition-opacity"
+                >
+                  <span>Get on Google Play</span>
+                  <ArrowUpRight className="size-4" />
+                </a>
+
+                <Link
+                  href="#contact"
+                  className="text-xs font-mono text-[#6B6B6B] hover:text-[#A1A1A1] transition-colors"
+                >
+                  Developer Notes →
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          {/* Block 2: Chess Pocket */}
+          <div className="border-t border-[#1F1F1F] pt-12 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            <div className="lg:col-span-4">
+              <span className="font-mono text-xs uppercase tracking-[0.08em] text-[#6B6B6B]">
+                02 / Board &amp; Strategy
+              </span>
+              <div className="mt-2 inline-flex items-center gap-1.5 font-mono text-[11px] uppercase text-[#A1A1A1] border border-[#2E2E2E] bg-[#0A0A0A] px-2 py-0.5 rounded-[4px]">
+                New Release / Coming Soon
+              </div>
+            </div>
+
+            <div className="lg:col-span-8 space-y-6">
+              <h3 className="text-2xl sm:text-4xl font-medium tracking-tight text-white">
+                Chess Pocket
+              </h3>
+
+              <p className="text-[#A1A1A1] text-base leading-[1.6] max-w-[640px]">
+                Compact tactical chess puzzle trainer engineered with an embedded Stockfish C++ WASM
+                engine. Over 10,000 curated puzzle challenges, adaptive offline bot sparring, and
+                uncluttered board aesthetics with zero interstitial video advertisements.
+              </p>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-mono text-[#A1A1A1] pt-2">
+                <div className="flex items-center gap-2">
+                  <span className="text-white">✔</span> 10,000+ master-curated tactical puzzles
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-white">✔</span> Adaptive 800–2400 ELO offline AI bot
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-white">✔</span> 100% offline gameplay progress
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-white">✔</span> Zero telemetry tracking identifiers
+                </div>
+              </div>
+
+              <div className="pt-2 flex items-center gap-6">
+                <Link
+                  href="#contact"
+                  className="group inline-flex items-center gap-1.5 text-sm font-medium text-white hover:opacity-85 transition-opacity"
+                >
+                  <span>Request Early Access</span>
+                  <span className="transition-transform group-hover:translate-x-1">→</span>
+                </Link>
+
+                <a
+                  href={siteConfig.company.googlePlayStoreUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs font-mono text-[#6B6B6B] hover:text-[#A1A1A1] transition-colors inline-flex items-center gap-1"
+                >
+                  <span>Play Store Developer Hub</span>
+                  <ArrowUpRight className="size-3.5" />
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Block 3: Sudoku - Daily Puzzle Game */}
+          <div className="border-t border-[#1F1F1F] pt-12 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            <div className="lg:col-span-4">
+              <span className="font-mono text-xs uppercase tracking-[0.08em] text-[#6B6B6B]">
+                03 / Brain &amp; Logic
+              </span>
+              <div className="mt-2 inline-flex items-center gap-1.5 font-mono text-[11px] uppercase text-[#A1A1A1] border border-[#2E2E2E] bg-[#0A0A0A] px-2 py-0.5 rounded-[4px]">
+                In Testing / Closed Beta
+              </div>
+            </div>
+
+            <div className="lg:col-span-8 space-y-6">
+              <h3 className="text-2xl sm:text-4xl font-medium tracking-tight text-white">
+                Sudoku - Daily Puzzle Game
+              </h3>
+
+              <p className="text-[#A1A1A1] text-base leading-[1.6] max-w-[640px]">
+                Classic numerical deduction puzzles crafted for mindful concentration. Includes 4
+                balanced difficulty tiers (Easy to Master), automated pencil notes, duplicate error
+                detection, and battery-efficient dark interface rendering.
+              </p>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-mono text-[#A1A1A1] pt-2">
+                <div className="flex items-center gap-2">
+                  <span className="text-white">✔</span> 4 balanced algorithmic difficulty levels
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-white">✔</span> Intelligent pencil notes &amp; conflict checks
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-white">✔</span> Offline daily trophy streak calendar
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-white">✔</span> 60 FPS Skia hardware-accelerated grid
+                </div>
+              </div>
+
+              <div className="pt-2 flex items-center gap-6">
+                <Link
+                  href="#contact"
+                  className="group inline-flex items-center gap-1.5 text-sm font-medium text-white hover:opacity-85 transition-opacity"
+                >
+                  <span>Join Playtest Group</span>
+                  <span className="transition-transform group-hover:translate-x-1">→</span>
+                </Link>
+
+                <Link
+                  href="/privacy"
+                  className="text-xs font-mono text-[#6B6B6B] hover:text-[#A1A1A1] transition-colors"
+                >
+                  Data Safety Details →
+                </Link>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

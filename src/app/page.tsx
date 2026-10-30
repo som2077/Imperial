@@ -1,53 +1,41 @@
 import { ImperialNavbar } from "@/components/landing/imperial-navbar";
 import { ImperialHero } from "@/components/landing/imperial-hero";
-import { StudioMetrics } from "@/components/landing/studio-metrics";
+import { StudioReleases } from "@/components/landing/studio-releases";
 import { AppsPortfolio } from "@/components/landing/apps-portfolio";
 import { StudioStandards } from "@/components/landing/studio-standards";
-import { StudioReleases } from "@/components/landing/studio-releases";
 import { AboutStudio } from "@/components/landing/about-studio";
 import { VerificationContact } from "@/components/landing/verification-contact";
-import { TestimonialsSection } from "@/components/landing/testimonials";
-import { FAQSection } from "@/components/landing/faq";
 import { ImperialFooter } from "@/components/landing/imperial-footer";
 import { JsonLd } from "@/components/seo/json-ld";
 
 export default function HomePage() {
   return (
-    <div className="bg-background text-foreground selection:bg-foreground selection:text-background flex min-h-screen flex-col">
-      {/* Schema.org Organization Rich Snippets for Google Verification */}
+    <div className="bg-black text-white selection:bg-white selection:text-black flex min-h-screen flex-col font-sans antialiased">
+      {/* Schema.org Organization JSON-LD for Google Verification */}
       <JsonLd />
 
-      {/* Minimalist Fixed Header */}
+      {/* 1. Header (Fixed, transparent → bg/80 + blur on scroll) */}
       <ImperialNavbar />
 
-      {/* x.ai-Style Hero with Signature Modality Bento Grid */}
+      {/* 2. Hero (Huge headline, muted subtext, primary CTA + arrow link) */}
       <ImperialHero />
 
-      {/* Hardware & Engineering Metric Banner (Colossus Inspired) */}
-      <StudioMetrics />
-
-      {/* Featured Apps Portfolio Catalog */}
-      <AppsPortfolio />
-
-      {/* High-Contrast Technical Standards & Security Benchmarks */}
-      <StudioStandards />
-
-      {/* Latest Studio News & Releases Feed */}
+      {/* 3. News / Updates list (Mono uppercase date + title + arrow, hairline borders) */}
       <StudioReleases />
 
-      {/* About Us (Corporate Identity, Legal Incorporation India, Core Values) */}
+      {/* 4. Feature blocks (Stacked clean app showcases, no heavy decoration) */}
+      <AppsPortfolio />
+
+      {/* 5. Engineering Standards (4 specifications, APK manifest security audit) */}
+      <StudioStandards />
+
+      {/* 6. About Us (Corporate entity, legal incorporation India, 3 core values) */}
       <AboutStudio />
 
-      {/* User Reviews & Google Play Feedback */}
-      <TestimonialsSection />
-
-      {/* Frequently Asked Questions */}
-      <FAQSection />
-
-      {/* Verification Contact, Physical Address & Google Play Data Deletion Instructions */}
+      {/* 7. Legal & Contact (Physical registered address, support email, data deletion) */}
       <VerificationContact />
 
-      {/* Structured Minimalist Footer */}
+      {/* 8. Footer (Multi-column links, hairline border, copyright in text-subtle) */}
       <ImperialFooter />
     </div>
   );

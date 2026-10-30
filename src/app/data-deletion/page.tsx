@@ -4,19 +4,7 @@ import * as React from "react";
 import Link from "next/link";
 import { siteConfig } from "@/config/site";
 import { ThemeToggle } from "@/components/theme-toggle";
-import { Button } from "@/components/ui/button";
-import {
-  Trash2,
-  ShieldAlert,
-  CheckCircle2,
-  Clock,
-  Mail,
-  ArrowLeft,
-  Smartphone,
-  AlertCircle,
-  Send,
-  Check,
-} from "lucide-react";
+import { ArrowLeft, Check } from "lucide-react";
 
 export default function DataDeletionPage() {
   const [submitted, setSubmitted] = React.useState(false);
@@ -34,81 +22,78 @@ export default function DataDeletionPage() {
   };
 
   return (
-    <div className="bg-background text-foreground min-h-screen">
-      {/* Top Header */}
-      <header className="border-b border-border/60 py-4 bg-background/80 backdrop-blur-md sticky top-0 z-40">
-        <div className="container mx-auto flex items-center justify-between px-4 sm:px-8 max-w-5xl">
-          <Link href="/" className="inline-flex items-center gap-2.5 text-base font-bold">
-            <div className="flex size-8 items-center justify-center rounded-xl bg-linear-to-br from-blue-600 to-indigo-600 text-white">
-              <Smartphone className="size-4" />
-            </div>
-            <span>{siteConfig.name}</span>
+    <div className="bg-black text-white min-h-screen font-sans antialiased">
+      {/* Header */}
+      <header className="border-b border-[#1F1F1F] py-4 bg-black/85 backdrop-blur-md sticky top-0 z-40">
+        <div className="container mx-auto flex items-center justify-between px-6 max-w-[1200px]">
+          <Link href="/" className="inline-flex items-center gap-2 text-sm font-medium">
+            <span>Imperial Tech</span>
+            <span className="font-mono text-[10px] uppercase text-[#6B6B6B] border border-[#2E2E2E] px-1 py-0.2 rounded-[3px]">
+              O.P.C.
+            </span>
           </Link>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-4">
             <ThemeToggle />
-            <Button asChild variant="ghost" size="sm" className="text-xs">
-              <Link href="/" className="flex items-center gap-1.5">
-                <ArrowLeft className="size-3.5" />
-                <span>Back to Home</span>
-              </Link>
-            </Button>
+            <Link
+              href="/"
+              className="text-[#A1A1A1] hover:text-white inline-flex items-center gap-1.5 text-xs font-medium transition-colors"
+            >
+              <ArrowLeft className="size-3.5" /> Back to Home
+            </Link>
           </div>
         </div>
       </header>
 
       {/* Main Container */}
-      <main className="container mx-auto max-w-4xl px-4 py-12 sm:px-8">
+      <main className="container mx-auto max-w-[800px] px-6 py-16 sm:py-24">
         {/* Page Header */}
-        <div className="mb-10 text-center sm:text-left">
-          <div className="inline-flex items-center gap-2 rounded-full border border-rose-500/20 bg-rose-500/10 px-3.5 py-1 text-xs font-semibold text-rose-600 dark:text-rose-400 mb-3">
-            <Trash2 className="size-3.5" />
-            <span>Google Play Data Safety &amp; Deletion Compliance</span>
+        <div className="mb-12">
+          <div className="font-mono text-xs uppercase tracking-[0.08em] text-[#6B6B6B] mb-3">
+            Google Play Data Safety &amp; Deletion Compliance
           </div>
-          <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-foreground">
-            User Data &amp; Account Deletion Request
+          <h1 className="text-3xl sm:text-5xl font-medium tracking-tight text-white">
+            User Data Deletion Request
           </h1>
-          <p className="mt-3 text-sm sm:text-base text-muted-foreground leading-relaxed max-w-2xl">
+          <p className="mt-4 text-base text-[#A1A1A1] leading-[1.6]">
             In accordance with Google Play Developer Policy,{" "}
-            <strong className="text-foreground">{siteConfig.company.legalName}</strong> provides this
-            official data deletion mechanism allowing users of any of our mobile applications to
-            request the permanent deletion of their account, analytics records, or associated data.
+            <strong className="text-white font-medium">{siteConfig.company.legalName}</strong> provides
+            this official portal allowing users of any of our mobile applications to request the
+            permanent deletion of their account records, analytics logs, or customer support data.
           </p>
         </div>
 
-        {/* Policy Explanation Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
-          <div className="rounded-2xl border border-border/80 bg-card p-5 shadow-2xs">
-            <div className="flex size-9 items-center justify-center rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 mb-3">
-              <Clock className="size-5" />
+        {/* 3 Columns Policy Info */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12">
+          <div className="rounded-[6px] border border-[#1F1F1F] bg-[#0A0A0A] p-5">
+            <div className="font-mono text-[11px] uppercase tracking-[0.08em] text-[#6B6B6B] mb-2">
+              SLA TIMELINE
             </div>
-            <h3 className="text-sm font-bold text-foreground">SLA Timeline</h3>
-            <p className="mt-1 text-xs text-muted-foreground leading-relaxed">
-              Deletion requests are acknowledged and permanently purged within 24 to 48 business
-              hours.
+            <div className="text-sm font-medium text-white mb-1">24–48 Business Hours</div>
+            <p className="text-xs text-[#A1A1A1] leading-[1.5]">
+              Requests are logged and permanently purged within 48 business hours.
             </p>
           </div>
 
-          <div className="rounded-2xl border border-border/80 bg-card p-5 shadow-2xs">
-            <div className="flex size-9 items-center justify-center rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 mb-3">
-              <CheckCircle2 className="size-5" />
+          <div className="rounded-[6px] border border-[#1F1F1F] bg-[#0A0A0A] p-5">
+            <div className="font-mono text-[11px] uppercase tracking-[0.08em] text-[#6B6B6B] mb-2">
+              DELETION SCOPE
             </div>
-            <h3 className="text-sm font-bold text-foreground">Permanent Purge</h3>
-            <p className="mt-1 text-xs text-muted-foreground leading-relaxed">
-              All linked cloud identifiers, backups, and customer support logs are irreversibly
-              wiped from storage.
+            <div className="text-sm font-medium text-white mb-1">Irreversible Purge</div>
+            <p className="text-xs text-[#A1A1A1] leading-[1.5]">
+              Associated cloud logs, identifiers, and tickets are permanently erased.
             </p>
           </div>
 
-          <div className="rounded-2xl border border-border/80 bg-card p-5 shadow-2xs">
-            <div className="flex size-9 items-center justify-center rounded-xl bg-purple-500/10 text-purple-600 dark:text-purple-400 mb-3">
-              <Mail className="size-5" />
+          <div className="rounded-[6px] border border-[#1F1F1F] bg-[#0A0A0A] p-5">
+            <div className="font-mono text-[11px] uppercase tracking-[0.08em] text-[#6B6B6B] mb-2">
+              PRIVACY DESK
             </div>
-            <h3 className="text-sm font-bold text-foreground">Direct Email Route</h3>
-            <p className="mt-1 text-xs text-muted-foreground leading-relaxed">
-              You can also email our Privacy Officer directly at{" "}
+            <div className="text-sm font-medium text-white mb-1">Direct Support</div>
+            <p className="text-xs text-[#A1A1A1] leading-[1.5]">
+              Email our Privacy Officer directly at{" "}
               <a
                 href={`mailto:${siteConfig.company.privacyEmail}`}
-                className="text-primary hover:underline font-semibold"
+                className="text-white underline"
               >
                 {siteConfig.company.privacyEmail}
               </a>
@@ -117,51 +102,50 @@ export default function DataDeletionPage() {
           </div>
         </div>
 
-        {/* Interactive Deletion Form */}
-        <div className="rounded-3xl border border-border/80 bg-card p-6 sm:p-10 shadow-lg">
-          <h2 className="text-xl font-bold text-foreground mb-1">
-            Submit a Data Deletion Request
+        {/* Form Box */}
+        <div className="rounded-[6px] border border-[#1F1F1F] bg-[#0A0A0A] p-8 sm:p-10">
+          <div className="font-mono text-xs uppercase tracking-[0.08em] text-[#6B6B6B] mb-2">
+            Formal Deletion Form
+          </div>
+          <h2 className="text-xl font-medium text-white mb-6">
+            Submit an account or data deletion request
           </h2>
-          <p className="text-xs text-muted-foreground mb-6">
-            Please specify your details so our engineering team can identify and remove your
-            records.
-          </p>
 
           {submitted ? (
-            <div className="rounded-2xl border border-emerald-500/30 bg-emerald-500/10 p-8 text-center animate-in fade-in duration-300">
-              <div className="mx-auto flex size-14 items-center justify-center rounded-full bg-emerald-500 text-white mb-4">
-                <Check className="size-7" />
+            <div className="py-8 text-center space-y-4">
+              <div className="font-mono text-xs uppercase tracking-[0.08em] text-white">
+                ✔ Deletion Request Successfully Logged
               </div>
-              <h3 className="text-lg font-bold text-foreground">
-                Deletion Request Successfully Logged
-              </h3>
-              <p className="mt-2 text-xs sm:text-sm text-muted-foreground max-w-md mx-auto leading-relaxed">
+              <p className="text-sm text-[#A1A1A1] max-w-md mx-auto leading-relaxed">
                 Your request to purge records for <strong>{formData.appName}</strong> linked to{" "}
-                <strong>{formData.email}</strong> has been assigned Ticket #DEL-
-                {Math.floor(100000 + Math.random() * 900000)}. Our Privacy Officer will confirm the
+                <strong>{formData.email}</strong> has been logged (Ticket #DEL-
+                {Math.floor(100000 + Math.random() * 900000)}). Our Privacy Officer will confirm the
                 completed purge via email within 48 business hours.
               </p>
-              <Button
-                variant="outline"
-                size="sm"
+              <button
+                type="button"
                 onClick={() => setSubmitted(false)}
-                className="mt-6 rounded-full text-xs"
+                className="mt-4 text-xs font-mono text-white underline hover:opacity-80"
               >
-                Submit Another Request
-              </Button>
+                Submit another request
+              </button>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-5">
-              {/* App selector */}
+            <form onSubmit={handleSubmit} className="space-y-4">
               <div className="space-y-1.5">
-                <label htmlFor="appName" className="text-xs font-semibold text-foreground">
+                <label htmlFor="appName" className="text-xs font-medium text-[#A1A1A1]">
                   Select Application
                 </label>
                 <select
                   id="appName"
                   value={formData.appName}
                   onChange={(e) => setFormData({ ...formData, appName: e.target.value })}
-                  className="w-full rounded-xl border border-input bg-background px-3.5 py-2.5 text-xs text-foreground focus:outline-hidden focus:ring-2 focus:ring-primary"
+                  style={{
+                    background: "#0A0A0A",
+                    border: "1px solid #2E2E2E",
+                    borderRadius: "6px",
+                  }}
+                  className="w-full px-3.5 py-2.5 text-xs text-white focus:outline-none focus:border-white transition-colors"
                 >
                   <option value="Universal Calculator World">Universal Calculator World</option>
                   <option value="Chess Pocket">Chess Pocket</option>
@@ -170,10 +154,9 @@ export default function DataDeletionPage() {
                 </select>
               </div>
 
-              {/* Email */}
               <div className="space-y-1.5">
-                <label htmlFor="email" className="text-xs font-semibold text-foreground">
-                  Your Contact Email (for Confirmation)
+                <label htmlFor="email" className="text-xs font-medium text-[#A1A1A1]">
+                  Contact Email (for confirmation)
                 </label>
                 <input
                   id="email"
@@ -182,49 +165,57 @@ export default function DataDeletionPage() {
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   placeholder="user@example.com"
-                  className="w-full rounded-xl border border-input bg-background px-3.5 py-2.5 text-xs text-foreground placeholder:text-muted-foreground focus:outline-hidden focus:ring-2 focus:ring-primary"
+                  style={{
+                    background: "#0A0A0A",
+                    border: "1px solid #2E2E2E",
+                    borderRadius: "6px",
+                  }}
+                  className="w-full px-3.5 py-2.5 text-xs text-white placeholder:text-[#6B6B6B] focus:outline-none focus:border-white transition-colors"
                 />
               </div>
 
-              {/* In-app identifier */}
               <div className="space-y-1.5">
-                <label htmlFor="userIdentifier" className="text-xs font-semibold text-foreground">
-                  User ID / In-App Identifier / Installation ID (Optional)
+                <label htmlFor="userIdentifier" className="text-xs font-medium text-[#A1A1A1]">
+                  User ID / Installation Identifier (Optional)
                 </label>
                 <input
                   id="userIdentifier"
                   type="text"
                   value={formData.userIdentifier}
                   onChange={(e) => setFormData({ ...formData, userIdentifier: e.target.value })}
-                  placeholder="e.g. anonymous-device-uuid or registered username"
-                  className="w-full rounded-xl border border-input bg-background px-3.5 py-2.5 text-xs text-foreground placeholder:text-muted-foreground focus:outline-hidden focus:ring-2 focus:ring-primary"
+                  placeholder="e.g. anonymous-device-uuid"
+                  style={{
+                    background: "#0A0A0A",
+                    border: "1px solid #2E2E2E",
+                    borderRadius: "6px",
+                  }}
+                  className="w-full px-3.5 py-2.5 text-xs text-white placeholder:text-[#6B6B6B] focus:outline-none focus:border-white transition-colors"
                 />
-                <p className="text-[11px] text-muted-foreground">
-                  Note: Most Imperial Tech apps store state locally on device. Uninstalling the app
-                  wipes 100% of on-device data instantly.
-                </p>
               </div>
 
-              {/* Deletion scope */}
               <div className="space-y-1.5">
-                <label htmlFor="deletionScope" className="text-xs font-semibold text-foreground">
+                <label htmlFor="deletionScope" className="text-xs font-medium text-[#A1A1A1]">
                   Data Scope to Delete
                 </label>
                 <select
                   id="deletionScope"
                   value={formData.deletionScope}
                   onChange={(e) => setFormData({ ...formData, deletionScope: e.target.value })}
-                  className="w-full rounded-xl border border-input bg-background px-3.5 py-2.5 text-xs text-foreground focus:outline-hidden focus:ring-2 focus:ring-primary"
+                  style={{
+                    background: "#0A0A0A",
+                    border: "1px solid #2E2E2E",
+                    borderRadius: "6px",
+                  }}
+                  className="w-full px-3.5 py-2.5 text-xs text-white focus:outline-none focus:border-white transition-colors"
                 >
                   <option value="all">Complete Deletion (All account data, logs, and cloud records)</option>
-                  <option value="analytics">Diagnostic &amp; Crash Report Logs Only</option>
+                  <option value="analytics">Diagnostic Crash Reports Only</option>
                   <option value="support">Customer Support Ticket History Only</option>
                 </select>
               </div>
 
-              {/* Reason */}
               <div className="space-y-1.5">
-                <label htmlFor="reason" className="text-xs font-semibold text-foreground">
+                <label htmlFor="reason" className="text-xs font-medium text-[#A1A1A1]">
                   Reason for Deletion (Optional)
                 </label>
                 <textarea
@@ -232,35 +223,41 @@ export default function DataDeletionPage() {
                   rows={3}
                   value={formData.reason}
                   onChange={(e) => setFormData({ ...formData, reason: e.target.value })}
-                  placeholder="Let us know how we can improve our applications..."
-                  className="w-full rounded-xl border border-input bg-background px-3.5 py-2.5 text-xs text-foreground placeholder:text-muted-foreground focus:outline-hidden focus:ring-2 focus:ring-primary"
+                  placeholder="Tell us how we can improve our applications..."
+                  style={{
+                    background: "#0A0A0A",
+                    border: "1px solid #2E2E2E",
+                    borderRadius: "6px",
+                  }}
+                  className="w-full px-3.5 py-2.5 text-xs text-white placeholder:text-[#6B6B6B] focus:outline-none focus:border-white transition-colors"
                 />
               </div>
 
-              {/* Confirmation Button */}
-              <Button
+              <button
                 type="submit"
-                className="w-full rounded-full bg-rose-600 hover:bg-rose-700 text-white font-semibold text-xs py-3 shadow-md"
+                style={{
+                  background: "#FFFFFF",
+                  color: "#000000",
+                  borderRadius: "6px",
+                }}
+                className="w-full py-3 font-medium text-xs transition-opacity hover:opacity-85"
               >
-                <Trash2 className="size-3.5 mr-2" />
-                <span>Submit Permanent Data Deletion Request</span>
-              </Button>
+                Submit Permanent Deletion Request
+              </button>
             </form>
           )}
         </div>
 
-        {/* How to delete local device data manually */}
-        <div className="mt-10 rounded-2xl border border-border/70 bg-muted/20 p-6 space-y-3">
-          <h3 className="text-sm font-bold text-foreground flex items-center gap-2">
-            <AlertCircle className="size-4 text-primary" />
-            <span>How to clear on-device data without submitting a request</span>
-          </h3>
-          <p className="text-xs text-muted-foreground leading-relaxed">
-            Because Imperial Tech O.P.C. apps prioritize offline storage on your local device, you
-            can also erase all local databases, tape histories, and saved games directly from your
-            Android device at any time:
+        {/* Manual Device Clear Guide */}
+        <div className="mt-12 rounded-[6px] border border-[#1F1F1F] bg-[#0A0A0A] p-6 text-xs text-[#A1A1A1] space-y-3 font-mono">
+          <div className="text-white font-medium uppercase tracking-[0.08em]">
+            Immediate On-Device Cache &amp; Storage Clearance
+          </div>
+          <p className="leading-relaxed">
+            Because Imperial Tech applications store states locally on your device, you can
+            immediately erase all data directly on Android without waiting:
           </p>
-          <ol className="list-decimal list-inside space-y-1.5 text-xs text-muted-foreground pl-2 font-mono">
+          <ol className="list-decimal list-inside space-y-1 pl-1 text-[#6B6B6B]">
             <li>Open Android <strong>Settings → Apps → Manage Apps</strong>.</li>
             <li>Select <strong>Universal Calculator World</strong>, <strong>Chess Pocket</strong>, or <strong>Sudoku</strong>.</li>
             <li>Tap <strong>Storage &amp; Cache</strong>.</li>

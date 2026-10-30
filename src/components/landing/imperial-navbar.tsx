@@ -4,18 +4,7 @@ import * as React from "react";
 import Link from "next/link";
 import { siteConfig } from "@/config/site";
 import { ThemeToggle } from "@/components/theme-toggle";
-import { Button } from "@/components/ui/button";
-import {
-  Menu,
-  X,
-  Smartphone,
-  ExternalLink,
-  ChevronRight,
-  ShieldCheck,
-  Building2,
-  Mail,
-  Trash2,
-} from "lucide-react";
+import { Menu, X, ArrowUpRight } from "lucide-react";
 
 export function ImperialNavbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
@@ -23,7 +12,7 @@ export function ImperialNavbar() {
 
   React.useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 10);
+      setScrolled(window.scrollY > 20);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -31,182 +20,150 @@ export function ImperialNavbar() {
 
   return (
     <header
-      className={`sticky top-0 z-50 transition-all duration-200 ${
+      className={`fixed top-0 inset-x-0 z-50 h-16 transition-colors duration-200 ${
         scrolled
-          ? "border-b border-border/50 bg-background/85 backdrop-blur-md"
-          : "border-b border-border/30 bg-background/60 backdrop-blur-xs"
+          ? "bg-black/85 backdrop-blur-md border-b border-[#1F1F1F]"
+          : "bg-transparent border-b border-transparent"
       }`}
     >
-      <div className="container mx-auto flex h-14 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        {/* Brand Logo (x.ai Minimalist Style) */}
+      <div className="container mx-auto flex h-full max-w-[1200px] items-center justify-between px-6 lg:px-12">
+        {/* Minimalist Logo / Wordmark (x.ai style: pure white, clean) */}
         <Link
           href="/"
-          className="group flex items-center gap-2 transition-opacity hover:opacity-80"
+          className="flex items-center gap-2 text-white font-medium tracking-tight hover:opacity-85 transition-opacity"
         >
-          <div className="flex size-7 items-center justify-center rounded-lg bg-foreground text-background font-mono font-bold text-xs shadow-xs">
-            IT
-          </div>
-          <span className="text-sm font-semibold tracking-tight text-foreground">
-            Imperial Tech{" "}
-            <span className="text-[10px] font-mono text-muted-foreground uppercase border border-border px-1 py-0.5 rounded">
-              O.P.C.
-            </span>
+          <span className="text-sm tracking-tight font-sans font-medium">Imperial Tech</span>
+          <span className="font-mono text-[10px] uppercase text-[#6B6B6B] border border-[#2E2E2E] px-1 py-0.2 rounded-[3px]">
+            O.P.C.
           </span>
         </Link>
 
-        {/* Desktop Navigation Links */}
-        <nav className="hidden items-center gap-0.5 md:flex">
+        {/* Desktop Navigation Links (x.ai style: text-14px, muted white, hover white) */}
+        <nav className="hidden items-center gap-7 md:flex text-[14px]">
           <Link
             href="#portfolio"
-            className="rounded-md px-3 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:text-foreground"
+            className="text-[#A1A1A1] hover:text-white transition-colors"
           >
             Our Apps
           </Link>
           <Link
             href="#standards"
-            className="rounded-md px-3 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:text-foreground"
+            className="text-[#A1A1A1] hover:text-white transition-colors"
           >
             Engineering
           </Link>
           <Link
             href="#about"
-            className="rounded-md px-3 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:text-foreground"
+            className="text-[#A1A1A1] hover:text-white transition-colors"
           >
             About
           </Link>
           <Link
             href="/privacy"
-            className="rounded-md px-3 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:text-foreground"
+            className="text-[#A1A1A1] hover:text-white transition-colors"
           >
             Privacy
           </Link>
           <Link
             href="/data-deletion"
-            className="rounded-md px-3 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:text-foreground"
+            className="text-[#A1A1A1] hover:text-white transition-colors"
           >
             Data Deletion
           </Link>
           <Link
             href="#contact"
-            className="rounded-md px-3 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:text-foreground"
+            className="text-[#A1A1A1] hover:text-white transition-colors"
           >
             Contact
           </Link>
         </nav>
 
-        {/* Header Actions */}
-        <div className="hidden items-center gap-2 md:flex">
+        {/* Header Actions (Button Primary: white bg, black text, 6px radius) */}
+        <div className="hidden items-center gap-3 md:flex">
           <ThemeToggle />
-          <Button
-            asChild
-            variant="ghost"
-            size="sm"
-            className="h-8 text-xs font-medium text-muted-foreground hover:text-foreground px-2.5"
+          <a
+            href={siteConfig.company.googlePlayStoreUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 bg-white text-black px-4 py-2 rounded-[6px] text-[13px] font-medium transition-opacity hover:opacity-85"
           >
-            <a
-              href={siteConfig.company.googlePlayStoreUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-1.5"
-            >
-              <span>Play Store</span>
-              <ExternalLink className="size-3 opacity-70" />
-            </a>
-          </Button>
-          <Button
-            asChild
-            size="sm"
-            className="h-8 rounded-full bg-foreground px-3.5 text-xs font-medium text-background hover:bg-foreground/90 transition-all"
-          >
-            <Link href="#portfolio" className="flex items-center gap-1">
-              <span>Explore Apps</span>
-              <ChevronRight className="size-3" />
-            </Link>
-          </Button>
+            <span>Google Play</span>
+            <ArrowUpRight className="size-3.5" />
+          </a>
         </div>
 
-        {/* Mobile Hamburger */}
-        <div className="flex items-center gap-1.5 md:hidden">
+        {/* Mobile Hamburger Button */}
+        <div className="flex items-center gap-2 md:hidden">
           <ThemeToggle />
-          <Button
-            variant="ghost"
-            size="icon"
+          <button
+            type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="size-8 rounded-md"
-            aria-label="Toggle menu"
+            className="p-1.5 text-white hover:text-[#A1A1A1]"
+            aria-label="Toggle navigation menu"
           >
-            {mobileMenuOpen ? <X className="size-4" /> : <Menu className="size-4" />}
-          </Button>
+            {mobileMenuOpen ? <X className="size-5" /> : <Menu className="size-5" />}
+          </button>
         </div>
       </div>
 
-      {/* Mobile Drawer */}
+      {/* Mobile Drawer (Pure Black with Hairline Border) */}
       {mobileMenuOpen && (
-        <div className="border-b border-border bg-background/95 backdrop-blur-xl px-4 py-4 md:hidden">
-          <nav className="space-y-1">
+        <div className="border-b border-[#1F1F1F] bg-black px-6 py-6 md:hidden">
+          <nav className="flex flex-col gap-4 text-sm font-medium">
             <Link
               href="#portfolio"
               onClick={() => setMobileMenuOpen(false)}
-              className="flex items-center gap-2.5 rounded-md px-3 py-2 text-xs font-medium text-muted-foreground hover:bg-muted hover:text-foreground"
+              className="text-[#A1A1A1] hover:text-white"
             >
-              <Smartphone className="size-3.5" />
-              <span>Our Apps</span>
+              Our Apps
             </Link>
             <Link
               href="#standards"
               onClick={() => setMobileMenuOpen(false)}
-              className="flex items-center gap-2.5 rounded-md px-3 py-2 text-xs font-medium text-muted-foreground hover:bg-muted hover:text-foreground"
+              className="text-[#A1A1A1] hover:text-white"
             >
-              <ShieldCheck className="size-3.5" />
-              <span>Engineering Standards</span>
+              Engineering
             </Link>
             <Link
               href="#about"
               onClick={() => setMobileMenuOpen(false)}
-              className="flex items-center gap-2.5 rounded-md px-3 py-2 text-xs font-medium text-muted-foreground hover:bg-muted hover:text-foreground"
+              className="text-[#A1A1A1] hover:text-white"
             >
-              <Building2 className="size-3.5" />
-              <span>About Us</span>
+              About
             </Link>
             <Link
               href="/privacy"
               onClick={() => setMobileMenuOpen(false)}
-              className="flex items-center gap-2.5 rounded-md px-3 py-2 text-xs font-medium text-muted-foreground hover:bg-muted hover:text-foreground"
+              className="text-[#A1A1A1] hover:text-white"
             >
-              <ShieldCheck className="size-3.5" />
-              <span>Privacy Policy</span>
+              Privacy Policy
             </Link>
             <Link
               href="/data-deletion"
               onClick={() => setMobileMenuOpen(false)}
-              className="flex items-center gap-2.5 rounded-md px-3 py-2 text-xs font-medium text-rose-500 hover:bg-rose-500/10"
+              className="text-[#A1A1A1] hover:text-white"
             >
-              <Trash2 className="size-3.5" />
-              <span>User Data Deletion</span>
+              User Data Deletion
             </Link>
             <Link
               href="#contact"
               onClick={() => setMobileMenuOpen(false)}
-              className="flex items-center gap-2.5 rounded-md px-3 py-2 text-xs font-medium text-muted-foreground hover:bg-muted hover:text-foreground"
+              className="text-[#A1A1A1] hover:text-white"
             >
-              <Mail className="size-3.5" />
-              <span>Developer Contact</span>
+              Contact
             </Link>
-          </nav>
-
-          <div className="mt-3 pt-3 border-t border-border">
-            <Button asChild size="sm" className="w-full rounded-full bg-foreground text-background text-xs">
+            <div className="pt-2 border-t border-[#1F1F1F]">
               <a
                 href={siteConfig.company.googlePlayStoreUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-1.5"
+                className="flex items-center justify-center gap-1.5 bg-white text-black py-2.5 rounded-[6px] text-xs font-medium"
               >
-                <span>Google Play Developer Profile</span>
-                <ExternalLink className="size-3" />
+                <span>Google Play Profile</span>
+                <ArrowUpRight className="size-3.5" />
               </a>
-            </Button>
-          </div>
+            </div>
+          </nav>
         </div>
       )}
     </header>

@@ -1,135 +1,89 @@
 "use client";
 
 import * as React from "react";
-import {
-  ShieldCheck,
-  Zap,
-  WifiOff,
-  BatteryCharging,
-  Code2,
-  Lock,
-  Layers,
-  Terminal,
-  CheckCircle2,
-} from "lucide-react";
 
 export function StudioStandards() {
-  return (
-    <section id="standards" className="relative py-24 bg-neutral-950 text-white overflow-hidden">
-      {/* Dark Section Ambient Gradients */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -top-40 right-1/4 -z-10 h-[500px] w-[500px] rounded-full bg-indigo-500/15 blur-[140px]"
-      />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -bottom-40 left-1/4 -z-10 h-[500px] w-[500px] rounded-full bg-violet-600/15 blur-[140px]"
-      />
+  const standards = [
+    {
+      index: "01",
+      title: "100% Offline Resilience",
+      description:
+        "All application logic, calculations, game states, and databases operate independently of active network connectivity. Zero forced cloud synchronization or server outages.",
+      spec: "Room / SQLite sandboxed on-device database",
+    },
+    {
+      index: "02",
+      title: "Zero Telemetry or Data Brokering",
+      description:
+        "Imperial Tech strictly rejects surveillance advertising. We never harvest Google Advertising IDs (GAID), device contacts, location records, or sell telemetry data to third parties.",
+      spec: "Google Play Console Data Safety Certified",
+    },
+    {
+      index: "03",
+      title: "60 FPS Native Touch Physics",
+      description:
+        "Written in Kotlin Jetpack Compose, Flutter, and Skia Canvas for sub-16ms touch frame rates, zero scroll jitter, and optimal responsiveness across all Android screen densities.",
+      spec: "Native 64-bit arm64-v8a compilation",
+    },
+    {
+      index: "04",
+      title: "Resource & Battery Longevity",
+      description:
+        "Architected without background wake-locks, silent push analytics, or redundant memory allocations to maximize device battery life during extended utility and game sessions.",
+      spec: "Zero continuous background services",
+    },
+  ];
 
-      <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="mx-auto max-w-3xl text-center mb-16">
-          <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1 text-xs font-semibold text-indigo-400 backdrop-blur-xs mb-3">
-            <Terminal className="size-3.5" />
-            <span>Studio Quality Benchmarks</span>
+  return (
+    <section id="standards" className="py-24 md:py-32 bg-black text-white border-t border-[#1F1F1F]">
+      <div className="container mx-auto max-w-[1200px] px-6 lg:px-12">
+        <div className="max-w-[640px] mb-16">
+          <div className="font-mono text-xs uppercase tracking-[0.08em] text-[#6B6B6B] mb-3">
+            Engineering Benchmarks
           </div>
-          <h2 className="text-3xl font-extrabold tracking-tight sm:text-5xl text-white">
-            High-Performance Engineering.{" "}
-            <span className="bg-linear-to-r from-blue-400 via-indigo-300 to-purple-400 bg-clip-text text-transparent">
-              Zero Privacy Compromises.
-            </span>
+          <h2 className="text-3xl sm:text-5xl font-medium tracking-tight text-white">
+            Pure performance. Zero compromises.
           </h2>
-          <p className="mt-4 text-base sm:text-lg text-neutral-400 leading-relaxed">
-            Unlike mass-produced mobile apps cluttered with monetization bloat and tracking scripts,
-            every product from <strong className="text-white">Imperial Tech O.P.C.</strong> is built
-            for speed, battery longevity, and complete user privacy.
+          <p className="mt-4 text-base text-[#A1A1A1] leading-[1.6]">
+            Architectural standards governing all software developed and published by Imperial Tech
+            O.P.C.
           </p>
         </div>
 
-        {/* 4 Pillars Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {/* Pillar 1 */}
-          <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-md transition-all hover:border-indigo-500/40 hover:bg-white/[0.05]">
-            <div className="flex size-12 items-center justify-center rounded-xl bg-blue-500/10 text-blue-400 mb-4">
-              <WifiOff className="size-6" />
-            </div>
-            <h3 className="text-lg font-bold text-white">100% Offline Resilience</h3>
-            <p className="mt-2 text-xs text-neutral-400 leading-relaxed">
-              Core calculations, game logic, and database schemas function seamlessly without an
-              active internet connection. Zero forced cloud dependencies.
-            </p>
-            <div className="mt-4 flex items-center gap-1.5 text-[11px] font-mono text-emerald-400">
-              <CheckCircle2 className="size-3.5" />
-              <span>Offline First Architecture</span>
-            </div>
-          </div>
+        {/* 4-Item Grid with 1px border lines (design.md spec) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[#1F1F1F] border border-[#1F1F1F] rounded-[6px] overflow-hidden">
+          {standards.map((s, idx) => (
+            <div key={idx} className="bg-black p-8 sm:p-10 flex flex-col justify-between">
+              <div>
+                <div className="font-mono text-xs uppercase tracking-[0.08em] text-[#6B6B6B] mb-4">
+                  {s.index} / SPECIFICATION
+                </div>
+                <h3 className="text-xl sm:text-2xl font-medium text-white mb-3">{s.title}</h3>
+                <p className="text-sm text-[#A1A1A1] leading-[1.6]">{s.description}</p>
+              </div>
 
-          {/* Pillar 2 */}
-          <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-md transition-all hover:border-purple-500/40 hover:bg-white/[0.05]">
-            <div className="flex size-12 items-center justify-center rounded-xl bg-purple-500/10 text-purple-400 mb-4">
-              <Lock className="size-6" />
+              <div className="mt-8 pt-4 border-t border-[#1F1F1F] font-mono text-[11px] text-[#6B6B6B]">
+                {s.spec}
+              </div>
             </div>
-            <h3 className="text-lg font-bold text-white">Zero Invasive Tracking</h3>
-            <p className="mt-2 text-xs text-neutral-400 leading-relaxed">
-              We never collect or sell your device advertising identifiers (GAID), contact books, or
-              precise GPS coordinates. Your activity stays entirely private.
-            </p>
-            <div className="mt-4 flex items-center gap-1.5 text-[11px] font-mono text-purple-400">
-              <CheckCircle2 className="size-3.5" />
-              <span>Google Play Data Safety A+</span>
-            </div>
-          </div>
-
-          {/* Pillar 3 */}
-          <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-md transition-all hover:border-amber-500/40 hover:bg-white/[0.05]">
-            <div className="flex size-12 items-center justify-center rounded-xl bg-amber-500/10 text-amber-400 mb-4">
-              <Zap className="size-6" />
-            </div>
-            <h3 className="text-lg font-bold text-white">60 FPS Native Touch</h3>
-            <p className="mt-2 text-xs text-neutral-400 leading-relaxed">
-              Engineered with Kotlin Jetpack Compose, Flutter, and Skia canvas rendering to guarantee
-              sub-millisecond input response and zero interface jitter.
-            </p>
-            <div className="mt-4 flex items-center gap-1.5 text-[11px] font-mono text-amber-400">
-              <CheckCircle2 className="size-3.5" />
-              <span>Sub-16ms Frame Times</span>
-            </div>
-          </div>
-
-          {/* Pillar 4 */}
-          <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-md transition-all hover:border-emerald-500/40 hover:bg-white/[0.05]">
-            <div className="flex size-12 items-center justify-center rounded-xl bg-emerald-500/10 text-emerald-400 mb-4">
-              <BatteryCharging className="size-6" />
-            </div>
-            <h3 className="text-lg font-bold text-white">Battery &amp; RAM Efficient</h3>
-            <p className="mt-2 text-xs text-neutral-400 leading-relaxed">
-              No continuous background wake-locks, silent push analytics, or memory leaks. Play logic
-              games and calculate formulas without draining battery life.
-            </p>
-            <div className="mt-4 flex items-center gap-1.5 text-[11px] font-mono text-emerald-400">
-              <CheckCircle2 className="size-3.5" />
-              <span>Low Resource Consumption</span>
-            </div>
-          </div>
+          ))}
         </div>
 
-        {/* Technical Architecture Terminal Box */}
-        <div className="mt-12 rounded-2xl border border-white/10 bg-neutral-900/90 p-5 sm:p-6 font-mono text-xs text-neutral-300">
-          <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4 text-neutral-400">
-            <div className="flex items-center gap-2">
-              <Code2 className="size-4 text-indigo-400" />
-              <span className="font-semibold text-white">studio-audit --manifest-security-report</span>
-            </div>
-            <span className="text-[11px] text-emerald-400 font-bold">100% AUDIT PASS</span>
+        {/* Technical Terminal Box (Clean Monochrome Code / Audit) */}
+        <div className="mt-12 rounded-[6px] border border-[#1F1F1F] bg-[#0A0A0A] p-6 font-mono text-xs text-[#A1A1A1]">
+          <div className="flex items-center justify-between pb-3 border-b border-[#1F1F1F] text-[#6B6B6B] mb-4">
+            <span>APK MANIFEST SECURITY AUDIT</span>
+            <span className="text-white">STATUS: 100% COMPLIANT</span>
           </div>
-
           <div className="space-y-1.5 leading-relaxed overflow-x-auto text-xs">
-            <p className="text-neutral-500"># Imperial Tech O.P.C. Mobile APK &amp; AAB Verification Specs</p>
-            <p className="text-emerald-400">✔ Android Target SDK: Android 15 (API 35) &amp; Android 14 (API 34)</p>
-            <p className="text-emerald-400">✔ Dangerous Permissions: NONE (No READ_CONTACTS, ACCESS_FINE_LOCATION)</p>
-            <p className="text-emerald-400">✔ Play Console Families &amp; COPPA Policy: Verified Compliant</p>
-            <p className="text-emerald-400">✔ Native Architecture: 64-bit arm64-v8a and x86_64 Optimized</p>
-            <p className="text-indigo-400">ℹ Developer Entity: Imperial Tech O.P.C. [Verified Organization Account]</p>
+            <p className="text-[#6B6B6B]"># Verified Android Application Package Manifest Constraints</p>
+            <p className="text-white">✔ Target SDK: Android 15 (API 35) &amp; Android 14 (API 34)</p>
+            <p className="text-white">✔ Dangerous Permissions: NONE (No READ_CONTACTS, ACCESS_FINE_LOCATION)</p>
+            <p className="text-white">✔ Play Console Families &amp; COPPA Policy: Verified Compliant</p>
+            <p className="text-white">✔ Third-Party Ad Networks: NONE</p>
+            <p className="text-[#6B6B6B]">
+              ℹ Entity: Imperial Tech O.P.C. [Verified Organization Account • India]
+            </p>
           </div>
         </div>
       </div>

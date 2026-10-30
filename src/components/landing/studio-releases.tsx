@@ -2,112 +2,103 @@
 
 import * as React from "react";
 import Link from "next/link";
-import { ArrowRight, Sparkles, ExternalLink } from "lucide-react";
-import { siteConfig } from "@/config/site";
+import { ArrowUpRight } from "lucide-react";
 
 export function StudioReleases() {
-  const releases = [
+  const news = [
     {
-      category: "Release",
-      date: "Oct 28, 2026",
-      title: "Universal Calculator World v2.4.1 Live on Google Play",
-      description:
-        "Shipped 15 new scientific unit conversions, persistent memory tape history, and Material 3 dynamic color theming.",
-      link: "https://play.google.com/store/apps/details?id=com.imperialtech.universalcalculator",
+      date: "OCT 28, 2026",
+      title: "Universal Calculator World v2.4.1 Released on Google Play",
+      href: "https://play.google.com/store/apps/details?id=com.imperialtech.universalcalculator",
       isExternal: true,
+      tag: "Live",
     },
     {
-      category: "Product",
-      date: "Oct 24, 2026",
-      title: "Chess Pocket Release Candidate Initialized",
-      description:
-        "Embedded Stockfish 17 C++ WASM neural evaluation, 10,000 curated tactical puzzle challenges, and offline streak records.",
-      link: "#portfolio",
+      date: "OCT 24, 2026",
+      title: "Chess Pocket Release Candidate with Stockfish C++ Engine",
+      href: "#portfolio",
       isExternal: false,
+      tag: "Soon",
     },
     {
-      category: "Beta Testing",
-      date: "Oct 18, 2026",
-      title: "Sudoku - Daily Puzzle Game Beta Rollout",
-      description:
-        "Sub-16ms touch responsiveness, intelligent auto-pencil note placement, and conflict error detection across 4 difficulty tiers.",
-      link: "#portfolio",
+      date: "OCT 18, 2026",
+      title: "Sudoku - Daily Puzzle Game Closed Beta Testing Rollout",
+      href: "#portfolio",
       isExternal: false,
+      tag: "Beta",
     },
     {
-      category: "Company",
-      date: "Oct 12, 2026",
-      title: "Imperial Tech O.P.C. Organization Verification Completed",
-      description:
-        "Achieved certified corporate developer account verification on Google Play Console for legally incorporated Indian entity.",
-      link: "#about",
+      date: "OCT 12, 2026",
+      title: "Imperial Tech O.P.C. Organization Verification Completed in India",
+      href: "#about",
       isExternal: false,
+      tag: "Company",
     },
   ];
 
   return (
-    <section className="py-20 bg-background border-t border-border/50">
-      <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between mb-10">
+    <section className="py-20 md:py-28 bg-black text-white border-t border-[#1F1F1F]">
+      <div className="container mx-auto max-w-[1200px] px-6 lg:px-12">
+        {/* Section Header */}
+        <div className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-8 pb-4">
           <div>
-            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground">
-              Latest Studio News &amp; Releases
+            <div className="font-mono text-xs uppercase tracking-[0.08em] text-[#6B6B6B] mb-2">
+              Updates &amp; Releases
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-medium tracking-tight text-white">
+              Latest news
             </h2>
-            <p className="mt-1 text-xs sm:text-sm text-muted-foreground">
-              Changelog and development progress across our mobile applications.
-            </p>
           </div>
           <Link
             href="/changelog"
-            className="text-xs font-semibold text-foreground hover:underline hidden sm:inline-flex items-center gap-1"
+            className="group mt-2 sm:mt-0 text-xs font-medium text-[#A1A1A1] hover:text-white transition-colors inline-flex items-center gap-1"
           >
             <span>All updates</span>
-            <ArrowRight className="size-3" />
+            <span className="transition-transform group-hover:translate-x-1">→</span>
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {releases.map((item, idx) => (
-            <div
-              key={idx}
-              className="rounded-2xl border border-border/70 bg-card p-5 flex flex-col justify-between transition-all hover:border-foreground/30 hover:shadow-xs"
-            >
-              <div>
-                <div className="flex items-center justify-between text-[11px] font-mono text-muted-foreground mb-2.5">
-                  <span className="font-semibold text-foreground">{item.category}</span>
-                  <span>{item.date}</span>
+        {/* News Rows (Exact x.ai layout from design.md) */}
+        <div className="border-t border-[#1F1F1F]">
+          {news.map((item, idx) => {
+            const Content = (
+              <div className="group grid grid-cols-1 sm:grid-cols-[160px_1fr_32px] items-center gap-2 sm:gap-4 py-6 border-b border-[#1F1F1F] transition-colors hover:bg-[#141414] px-3 sm:px-4 -mx-3 sm:-mx-4 rounded-[6px]">
+                {/* Date (Mono, uppercase, #6B6B6B) */}
+                <div className="font-mono text-xs uppercase tracking-[0.08em] text-[#6B6B6B]">
+                  {item.date}
                 </div>
-                <h3 className="text-sm font-bold text-foreground leading-snug">
-                  {item.title}
-                </h3>
-                <p className="mt-2 text-xs text-muted-foreground leading-relaxed">
-                  {item.description}
-                </p>
-              </div>
 
-              <div className="mt-4 pt-3 border-t border-border/40">
-                {item.isExternal ? (
-                  <a
-                    href={item.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-xs font-medium text-foreground hover:underline inline-flex items-center gap-1"
-                  >
-                    <span>View on Play Store</span>
-                    <ExternalLink className="size-3 opacity-70" />
-                  </a>
-                ) : (
-                  <Link
-                    href={item.link}
-                    className="text-xs font-medium text-foreground hover:underline inline-flex items-center gap-1"
-                  >
-                    <span>Read details</span>
-                    <ArrowRight className="size-3 opacity-70" />
-                  </Link>
-                )}
+                {/* Title (20px, text-white) */}
+                <div className="text-[17px] sm:text-[19px] font-medium text-white transition-colors group-hover:text-white flex items-center gap-3">
+                  <span>{item.title}</span>
+                  <span className="font-mono text-[10px] uppercase text-[#6B6B6B] border border-[#2E2E2E] px-1.5 py-0.2 rounded-[3px] hidden sm:inline-block">
+                    {item.tag}
+                  </span>
+                </div>
+
+                {/* Arrow (Right, shift 4px on hover) */}
+                <div className="text-right text-[#A1A1A1] transition-transform duration-150 group-hover:translate-x-1 group-hover:text-white">
+                  {item.isExternal ? <ArrowUpRight className="size-4 ml-auto" /> : "→"}
+                </div>
               </div>
-            </div>
-          ))}
+            );
+
+            return item.isExternal ? (
+              <a
+                key={idx}
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block"
+              >
+                {Content}
+              </a>
+            ) : (
+              <Link key={idx} href={item.href} className="block">
+                {Content}
+              </Link>
+            );
+          })}
         </div>
       </div>
     </section>

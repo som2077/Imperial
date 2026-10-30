@@ -2,139 +2,129 @@
 
 import * as React from "react";
 import { siteConfig } from "@/config/site";
-import { Building2, ShieldCheck, HeartHandshake, Award, Globe, Sparkles } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 export function AboutStudio() {
   return (
-    <section id="about" className="py-20 md:py-28 bg-background relative overflow-hidden">
-      {/* Background Soft Ambient Light */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute top-1/3 left-1/2 -z-10 h-[400px] w-[700px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-indigo-500/5 blur-[120px]"
-      />
-
-      <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          {/* Left Column: Mission & Corporate Identity */}
-          <div className="lg:col-span-7 space-y-6">
-            <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-background/80 px-4 py-1 text-xs font-semibold text-primary backdrop-blur-xs shadow-2xs">
-              <Building2 className="size-3.5" />
-              <span>Corporate &amp; Studio Trust</span>
+    <section id="about" className="py-24 md:py-32 bg-black text-white border-t border-[#1F1F1F]">
+      <div className="container mx-auto max-w-[1200px] px-6 lg:px-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          {/* Left Column: Mission & Identity */}
+          <div className="lg:col-span-7 space-y-8">
+            <div>
+              <div className="font-mono text-xs uppercase tracking-[0.08em] text-[#6B6B6B] mb-3">
+                Corporate Entity
+              </div>
+              <h2 className="text-3xl sm:text-5xl font-medium tracking-tight text-white">
+                About Imperial Tech O.P.C.
+              </h2>
             </div>
 
-            <h2 className="text-3xl font-extrabold tracking-tight sm:text-5xl text-foreground">
-              About Imperial Tech O.P.C.
-            </h2>
-
-            <div className="space-y-4 text-sm sm:text-base text-muted-foreground leading-relaxed">
+            <div className="space-y-5 text-base text-[#A1A1A1] leading-[1.6] max-w-[640px]">
               <p>
-                <strong className="text-foreground">Imperial Tech O.P.C.</strong> is a legally
-                incorporated software development entity registered in India. Founded with a vision to
-                create high-utility mobile tools and engaging tactical games, our studio operates on the
-                fundamental belief that great software must be fast, reliable, and deeply respectful of
-                user privacy.
+                <strong className="text-white font-medium">Imperial Tech O.P.C.</strong> is a legally
+                incorporated software and mobile game development entity registered in India.
+                Founded with a mission to build thoughtful, durable consumer software, our studio
+                develops high-performance Android utilities and engaging tactical games for users
+                worldwide.
               </p>
 
               <p>
-                In an era where modern mobile applications are increasingly bloated with aggressive
-                surveillance advertising, complex tracking SDKs, and artificial cloud dependencies,
-                Imperial Tech O.P.C. takes a principled, privacy-first stand. We engineer lightweight,
-                native experiences that respect your device resources, battery longevity, and personal
-                boundaries.
+                We believe that modern mobile software should respect the person holding the device.
+                Our applications are built offline-first without intrusive trackers, aggressive
+                monetization models, or redundant cloud permissions. Every line of code is measured
+                against battery longevity, sub-millisecond touch feedback, and absolute privacy.
               </p>
             </div>
 
-            {/* 3 Core Values Cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
-              <div className="rounded-xl border border-border/80 bg-card p-4 shadow-2xs">
-                <div className="flex size-9 items-center justify-center rounded-lg bg-blue-500/10 text-blue-600 dark:text-blue-400 mb-2.5">
-                  <ShieldCheck className="size-5" />
+            {/* 3 Core Values (Clean Monochrome Rows) */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-4 border-t border-[#1F1F1F]">
+              <div>
+                <div className="font-mono text-[11px] uppercase tracking-[0.08em] text-[#6B6B6B] mb-1">
+                  Value 01
                 </div>
-                <h4 className="text-sm font-bold text-foreground">Privacy by Default</h4>
-                <p className="mt-1 text-xs text-muted-foreground leading-relaxed">
-                  Zero invasive tracking, no personal data sales, and strict offline storage.
+                <h4 className="text-sm font-medium text-white mb-1">Privacy by Default</h4>
+                <p className="text-xs text-[#A1A1A1] leading-[1.5]">
+                  Zero personal data selling, no third-party telemetry, strictly local storage.
                 </p>
               </div>
 
-              <div className="rounded-xl border border-border/80 bg-card p-4 shadow-2xs">
-                <div className="flex size-9 items-center justify-center rounded-lg bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 mb-2.5">
-                  <Award className="size-5" />
+              <div>
+                <div className="font-mono text-[11px] uppercase tracking-[0.08em] text-[#6B6B6B] mb-1">
+                  Value 02
                 </div>
-                <h4 className="text-sm font-bold text-foreground">Native Performance</h4>
-                <p className="mt-1 text-xs text-muted-foreground leading-relaxed">
-                  Sub-16ms frame times, 60 FPS animations, and instantaneous tactile touch feedback.
+                <h4 className="text-sm font-medium text-white mb-1">Native Performance</h4>
+                <p className="text-xs text-[#A1A1A1] leading-[1.5]">
+                  Sub-16ms frame times, 60 FPS animations, and instantaneous touch responsiveness.
                 </p>
               </div>
 
-              <div className="rounded-xl border border-border/80 bg-card p-4 shadow-2xs">
-                <div className="flex size-9 items-center justify-center rounded-lg bg-purple-500/10 text-purple-600 dark:text-purple-400 mb-2.5">
-                  <HeartHandshake className="size-5" />
+              <div>
+                <div className="font-mono text-[11px] uppercase tracking-[0.08em] text-[#6B6B6B] mb-1">
+                  Value 03
                 </div>
-                <h4 className="text-sm font-bold text-foreground">User-Centric Craft</h4>
-                <p className="mt-1 text-xs text-muted-foreground leading-relaxed">
-                  Minimalist interfaces designed for clarity, mindfulness, and practical utility.
+                <h4 className="text-sm font-medium text-white mb-1">User-Centric Craft</h4>
+                <p className="text-xs text-[#A1A1A1] leading-[1.5]">
+                  Minimalist interfaces designed for clarity, daily utility, and mindful logic.
                 </p>
               </div>
             </div>
           </div>
 
-          {/* Right Column: Google Play Verification Credentials Box */}
+          {/* Right Column: Corporate Verification Card */}
           <div className="lg:col-span-5">
-            <div className="rounded-3xl border border-primary/20 bg-linear-to-b from-primary/5 via-background to-background p-6 sm:p-8 shadow-xl relative overflow-hidden">
-              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-primary mb-3">
-                <Sparkles className="size-4" />
-                <span>Verified Legal Organization</span>
+            <div className="rounded-[6px] border border-[#1F1F1F] bg-[#0A0A0A] p-6 sm:p-8 space-y-6">
+              <div className="font-mono text-xs uppercase tracking-[0.08em] text-[#6B6B6B] border-b border-[#1F1F1F] pb-3">
+                Google Play Verified Entity
               </div>
 
-              <h3 className="text-xl font-bold text-foreground">
-                Google Play Console Developer Entity
-              </h3>
-
-              <div className="mt-6 space-y-3.5 text-xs">
-                <div className="flex justify-between border-b border-border/60 pb-2.5">
-                  <span className="text-muted-foreground font-medium">Legal Entity Name</span>
-                  <span className="font-semibold text-foreground">{siteConfig.company.legalName}</span>
+              <div className="space-y-4 text-xs font-mono">
+                <div className="flex justify-between border-b border-[#1F1F1F] pb-2.5">
+                  <span className="text-[#6B6B6B]">LEGAL NAME</span>
+                  <span className="text-white font-medium">{siteConfig.company.legalName}</span>
                 </div>
 
-                <div className="flex justify-between border-b border-border/60 pb-2.5">
-                  <span className="text-muted-foreground font-medium">Corporate Structure</span>
-                  <span className="font-semibold text-foreground">{siteConfig.company.legalType}</span>
+                <div className="flex justify-between border-b border-[#1F1F1F] pb-2.5">
+                  <span className="text-[#6B6B6B]">STRUCTURE</span>
+                  <span className="text-white font-medium">{siteConfig.company.legalType}</span>
                 </div>
 
-                <div className="flex justify-between border-b border-border/60 pb-2.5">
-                  <span className="text-muted-foreground font-medium">Jurisdiction</span>
-                  <span className="font-semibold text-foreground">{siteConfig.company.country}</span>
+                <div className="flex justify-between border-b border-[#1F1F1F] pb-2.5">
+                  <span className="text-[#6B6B6B]">JURISDICTION</span>
+                  <span className="text-white font-medium">{siteConfig.company.country}</span>
                 </div>
 
-                <div className="flex justify-between border-b border-border/60 pb-2.5">
-                  <span className="text-muted-foreground font-medium">Official Support Email</span>
+                <div className="flex justify-between border-b border-[#1F1F1F] pb-2.5">
+                  <span className="text-[#6B6B6B]">OFFICIAL SUPPORT</span>
                   <a
                     href={`mailto:${siteConfig.company.supportEmail}`}
-                    className="font-semibold text-primary hover:underline"
+                    className="text-white underline hover:opacity-80"
                   >
                     {siteConfig.company.supportEmail}
                   </a>
                 </div>
 
-                <div className="flex justify-between border-b border-border/60 pb-2.5">
-                  <span className="text-muted-foreground font-medium">Support SLA</span>
-                  <span className="font-semibold text-emerald-600 dark:text-emerald-400">
-                    {siteConfig.company.responseTimeSLA}
-                  </span>
+                <div className="flex justify-between border-b border-[#1F1F1F] pb-2.5">
+                  <span className="text-[#6B6B6B]">SUPPORT SLA</span>
+                  <span className="text-white">{siteConfig.company.responseTimeSLA}</span>
                 </div>
 
                 <div className="flex justify-between pt-1">
-                  <span className="text-muted-foreground font-medium">Google Play Developer ID</span>
-                  <span className="font-mono font-semibold text-foreground">
-                    {siteConfig.company.googlePlayDeveloperId}
-                  </span>
+                  <span className="text-[#6B6B6B]">PLAY STORE DEV ID</span>
+                  <span className="text-white">{siteConfig.company.googlePlayDeveloperId}</span>
                 </div>
               </div>
 
-              <div className="mt-6 rounded-xl bg-card border border-border/60 p-3 text-[11px] text-muted-foreground leading-normal">
-                <Globe className="size-3.5 inline-block text-primary mr-1" />
-                Officially verified developer organization compliant with Google Play Console
-                Developer Account registration and verification protocols.
+              <div className="pt-2">
+                <a
+                  href={siteConfig.company.googlePlayStoreUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-xs font-medium text-white hover:underline"
+                >
+                  <span>Verify Google Play Organization Account</span>
+                  <ArrowUpRight className="size-3.5" />
+                </a>
               </div>
             </div>
           </div>

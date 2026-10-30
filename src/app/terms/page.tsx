@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowLeft, Smartphone, ShieldCheck } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { siteConfig } from "@/config/site";
 
@@ -11,102 +11,96 @@ export const metadata = {
 
 export default function TermsPage() {
   return (
-    <div className="bg-background text-foreground min-h-screen">
+    <div className="bg-black text-white min-h-screen font-sans antialiased">
       {/* Header */}
-      <header className="border-b border-border/60 py-4 bg-background/80 backdrop-blur-md sticky top-0 z-40">
-        <div className="container mx-auto flex items-center justify-between px-4 sm:px-8 max-w-5xl">
-          <Link href="/" className="inline-flex items-center gap-2.5 text-base font-bold">
-            <div className="flex size-8 items-center justify-center rounded-xl bg-linear-to-br from-blue-600 to-indigo-600 text-white">
-              <Smartphone className="size-4" />
-            </div>
-            <span>{siteConfig.name}</span>
+      <header className="border-b border-[#1F1F1F] py-4 bg-black/85 backdrop-blur-md sticky top-0 z-40">
+        <div className="container mx-auto flex items-center justify-between px-6 max-w-[1200px]">
+          <Link href="/" className="inline-flex items-center gap-2 text-sm font-medium">
+            <span>Imperial Tech</span>
+            <span className="font-mono text-[10px] uppercase text-[#6B6B6B] border border-[#2E2E2E] px-1 py-0.2 rounded-[3px]">
+              O.P.C.
+            </span>
           </Link>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-4">
             <ThemeToggle />
             <Link
               href="/"
-              className="text-muted-foreground hover:text-foreground inline-flex items-center gap-1.5 text-xs font-medium"
+              className="text-[#A1A1A1] hover:text-white inline-flex items-center gap-1.5 text-xs font-medium transition-colors"
             >
-              <ArrowLeft className="h-3.5 w-3.5" /> Back to Home
+              <ArrowLeft className="size-3.5" /> Back to Home
             </Link>
           </div>
         </div>
       </header>
 
       {/* Main Content */}
-      <main className="container mx-auto max-w-4xl px-4 py-12 sm:px-8">
-        <div className="mb-8">
-          <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-xs font-semibold text-primary mb-3">
-            <ShieldCheck className="size-3.5" />
-            <span>Legal Agreement</span>
+      <main className="container mx-auto max-w-[800px] px-6 py-16 sm:py-24">
+        <div className="mb-12">
+          <div className="font-mono text-xs uppercase tracking-[0.08em] text-[#6B6B6B] mb-3">
+            Legal Agreement
           </div>
-          <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight">Terms of Service</h1>
-          <p className="text-muted-foreground mt-2 text-xs">
-            Last Updated: October 30, 2026 • Effective Date: October 30, 2026
+          <h1 className="text-3xl sm:text-5xl font-medium tracking-tight text-white">
+            Terms of Service
+          </h1>
+          <p className="mt-3 text-xs font-mono text-[#6B6B6B]">
+            Effective Date: October 30, 2026 • Last Updated: October 30, 2026
           </p>
         </div>
 
-        <div className="prose prose-neutral dark:prose-invert max-w-none text-muted-foreground space-y-8 text-sm leading-relaxed">
-          <section className="rounded-2xl border border-border/60 bg-card p-6">
-            <h2 className="text-foreground text-lg font-bold mb-3">1. Agreement to Terms</h2>
+        <div className="space-y-10 text-sm leading-[1.6] text-[#A1A1A1]">
+          <section className="rounded-[6px] border border-[#1F1F1F] bg-[#0A0A0A] p-6 sm:p-8">
+            <h2 className="text-white text-base font-medium mb-3">1. Agreement to Terms</h2>
             <p>
               These Terms of Service constitute a legally binding agreement between you and{" "}
               <strong>Imperial Tech O.P.C.</strong> (“Imperial Tech”, “we”, “us”, or “our”), a company
               incorporated under the laws of India.
             </p>
             <p className="mt-2 text-xs">
-              By downloading, installing, accessing, or using our mobile applications (including
-              Universal Calculator World, Chess Pocket, and Sudoku - Daily Puzzle Game) distributed
-              through the Google Play Store, or visiting our website, you agree to be bound by these
-              Terms.
+              By downloading, installing, or using our mobile applications distributed through the
+              Google Play Store (including Universal Calculator World, Chess Pocket, and Sudoku -
+              Daily Puzzle Game), you agree to be bound by these Terms.
             </p>
           </section>
 
           <section>
-            <h2 className="text-foreground text-base font-bold mb-2">2. License Grant &amp; Usage</h2>
+            <h2 className="text-white text-base font-medium mb-3">2. License Grant</h2>
             <p className="text-xs">
               Subject to your compliance with these Terms, Imperial Tech O.P.C. grants you a personal,
-              revocable, non-exclusive, non-transferable, limited license to download, install, and use
-              our applications strictly for your personal, non-commercial purposes on compatible
-              Android devices that you own or control.
+              revocable, non-exclusive, non-transferable, limited license to download and use our
+              applications on compatible Android devices for personal, non-commercial purposes.
             </p>
           </section>
 
           <section>
-            <h2 className="text-foreground text-base font-bold mb-2">3. Intellectual Property Rights</h2>
+            <h2 className="text-white text-base font-medium mb-3">3. Intellectual Property</h2>
             <p className="text-xs">
-              All source code, software architecture, game designs, UI graphics, trademarks, logos,
-              algorithms, and content within our applications are the exclusive intellectual property
-              of Imperial Tech O.P.C. and are protected by applicable intellectual property laws in
-              India and international copyright treaties.
+              All source code, software architecture, game algorithms, graphics, and trademarks are the
+              exclusive intellectual property of Imperial Tech O.P.C. and are protected by applicable
+              laws in India and international copyright treaties.
             </p>
           </section>
 
           <section>
-            <h2 className="text-foreground text-base font-bold mb-2">4. Disclaimers &amp; Limitation of Liability</h2>
+            <h2 className="text-white text-base font-medium mb-3">4. Disclaimers &amp; Limitation of Liability</h2>
             <p className="text-xs">
               Our mobile applications and services are provided on an “AS IS” and “AS AVAILABLE” basis.
-              Imperial Tech O.P.C. makes no warranties, express or implied, regarding the mathematical
-              absolute precision of conversions or uninterrupted uptime of offline services, though we
-              commit to best-effort software engineering and bug fixing.
+              Imperial Tech O.P.C. commits to best-effort software engineering and bug fixing across all
+              supported Android versions.
             </p>
           </section>
 
           <section>
-            <h2 className="text-foreground text-base font-bold mb-2">5. Governing Law &amp; Dispute Resolution</h2>
+            <h2 className="text-white text-base font-medium mb-3">5. Governing Law &amp; Jurisdiction</h2>
             <p className="text-xs">
               These Terms shall be governed by and construed in accordance with the laws of the Republic
-              of India. Any legal dispute or proceeding arising from these terms shall be subject to the
-              exclusive jurisdiction of the competent courts in Uttar Pradesh / New Delhi, India.
+              of India. Any dispute arising from these terms shall be subject to the exclusive
+              jurisdiction of the competent courts in Uttar Pradesh / New Delhi, India.
             </p>
           </section>
 
-          <section className="rounded-2xl border border-border/80 bg-muted/30 p-6">
-            <h2 className="text-foreground text-base font-bold mb-2">6. Contact Information</h2>
-            <p className="text-xs">
-              For any inquiries or notices regarding these Terms, contact us:
-            </p>
-            <div className="mt-2 text-xs font-mono text-foreground space-y-1">
+          <section className="rounded-[6px] border border-[#1F1F1F] bg-[#0A0A0A] p-6 sm:p-8">
+            <h2 className="text-white text-base font-medium mb-3">6. Contact Information</h2>
+            <div className="space-y-1 text-xs font-mono text-white">
               <p>Imperial Tech O.P.C.</p>
               <p>Email: support@imperialtech.com</p>
               <p>Registered Address: {siteConfig.company.registeredAddress}</p>
