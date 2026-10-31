@@ -3,7 +3,6 @@
 import * as React from "react";
 import Link from "next/link";
 import { siteConfig } from "@/config/site";
-import { ThemeToggle } from "@/components/theme-toggle";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 
 export function ImperialNavbar() {
@@ -40,6 +39,9 @@ export function ImperialNavbar() {
 
         {/* Desktop Navigation Links (x.ai style: text-14px, muted white, hover white) */}
         <nav className="hidden items-center gap-7 text-[14px] md:flex">
+          <Link href="/apps" className="text-[#A1A1A1] transition-colors hover:text-white">
+            Apps
+          </Link>
           <Link href="#standards" className="text-[#A1A1A1] transition-colors hover:text-white">
             Engineering
           </Link>
@@ -49,17 +51,16 @@ export function ImperialNavbar() {
           <Link href="/privacy" className="text-[#A1A1A1] transition-colors hover:text-white">
             Privacy
           </Link>
-          <Link href="/data-deletion" className="text-[#A1A1A1] transition-colors hover:text-white">
+          <Link href="/delete-data" className="text-[#A1A1A1] transition-colors hover:text-white">
             Data Deletion
           </Link>
-          <Link href="#contact" className="text-[#A1A1A1] transition-colors hover:text-white">
+          <Link href="/contact" className="text-[#A1A1A1] transition-colors hover:text-white">
             Contact
           </Link>
         </nav>
 
         {/* Header Actions (Button Primary: white bg, black text, 6px radius) */}
         <div className="hidden items-center gap-3 md:flex">
-          <ThemeToggle />
           <a
             href={siteConfig.company.googlePlayStoreUrl}
             target="_blank"
@@ -73,7 +74,6 @@ export function ImperialNavbar() {
 
         {/* Mobile Hamburger Button */}
         <div className="flex items-center gap-2 md:hidden">
-          <ThemeToggle />
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -89,6 +89,13 @@ export function ImperialNavbar() {
       {mobileMenuOpen && (
         <div className="border-b border-[#1F1F1F] bg-black px-6 py-6 md:hidden">
           <nav className="flex flex-col gap-4 text-sm font-medium">
+            <Link
+              href="/apps"
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-[#A1A1A1] hover:text-white"
+            >
+              Apps Portfolio
+            </Link>
             <Link
               href="#standards"
               onClick={() => setMobileMenuOpen(false)}

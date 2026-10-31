@@ -5,6 +5,34 @@ import { siteConfig } from "@/config/site";
 import { ArrowUpRight } from "lucide-react";
 
 export function AboutStudio() {
+  const principles = [
+    {
+      num: "01",
+      title: "Offline-first, always.",
+      desc: "Core features run entirely on your device. Calculations, puzzles, and chess games do not require an account, a server, or a network connection.",
+    },
+    {
+      num: "02",
+      title: "Zero surveillance advertising.",
+      desc: "We do not sell personal data or build advertising profiles. Ads are limited to non-personalized formats and disclosed in Google Play Data Safety.",
+    },
+    {
+      num: "03",
+      title: "Sub-16ms responsiveness.",
+      desc: "Every interaction is engineered to complete within a single 60 fps frame (16 milliseconds) on budget and older Android devices as well as flagships.",
+    },
+    {
+      num: "04",
+      title: "Privacy by default.",
+      desc: "Progress, settings, and history are stored locally in an on-device SQLite database that you control and can erase at any time.",
+    },
+    {
+      num: "05",
+      title: "Small and lightweight.",
+      desc: "Compact install sizes, minimal permissions, zero battery wake-locks, and no unnecessary background services.",
+    },
+  ];
+
   return (
     <section id="about" className="border-t border-[#1F1F1F] bg-black py-24 text-white md:py-32">
       <div className="container mx-auto max-w-[1200px] px-6 lg:px-12">
@@ -13,80 +41,73 @@ export function AboutStudio() {
           <div className="space-y-8 lg:col-span-7">
             <div>
               <div className="mb-3 font-mono text-xs tracking-[0.08em] text-[#6B6B6B] uppercase">
-                Corporate Entity
+                Company &amp; About Us
               </div>
               <h2 className="text-3xl font-medium tracking-tight text-white sm:text-5xl">
-                About Imperial Tech O.P.C.
+                Software built to respect your time, your device, and your privacy.
               </h2>
             </div>
 
-            <div className="max-w-[640px] space-y-5 text-base leading-[1.6] text-[#A1A1A1]">
+            <div className="max-w-[640px] space-y-4 text-base leading-[1.65] text-[#A1A1A1]">
               <p>
-                <strong className="font-medium text-white">Imperial Tech O.P.C.</strong> is a
-                legally incorporated software and mobile game development entity registered in
-                India. Founded with a mission to build thoughtful, durable consumer software, our
-                studio develops high-performance Android utilities and engaging tactical games for
-                users worldwide.
+                <strong className="font-medium text-white">Imperial Tech O.P.C.</strong> is an
+                India-based software studio that designs and publishes fast, offline-first mobile
+                applications for Android. We build utilities and games that open instantly, work
+                without an internet connection, and never treat our users as a data source.
               </p>
 
-              <p>
-                We believe that modern mobile software should respect the person holding the device.
-                Our applications are built offline-first without intrusive trackers, aggressive
-                monetization models, or redundant cloud permissions. Every line of code is measured
-                against battery longevity, sub-millisecond touch feedback, and absolute privacy.
+              <p className="text-sm">
+                Incorporated under the Companies Act, 2013, India, we publish our applications on
+                Google Play under an <strong>Organization Developer Account</strong>, and we are
+                accountable for every product we release. Our work is led directly by the
+                company&apos;s founder, which means every design, engineering, and privacy decision
+                is made by the same people who answer your support emails.
               </p>
             </div>
 
-            {/* 3 Core Values (Clean Monochrome Rows) */}
-            <div className="grid grid-cols-1 gap-6 border-t border-[#1F1F1F] pt-4 sm:grid-cols-3">
-              <div>
-                <div className="mb-1 font-mono text-[11px] tracking-[0.08em] text-[#6B6B6B] uppercase">
-                  Value 01
-                </div>
-                <h4 className="mb-1 text-sm font-medium text-white">Privacy by Default</h4>
-                <p className="text-xs leading-[1.5] text-[#A1A1A1]">
-                  Zero personal data selling, no third-party telemetry, strictly local storage.
-                </p>
+            {/* 5 Engineering Principles Grid */}
+            <div className="border-t border-[#1F1F1F] pt-6">
+              <div className="mb-4 font-mono text-xs tracking-[0.08em] text-[#6B6B6B] uppercase">
+                Our Engineering Principles
               </div>
-
-              <div>
-                <div className="mb-1 font-mono text-[11px] tracking-[0.08em] text-[#6B6B6B] uppercase">
-                  Value 02
-                </div>
-                <h4 className="mb-1 text-sm font-medium text-white">Native Performance</h4>
-                <p className="text-xs leading-[1.5] text-[#A1A1A1]">
-                  Sub-16ms frame times, 60 FPS animations, and instantaneous touch responsiveness.
-                </p>
-              </div>
-
-              <div>
-                <div className="mb-1 font-mono text-[11px] tracking-[0.08em] text-[#6B6B6B] uppercase">
-                  Value 03
-                </div>
-                <h4 className="mb-1 text-sm font-medium text-white">User-Centric Craft</h4>
-                <p className="text-xs leading-[1.5] text-[#A1A1A1]">
-                  Minimalist interfaces designed for clarity, daily utility, and mindful logic.
-                </p>
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                {principles.map((p) => (
+                  <div
+                    key={p.num}
+                    className="rounded-[6px] border border-[#1F1F1F] bg-[#0A0A0A] p-4.5"
+                  >
+                    <div className="mb-1 font-mono text-[10px] tracking-wider text-[#6B6B6B]">
+                      {p.num} / PRINCIPLE
+                    </div>
+                    <h4 className="mb-1.5 text-sm font-medium text-white">{p.title}</h4>
+                    <p className="text-xs leading-[1.5] text-[#A1A1A1]">{p.desc}</p>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
 
-          {/* Right Column: Corporate Verification Card */}
+          {/* Right Column: Google Play Verification Matrix */}
           <div className="lg:col-span-5">
             <div className="space-y-6 rounded-[6px] border border-[#1F1F1F] bg-[#0A0A0A] p-6 sm:p-8">
               <div className="border-b border-[#1F1F1F] pb-3 font-mono text-xs tracking-[0.08em] text-[#6B6B6B] uppercase">
-                Google Play Verified Entity
+                Google Play Developer Verification
               </div>
 
-              <div className="space-y-4 font-mono text-xs">
+              <div className="space-y-3.5 font-mono text-xs">
                 <div className="flex justify-between border-b border-[#1F1F1F] pb-2.5">
-                  <span className="text-[#6B6B6B]">LEGAL NAME</span>
+                  <span className="text-[#6B6B6B]">LEGAL ENTITY</span>
                   <span className="font-medium text-white">{siteConfig.company.legalName}</span>
                 </div>
 
                 <div className="flex justify-between border-b border-[#1F1F1F] pb-2.5">
-                  <span className="text-[#6B6B6B]">STRUCTURE</span>
-                  <span className="font-medium text-white">{siteConfig.company.legalType}</span>
+                  <span className="text-[#6B6B6B]">ENTITY TYPE</span>
+                  <span className="font-medium text-white">One Person Company (O.P.C.)</span>
+                </div>
+
+                <div className="flex justify-between border-b border-[#1F1F1F] pb-2.5">
+                  <span className="text-[#6B6B6B]">INCORPORATION</span>
+                  <span className="text-right text-white">Companies Act, 2013</span>
                 </div>
 
                 <div className="flex justify-between border-b border-[#1F1F1F] pb-2.5">
@@ -95,7 +116,7 @@ export function AboutStudio() {
                 </div>
 
                 <div className="flex justify-between border-b border-[#1F1F1F] pb-2.5">
-                  <span className="text-[#6B6B6B]">OFFICIAL SUPPORT</span>
+                  <span className="text-[#6B6B6B]">OFFICIAL EMAIL</span>
                   <a
                     href={`mailto:${siteConfig.company.supportEmail}`}
                     className="text-white underline hover:opacity-80"
@@ -106,12 +127,12 @@ export function AboutStudio() {
 
                 <div className="flex justify-between border-b border-[#1F1F1F] pb-2.5">
                   <span className="text-[#6B6B6B]">SUPPORT SLA</span>
-                  <span className="text-white">{siteConfig.company.responseTimeSLA}</span>
+                  <span className="text-white">Within 24–48 Business Hours</span>
                 </div>
 
                 <div className="flex justify-between pt-1">
-                  <span className="text-[#6B6B6B]">PLAY STORE DEV ID</span>
-                  <span className="text-white">{siteConfig.company.googlePlayDeveloperId}</span>
+                  <span className="text-[#6B6B6B]">ACCOUNT TYPE</span>
+                  <span className="text-white">Organization (D-U-N-S Verified)</span>
                 </div>
               </div>
 

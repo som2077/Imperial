@@ -61,29 +61,29 @@ export interface MobileAppItem {
 export const siteConfig = {
   name: "Imperial Tech O.P.C.",
   shortName: "Imperial Tech",
-  tagline: "Crafting Intuitive Utilities & Engaging Mobile Games",
+  tagline: "Software built to respect your time, your device, and your privacy.",
   description:
-    "Imperial Tech O.P.C. is an independent software and game development studio dedicated to building high-performance, privacy-focused apps for millions of users worldwide.",
-  url: process.env.NEXT_PUBLIC_APP_URL || "https://imperialtech.com",
+    "Imperial Tech O.P.C. is an India-based software studio that designs and publishes fast, offline-first mobile applications for Android.",
+  url: process.env.NEXT_PUBLIC_APP_URL || "https://imperialtech.in",
   ogImage: "/api/og",
-  mailSupport: "support@imperialtech.com",
+  mailSupport: "support@imperialtech.in",
 
   // Corporate & Google Play Organization Verification Information
   company: {
     legalName: "Imperial Tech O.P.C.",
-    legalType: "One Person Company (Incorporated in India)",
+    legalType: "One Person Company (Incorporated in India under Companies Act, 2013)",
     country: "India",
     registeredAddress:
       "Imperial Tech O.P.C., Tech Hub Building, Sector 62, Noida, Uttar Pradesh 201309, India",
-    supportEmail: "support@imperialtech.com",
-    developerEmail: "developer@imperialtech.com",
-    privacyEmail: "privacy@imperialtech.com",
-    supportHours: "Monday – Friday, 9:00 AM – 6:00 PM IST",
+    supportEmail: "support@imperialtech.in",
+    developerEmail: "support@imperialtech.in",
+    privacyEmail: "support@imperialtech.in",
+    supportHours: "Monday–Saturday, 10:00 AM–6:00 PM IST (UTC+5:30)",
     responseTimeSLA: "Within 24–48 Business Hours",
     googlePlayDeveloperId: "Imperial Tech O.P.C.",
     googlePlayStoreUrl: "https://play.google.com/store/apps/developer?id=Imperial+Tech+O.P.C.",
-    dataDeletionUrl: "/data-deletion",
-    dunsNumber: "Verified Entity",
+    dataDeletionUrl: "/delete-data",
+    dunsNumber: "Verified Organization Entity",
   },
 
   socials: {

@@ -164,16 +164,41 @@ export function ImperialFooter() {
           <div className="grid w-full grid-cols-2 gap-8 sm:grid-cols-4 lg:ml-auto lg:flex lg:w-auto lg:items-start lg:justify-end lg:gap-8 xl:gap-10">
             {/* Column 1: Products */}
             <div className="flex flex-col gap-3.5 lg:shrink-0">
-              <h4 className="text-sm font-semibold tracking-wide text-white">Products</h4>
+              <h4 className="text-sm font-semibold tracking-wide text-white">Apps &amp; Games</h4>
               <ul className="flex flex-col gap-2.5 text-xs text-[#A1A1A1]">
                 <li>
+                  <Link href="/apps" className="transition-colors hover:text-white">
+                    App Portfolio
+                  </Link>
+                </li>
+                <li>
                   <a
-                    href={siteConfig.company.googlePlayStoreUrl}
+                    href={siteConfig.apps[0].playStoreUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="transition-colors hover:text-white"
                   >
-                    All Products
+                    Universal Calculator
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href={siteConfig.apps[1].playStoreUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="transition-colors hover:text-white"
+                  >
+                    Chess Pocket
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href={siteConfig.apps[2].playStoreUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="transition-colors hover:text-white"
+                  >
+                    Sudoku Daily Puzzle
                   </a>
                 </li>
                 <li>
@@ -183,88 +208,73 @@ export function ImperialFooter() {
                     rel="noopener noreferrer"
                     className="transition-colors hover:text-white"
                   >
-                    Mobile App
+                    Google Play Profile
                   </a>
                 </li>
               </ul>
             </div>
 
-            {/* Column 2: Featured Platforms */}
+            {/* Column 2: Engineering & Standards */}
             <div className="flex flex-col gap-3.5 lg:shrink-0">
-              <h4 className="text-sm font-semibold tracking-wide text-white">Featured Platforms</h4>
+              <h4 className="text-sm font-semibold tracking-wide text-white">Engineering</h4>
               <ul className="flex flex-col gap-2.5 text-xs text-[#A1A1A1]">
                 <li>
                   <Link href="#standards" className="transition-colors hover:text-white">
-                    All Platforms
+                    100% Offline Resilience
                   </Link>
                 </li>
                 <li>
                   <Link href="#standards" className="transition-colors hover:text-white">
-                    PlayStation
+                    Zero-Telemetry Guarantee
                   </Link>
                 </li>
                 <li>
                   <Link href="#standards" className="transition-colors hover:text-white">
-                    Steam Link
+                    60 FPS Native Physics
                   </Link>
                 </li>
                 <li>
                   <Link href="#standards" className="transition-colors hover:text-white">
-                    XBOX Remote Play
+                    Battery Longevity Standards
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#standards" className="transition-colors hover:text-white">
+                    APK Security Audit
                   </Link>
                 </li>
               </ul>
             </div>
 
-            {/* Column 3: Games (by Platform) */}
+            {/* Column 3: Trust & Compliance */}
             <div className="flex flex-col gap-3.5 lg:shrink-0">
               <h4 className="text-sm font-semibold tracking-wide text-white">
-                Games (by Platform)
+                Trust &amp; Compliance
               </h4>
               <ul className="flex flex-col gap-2.5 text-xs text-[#A1A1A1]">
                 <li>
-                  <Link href="/changelog" className="transition-colors hover:text-white">
-                    Apple App Store
+                  <Link href="/privacy" className="transition-colors hover:text-white">
+                    Privacy Policy
                   </Link>
                 </li>
                 <li>
-                  <Link href="/changelog" className="transition-colors hover:text-white">
-                    Apple Arcade
+                  <Link href="/terms" className="transition-colors hover:text-white">
+                    Terms of Service
                   </Link>
                 </li>
                 <li>
-                  <a
-                    href={siteConfig.company.googlePlayStoreUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="transition-colors hover:text-white"
-                  >
-                    Google Play Store
-                  </a>
-                </li>
-                <li>
-                  <Link href="#standards" className="transition-colors hover:text-white">
-                    NVIDIA GeForce NOW
+                  <Link href="/delete-data" className="transition-colors hover:text-white">
+                    User Data Deletion
                   </Link>
                 </li>
                 <li>
-                  <Link href="#standards" className="transition-colors hover:text-white">
-                    PS Remote Play
+                  <Link href="/privacy#california" className="transition-colors hover:text-white">
+                    California Privacy Notice
                   </Link>
                 </li>
                 <li>
-                  <Link href="#standards" className="transition-colors hover:text-white">
-                    Steam Link
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#standards" className="transition-colors hover:text-white">
-                    XBOX Cloud Gaming
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#standards" className="transition-colors hover:text-white">
-                    XBOX Remote Play
+                  <Link href="#about" className="transition-colors hover:text-white">
+                    Google Play Verification
                   </Link>
                 </li>
               </ul>
@@ -276,7 +286,17 @@ export function ImperialFooter() {
               <ul className="flex flex-col gap-2.5 text-xs text-[#A1A1A1]">
                 <li>
                   <Link href="#about" className="transition-colors hover:text-white">
-                    Careers
+                    About Imperial Tech
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#contact" className="transition-colors hover:text-white">
+                    Developer Support Desk
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#contact" className="transition-colors hover:text-white">
+                    Grievance Officer (India)
                   </Link>
                 </li>
                 <li>
@@ -284,62 +304,12 @@ export function ImperialFooter() {
                     href={`mailto:${siteConfig.company.supportEmail}`}
                     className="transition-colors hover:text-white"
                   >
-                    Contact Us
+                    Direct Email Support
                   </a>
                 </li>
                 <li>
-                  <Link href="#contact" className="transition-colors hover:text-white">
-                    Order Tracking
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#contact" className="transition-colors hover:text-white">
-                    Help Articles
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#about" className="transition-colors hover:text-white">
-                    Partnerships
-                  </Link>
-                </li>
-                <li>
                   <Link href="/changelog" className="transition-colors hover:text-white">
-                    Press
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/changelog" className="transition-colors hover:text-white">
-                    Blog
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/terms" className="transition-colors hover:text-white">
-                    Returns Policy
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/terms" className="transition-colors hover:text-white">
-                    Shipping Policy
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/privacy" className="transition-colors hover:text-white">
-                    Right of Withdrawal (EU)
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/privacy" className="transition-colors hover:text-white">
-                    Compliance
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/privacy" className="transition-colors hover:text-white">
-                    Security
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/" className="transition-colors hover:text-white">
-                    Sitemap
+                    Changelog &amp; Releases
                   </Link>
                 </li>
               </ul>
@@ -348,42 +318,52 @@ export function ImperialFooter() {
         </div>
       </div>
 
-      {/* Bottom Section (Single hairline divider, matching reference) */}
+      {/* Bottom Section (Single hairline divider) */}
       <div className="w-full border-t border-[#1F1F1F]">
         <div className="mx-auto w-full max-w-[1920px] px-6 py-8 sm:px-10 lg:px-12 xl:px-14">
-          {/* Row 1: Region & Language Disclosure Pills + Social Media Icons */}
-          <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
-            {/* Left: India (INR) & English Disclosure Pills */}
-            <div className="flex items-center gap-2.5">
-              <button
-                type="button"
-                suppressHydrationWarning
-                className="inline-flex cursor-pointer items-center gap-3 rounded-[6px] border border-[#2E2E2E] bg-[#0A0A0A] px-3.5 py-2 text-xs font-medium text-neutral-300 transition-colors hover:border-[#383838] hover:text-white"
-              >
-                <span>India (INR)</span>
-                <svg className="size-2.5 text-[#6B6B6B]" viewBox="0 0 10 6" fill="currentColor">
-                  <path
-                    fillRule="evenodd"
-                    d="M9.354.646a.5.5 0 0 0-.708 0L5 4.293 1.354.646a.5.5 0 0 0-.708.708l4 4a.5.5 0 0 0 .708 0l4-4a.5.5 0 0 0 0-.708"
-                    clipRule="evenodd"
-                  />
-                </svg>
-              </button>
-              <button
-                type="button"
-                suppressHydrationWarning
-                className="inline-flex cursor-pointer items-center gap-3 rounded-[6px] border border-[#2E2E2E] bg-[#0A0A0A] px-3.5 py-2 text-xs font-medium text-neutral-300 transition-colors hover:border-[#383838] hover:text-white"
-              >
-                <span>English</span>
-                <svg className="size-2.5 text-[#6B6B6B]" viewBox="0 0 10 6" fill="currentColor">
-                  <path
-                    fillRule="evenodd"
-                    d="M9.354.646a.5.5 0 0 0-.708 0L5 4.293 1.354.646a.5.5 0 0 0-.708.708l4 4a.5.5 0 0 0 .708 0l4-4a.5.5 0 0 0 0-.708"
-                    clipRule="evenodd"
-                  />
-                </svg>
-              </button>
-            </div>
+          <div className="flex flex-col-reverse gap-6 sm:flex-row sm:items-center sm:justify-between">
+            {/* Left: Legal Links (Moved from right to replace India/English & disclaimer) */}
+            <nav aria-label="Footer legal links">
+              <ul className="flex flex-wrap items-center gap-x-5 gap-y-2 text-[12px] text-[#A1A1A1]">
+                <li>
+                  <Link href="/terms" className="transition-colors hover:text-white">
+                    Terms of Service
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/privacy" className="transition-colors hover:text-white">
+                    Privacy Policy
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/privacy#california" className="transition-colors hover:text-white">
+                    California Privacy Notice
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/delete-data" className="transition-colors hover:text-white">
+                    User Data Deletion
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/contact" className="transition-colors hover:text-white">
+                    Support Desk
+                  </Link>
+                </li>
+                <li>
+                  <button
+                    type="button"
+                    suppressHydrationWarning
+                    className="inline-flex cursor-pointer items-center gap-1.5 transition-colors hover:text-white"
+                  >
+                    <span>Your Privacy Choices</span>
+                    <span className="inline-flex items-center rounded-[2px] bg-[#FFFFFF] px-1 py-0.5 text-[9px] leading-none font-bold text-[#000000]">
+                      &#10003;&#215;
+                    </span>
+                  </button>
+                </li>
+              </ul>
+            </nav>
 
             {/* Right: 7 Social Media SVG Icons (Discord, Facebook, Instagram, Reddit, TikTok, X, YouTube) */}
             <div className="flex items-center gap-5 text-[#6B6B6B]">
@@ -490,56 +470,6 @@ export function ImperialFooter() {
                 </svg>
               </a>
             </div>
-          </div>
-
-          {/* Row 2: Legal Disclaimer & Bottom Legal Links */}
-          <div className="mt-8 flex flex-col gap-6 pt-2 text-[11px] leading-relaxed text-[#6B6B6B] lg:flex-row lg:items-start lg:justify-between">
-            <p className="max-w-4xl">
-              1. All mobile applications developed and published by Imperial Tech O.P.C. are
-              distributed via official Google Play channels. 2. Legally incorporated entity in India
-              under the Companies Act. Verified Google Play Organization Account. 4. Android is a
-              trademark of Google LLC. XBOX and PlayStation trademarks belong to their respective
-              owners. Bluetooth&reg; is a registered trademark of Bluetooth SIG, Inc. All other
-              trademarks belong to their respective owners. &copy; {new Date().getFullYear()}{" "}
-              {siteConfig.company.legalName}. All rights reserved.
-            </p>
-
-            <nav aria-label="Footer legal links">
-              <ul className="flex flex-wrap items-center gap-x-5 gap-y-1.5 text-[11px] text-[#A1A1A1]">
-                <li>
-                  <Link href="/terms" className="transition-colors hover:text-white">
-                    Terms of Service
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/privacy" className="transition-colors hover:text-white">
-                    Privacy Policy
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/privacy#california" className="transition-colors hover:text-white">
-                    California Privacy Notice
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/data-deletion" className="transition-colors hover:text-white">
-                    User Data Deletion
-                  </Link>
-                </li>
-                <li>
-                  <button
-                    type="button"
-                    suppressHydrationWarning
-                    className="inline-flex cursor-pointer items-center gap-1.5 transition-colors hover:text-white"
-                  >
-                    <span>Your Privacy Choices</span>
-                    <span className="inline-flex items-center rounded-[2px] bg-[#FFFFFF] px-1 py-0.5 text-[9px] leading-none font-bold text-[#000000]">
-                      &#10003;&#215;
-                    </span>
-                  </button>
-                </li>
-              </ul>
-            </nav>
           </div>
         </div>
       </div>
